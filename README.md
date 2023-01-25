@@ -1,0 +1,2 @@
+# acty
+Astro React Easy
