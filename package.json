@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "acty",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "archive": "astro build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
     "astro": "astro",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro src/** --max-warnings=0",
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown",
@@ -28,20 +29,27 @@
   "dependencies": {
     "@astrojs/react": "^2.0.0",
     "astro": "^2.0.1",
+    "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/archiver": "^5.3.1",
+    "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
+    "archiver": "^5.3.1",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "fs": "^0.0.1-security",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
+    "path": "^0.12.7",
     "prettier": "^2.8.3",
-    "prettier-plugin-astro": "^0.7.2"
+    "prettier-plugin-astro": "^0.7.2",
+    "ts-node": "^10.9.1"
   }
 }
