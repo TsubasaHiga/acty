@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'plugin:astro/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:tailwindcss/recommended',
     'eslint:recommended',
     'react-app',
     'prettier'
@@ -28,8 +29,8 @@ module.exports = {
         extraFileExtensions: ['.astro']
       },
       rules: {
-        // override/add rules settings here, such as:
-        // "astro/no-set-html-directive": "error"
+        // tailwindcss/no-custom-classnameを無効化
+        'tailwindcss/no-custom-classname': 'off'
       }
     }
   ]
