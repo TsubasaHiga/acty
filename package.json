@@ -11,6 +11,7 @@
     "archive": "astro build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
     "astro": "astro",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro src/** --max-warnings=0",
+    "lint:styles": "stylelint \"src/**/*.{css,scss,html,tsx,astro}\"",
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown",
     "prepare": "husky install"
   },
@@ -24,6 +25,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,astro}": "yarn lint:scripts",
+    "*.{css,scss,html,tsx,astro}": "yarn lint:styles",
     "*": "yarn format"
   },
   "dependencies": {
@@ -39,6 +41,8 @@
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "archiver": "^5.3.1",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-react-app": "^7.0.1",
@@ -48,8 +52,15 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "path": "^0.12.7",
+    "postcss-html": "^1.5.0",
     "prettier": "^2.8.3",
     "prettier-plugin-astro": "^0.7.2",
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-recess-order": "^3.1.0",
+    "stylelint-config-standard-scss": "^6.1.0",
     "ts-node": "^10.9.1"
   }
 }
