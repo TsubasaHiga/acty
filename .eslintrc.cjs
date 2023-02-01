@@ -28,9 +28,31 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro']
       },
+      plugins: ['simple-import-sort'],
       rules: {
         // tailwindcss/no-custom-classnameを無効化
-        'tailwindcss/no-custom-classname': 'off'
+        'tailwindcss/no-custom-classname': 'off',
+
+        // simple-import-sort/importsを有効化
+        'simple-import-sort/imports': 'error'
+      }
+    },
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      plugins: ['simple-import-sort'],
+      rules: {
+        // tailwindcss/no-custom-classnameを無効化
+        'tailwindcss/no-custom-classname': 'off',
+
+        // simple-import-sort/importsを有効化
+        'simple-import-sort/imports': 'error',
+
+        // react/jsx-sort-propsを有効化
+        'react/jsx-sort-props': [2],
+
+        // react/jsx-uses-reactとreact/react-in-jsx-scopeを無効化
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off'
       }
     }
   ]

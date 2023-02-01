@@ -1,5 +1,2 @@
-.history
-.husky
-.vscode
-dist
 node_modules
+dist
