@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "archive": "astro build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
     "astro": "astro",
-    "lint:scripts": "eslint --ext .ts,.tsx,.astro src/** --max-warnings=0",
+    "lint:scripts": "eslint --ext .ts,.tsx,.astro . --max-warnings=0",
     "lint:styles": "stylelint \"src/**/*.{css,scss,html,tsx,astro}\"",
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown",
     "prepare": "husky install"
@@ -31,10 +31,12 @@
   "dependencies": {
     "@astrojs/react": "^2.0.2",
     "@astrojs/tailwind": "^3.0.0",
+    "@nanostores/react": "^0.4.1",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^2.0.0",
     "dayjs": "^1.11.7",
+    "nanostores": "^0.7.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tailwindcss": "^3.0.24"

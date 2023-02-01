@@ -1,12 +1,6 @@
 module.exports = {
-  extends: [
-    'plugin:astro/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:tailwindcss/recommended',
-    'eslint:recommended',
-    'react-app',
-    'prettier'
-  ],
+  extends: ['plugin:astro/recommended', 'plugin:tailwindcss/recommended', 'eslint:recommended', 'prettier'],
+  plugins: ['simple-import-sort'],
   env: {
     browser: true,
     node: true
@@ -16,37 +10,26 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
+  rules: {
+    // tailwindcss/no-custom-classnameを無効化
+    'tailwindcss/no-custom-classname': 'off',
+
+    // simple-import-sort/importsを有効化
+    'simple-import-sort/imports': 'error'
+  },
   overrides: [
     {
-      // Define the configuration for `.astro` file.
-      files: ['*.astro'],
-      // Allows Astro components to be parsed.
+      files: ['**/*.astro'],
       parser: 'astro-eslint-parser',
-      // Parse the script in `.astro` as TypeScript by adding the following configuration.
-      // It's the setting you need when using TypeScript.
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro']
-      },
-      plugins: ['simple-import-sort'],
-      rules: {
-        // tailwindcss/no-custom-classnameを無効化
-        'tailwindcss/no-custom-classname': 'off',
-
-        // simple-import-sort/importsを有効化
-        'simple-import-sort/imports': 'error'
       }
     },
     {
       files: ['**/*.ts', '**/*.tsx'],
-      plugins: ['simple-import-sort'],
+      extends: ['plugin:@typescript-eslint/recommended', 'react-app'],
       rules: {
-        // tailwindcss/no-custom-classnameを無効化
-        'tailwindcss/no-custom-classname': 'off',
-
-        // simple-import-sort/importsを有効化
-        'simple-import-sort/imports': 'error',
-
         // react/jsx-sort-propsを有効化
         'react/jsx-sort-props': [2],
 
