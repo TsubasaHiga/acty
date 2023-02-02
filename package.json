@@ -11,7 +11,7 @@
     "archive": "astro check && tsc --noEmit && astro build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
     "astro": "astro",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro . --max-warnings=0",
-    "lint:styles": "stylelint \"src/**/*.{css,scss,html,tsx,astro}\"",
+    "lint:styles": "stylelint \"src/**/*.{css,scss,html,astro}\"",
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown",
     "prepare": "husky install"
   },
@@ -25,7 +25,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,astro}": "yarn lint:scripts",
-    "*.{css,scss,html,tsx,astro}": "yarn lint:styles",
+    "*.{css,scss,html,astro}": "yarn lint:styles",
     "*": "yarn format"
   },
   "dependencies": {
