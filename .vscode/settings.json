@@ -13,5 +13,5 @@
   "cSpell.ignoreRegExpList": ["[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"],
   "cSpell.enabledLanguageIds": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "files.eol": "\n",
-  "cSpell.words": ["acty", "astrojs", "classname", "cssnano", "Mqpacker", "nanostores", "tailwindcss"]
+  "cSpell.words": ["acty", "astrojs", "classname", "cssnano", "esbuild", "Mqpacker", "nanostores", "tailwindcss"]
 }
