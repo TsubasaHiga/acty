@@ -1,6 +1,8 @@
 ---
-import Layout from '~/layouts/Layout.astro'
+import Bar from '~/components/Bar'
 import Card from '~/components/Card.astro'
+import Foo from '~/components/Foo'
+import Layout from '~/layouts/Layout.astro'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -32,46 +34,57 @@ import Card from '~/components/Card.astro'
         body="Come say hi to our amazing Discord community. ❤️"
       />
     </ul>
+    <div class="mt-10 grid gap-4 rounded-lg border border-dashed border-black p-4">
+      <h2 class="text-lg">JSX Elements</h2>
+      <Foo client:load />
+      <Bar client:load />
+    </div>
   </main>
 </Layout>
 
 <style>
   main {
-    margin: auto;
-    padding: 1.5rem;
     max-width: 60ch;
+    padding: 1.5rem;
+    margin: auto;
   }
+
   h1 {
+    margin: 0;
     font-size: 3rem;
     font-weight: 800;
-    margin: 0;
   }
+
   .text-gradient {
     background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
     background-position: 0%;
+    background-clip: text;
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
   }
+
   .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
     padding: 1rem;
+    margin: 1rem 0;
+    line-height: 1.6;
+    background-color: white;
+    border: 1px solid rgb(var(--accent) 25%);
     border-radius: 0.4rem;
   }
+
   .instructions code {
+    padding: 0.3em 0.45em;
     font-size: 0.875em;
     font-weight: bold;
-    background: rgba(var(--accent), 12%);
     color: rgb(var(--accent));
+    background: rgb(var(--accent) 12%);
     border-radius: 4px;
-    padding: 0.3em 0.45em;
   }
+
   .instructions strong {
     color: rgb(var(--accent));
   }
+
   .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
