@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
-    "preview": "astro preview",
+    "preview": "yarn build && astro preview",
     "archive": "yarn build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
     "astro": "astro",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro . --max-warnings=0",
