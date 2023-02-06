@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-    "archive": "astro check && tsc --noEmit && astro build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
+    "archive": "yarn build && yarn node --loader ts-node/esm utils/genDistArchive.ts",
     "astro": "astro",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro . --max-warnings=0",
     "lint:styles": "stylelint \"src/**/*.{css,scss,html,astro}\"",
