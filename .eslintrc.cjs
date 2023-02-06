@@ -15,12 +15,11 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    // tailwindcss/no-custom-classnameを無効化
+    // tailwindcss
     'tailwindcss/no-custom-classname': 'off',
 
-    // simple-import-sort/importsを有効化
+    // simple-import-sort
     'simple-import-sort/imports': 'error',
-    // simple-import-sort/exportsを有効化
     'simple-import-sort/exports': 'error'
   },
   overrides: [
@@ -43,14 +42,12 @@ module.exports = {
         project: './tsconfig.json'
       },
       rules: {
-        // react/jsx-sort-propsを有効化
+        // react
         'react/jsx-sort-props': [2],
-
-        // react/jsx-uses-reactとreact/react-in-jsx-scopeを無効化
         'react/jsx-uses-react': 'off',
         'react/react-in-jsx-scope': 'off',
 
-        // @typescript-eslint/no-explicit-anyを無効化
+        // @typescript-eslint
         '@typescript-eslint/no-explicit-any': 'off'
       }
     }
