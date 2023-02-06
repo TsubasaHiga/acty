@@ -1,5 +1,7 @@
 ---
 import 'ress/dist/ress.min.css'
+import '@fontsource/noto-sans-jp/400.css'
+import '@fontsource/noto-sans-jp/700.css'
 export interface Props {
   title: string
 }
@@ -28,7 +30,7 @@ const { title } = Astro.props
   }
 
   html {
-    font-family: system-ui, sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     background-color: #f6f6f6;
   }
 
