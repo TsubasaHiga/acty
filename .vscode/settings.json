@@ -22,6 +22,7 @@
     "esbuild",
     "Mqpacker",
     "nanostores",
+    "nocjsp",
     "tailwindcss"
   ]
 }
