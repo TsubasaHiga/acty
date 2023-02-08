@@ -39,6 +39,7 @@
     "astro": "^2.0.6",
     "auto-bind": "^5.0.1",
     "dayjs": "^1.11.7",
+    "deepmerge": "^4.3.0",
     "is-touch-device": "^1.0.1",
     "nanostores": "^0.7.3",
     "react": "^18.2.0",
