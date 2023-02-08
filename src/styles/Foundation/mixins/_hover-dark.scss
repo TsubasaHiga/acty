@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+@use '../variables' as *;
+@use './icon-ini' as *;
+@use './canhover' as *;
+
+@mixin hover-dark($target: false, $pos: after) {
+  @include canhover {
+    @if $target {
+      &:hover {
+        opacity: 1;
+
+        #{$target} {
+          &:#{$pos} {
+            background-color: rgba(#000, 0.6);
+          }
+        }
+      }
+
+      #{$target} {
+        position: relative;
+
+        &:#{$pos} {
+          @include icon-ini;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: $com-ms $com-es;
+        }
+      }
+    } @else {
+      position: relative;
+
+      &:hover {
+        opacity: 1;
+
+        &:#{$pos} {
+          background-color: rgba(#000, 0.6);
+        }
+      }
+
+      &:#{$pos} {
+        @include icon-ini;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: $com-ms $com-es;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+@mixin not-ellipsis() {
+  overflow: inherit;
+  text-overflow: inherit;
+  white-space: inherit;
+}

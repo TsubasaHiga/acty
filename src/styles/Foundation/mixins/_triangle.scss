@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+@use 'sass:math';
+
+@mixin triangle($width, $height, $color, $rotate) {
+  position: absolute;
+  width: 0;
+  height: 0;
+  content: '';
+  border-style: solid;
+
+  @if $rotate == 'top' {
+    border-color: transparent transparent $color transparent;
+    border-width: 0 #{math.div($width, 2)}px #{$height}px #{math.div($width, 2)}px;
+  } @else if $rotate == 'right' {
+    border-color: transparent transparent transparent $color;
+    border-width: #{math.div($width, 2)}px 0 #{math.div($width, 2)}px #{$height}px;
+  } @else if $rotate == 'bottom' {
+    border-color: $color transparent transparent transparent;
+    border-width: #{$height}px #{math.div($width, 2)}px 0 #{math.div($width, 2)}px;
+  } @else if $rotate == 'left' {
+    border-color: transparent $color transparent transparent;
+    border-width: #{math.div($width, 2)}px #{$height}px #{math.div($width, 2)}px 0;
+  }
+}

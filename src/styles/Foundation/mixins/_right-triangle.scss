@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@mixin right-triangle($width, $color, $rotate) {
+  position: absolute;
+  width: 0;
+  height: 0;
+  content: '';
+  border-style: solid;
+
+  @if $rotate == 1 {
+    border-color: $color transparent transparent transparent;
+    border-width: #{$width}px #{$width}px 0 0;
+  } @else if $rotate == 2 {
+    border-color: transparent $color transparent transparent;
+    border-width: 0 #{$width}px 0 #{$width}px 0;
+  } @else if $rotate == 3 {
+    border-color: transparent transparent $color transparent;
+    border-width: 0 0 #{$width}px #{$width}px;
+  } @else if $rotate == 4 {
+    border-color: transparent transparent transparent $color;
+    border-width: #{$width}px 0 0 #{$width}px;
+  }
+}

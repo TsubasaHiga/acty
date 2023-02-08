@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@mixin notlast($hasChild: false) {
+  @if $hasChild {
+    &:not(:last-child) {
+      @content;
+    }
+  } @else {
+    &:not(:last-of-type) {
+      @content;
+    }
+  }
+}
