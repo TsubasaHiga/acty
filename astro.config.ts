@@ -1,4 +1,5 @@
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { AstroUserConfig, defineConfig } from 'astro/config'
 import compress from 'astro-compress'
@@ -19,6 +20,7 @@ const defaultConfig: AstroUserConfig = {
   integrations: [
     react(),
     tailwind(),
+    sitemap(),
     compress({
       css: false,
       html: true,
