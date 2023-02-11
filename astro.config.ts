@@ -1,6 +1,7 @@
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import { AstroUserConfig, defineConfig } from 'astro/config'
+import compress from 'astro-compress'
 import merge from 'deepmerge'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -13,8 +14,19 @@ const __dirname = dirname(__filename)
 // isProduction
 const isProduction = process.env.NODE_ENV === 'production'
 
+// defaultConfig
 const defaultConfig: AstroUserConfig = {
-  integrations: [react(), tailwind()],
+  integrations: [
+    react(),
+    tailwind(),
+    compress({
+      css: false,
+      html: true,
+      img: false,
+      js: false,
+      svg: false
+    })
+  ],
 
   // Site URL
   site: isProduction ? siteConfig.siteUrl : 'https://example.com',
