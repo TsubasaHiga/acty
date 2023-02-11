@@ -1,0 +1,84 @@
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: map.get($map: $header-h, $key: md);
+  height: map.get($map: $header-h, $key: md);
+  background-color: #000;
+
+  @include mqw-down {
+    width: map.get($map: $header-h, $key: sm);
+    height: map.get($map: $header-h, $key: sm);
+  }
+
+  span {
+    $color: #fff;
+    $height: 1px;
+    $width: calc(100% - 38px);
+    $line-space: 10px;
+
+    position: relative;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    transition: $com-ms $com-es;
+
+    &::before,
+    &::after {
+      @include icon-ini;
+
+      position: absolute;
+      width: 100%;
+      height: $height;
+      background-color: $color;
+      transition: $com-ms $com-es;
+      will-change: transform;
+    }
+
+    &::before {
+      top: #{-$line-space};
+      left: 0;
+    }
+
+    &::after {
+      bottom: #{-$line-space};
+      left: 0;
+    }
+
+    @include is-open-menu {
+      background: none;
+
+      &::before {
+        top: calc(50%);
+        transform: rotate(135deg);
+      }
+
+      &::after {
+        top: calc(50%);
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background-color: rgba(#000, 0.8);
+  opacity: 0;
+  transition: $com-ms $com-es;
+  will-change: opacity;
+
+  @include is-open-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+}

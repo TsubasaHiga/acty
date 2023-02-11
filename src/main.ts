@@ -1,9 +1,8 @@
+import AddUaData from '@modules/AddUaData'
+import SetOrientation from '@modules/SetOrientation'
+import GetDocumentH from '@utils/getDocumentHeight'
+import Set100vh from '@utils/set100vh'
 import { debounce, throttle } from 'throttle-debounce'
-
-import AddUaData from '~/modules/AddUaData'
-import SetOrientation from '~/modules/SetOrientation'
-import GetDocumentH from '~/utils/getDocumentHeight'
-import Set100vh from '~/utils/set100vh'
 
 const onDOMContentLoaded = () => {
   // AddUaData

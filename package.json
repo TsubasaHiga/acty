@@ -38,6 +38,7 @@
     "@types/react-dom": "^18.0.10",
     "astro": "^2.0.6",
     "auto-bind": "^5.0.1",
+    "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
     "deepmerge": "^4.3.0",
     "is-touch-device": "^1.0.1",

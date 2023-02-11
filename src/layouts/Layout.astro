@@ -1,7 +1,10 @@
 ---
-import 'ress/dist/ress.min.css'
-import '@fontsource/noto-sans-jp/400.css'
-import '@fontsource/noto-sans-jp/700.css'
+import Footer from '@components/Footer/Footer.astro'
+import Head from '@components/Head/Head.astro'
+import Header from '@components/Header/Header.astro'
+
+import { siteConfig } from '@/siteConfig'
+
 export interface Props {
   title: string
 }
@@ -10,32 +13,11 @@ const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <script src="~/main.ts"></script>
-    <title>{title}</title>
-  </head>
+<html lang="ja">
+  <Head title={title} />
   <body>
+    <Header title={siteConfig.siteName} />
     <slot />
+    <Footer title={siteConfig.siteName} />
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-  }
-
-  html {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f6f6f6;
-  }
-
-  code {
-    font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
-      'Courier New', monospace;
-  }
-</style>

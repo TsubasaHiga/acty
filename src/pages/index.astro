@@ -1,68 +1,48 @@
 ---
-import Bar from '~/components/Bar'
-import Card from '~/components/Card.astro'
-import Foo from '~/components/Foo'
-import Layout from '~/layouts/Layout.astro'
+import Bar from '@components/Bar/Bar'
+import Card from '@components/Card/Card.astro'
+import Foo from '@components/Foo/Foo'
+import Layout from '@layouts/Layout.astro'
+import Spacer from '@layouts/Spacer.astro'
+import GetPath from '@utils/getPath'
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <ul class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
-    <div class="mt-10 grid gap-4 rounded-lg border border-dashed border-black p-4">
-      <h2 class="text-lg">JSX Elements</h2>
-      <Foo client:load />
-      <Bar client:load />
-    </div>
+<Layout title="Top">
+  <main class="mx-auto max-w-4xl">
+    <Spacer>
+      <h1 class="text-5xl font-bold leading-[2.5]">Welcome to <span class="text-gradient">Acty</span></h1>
+      <p class="instructions">
+        To get started, open the directory <code>src/pages</code> in your project.<br />
+        <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+      </p>
+      <ul class="link-card-grid">
+        <Card href={GetPath('about')} title="about" body="Learn how Astro works and explore the official API docs." />
+        <Card
+          href="https://astro.build/integrations/"
+          title="Integrations"
+          body="Supercharge your project with new frameworks and libraries."
+        />
+        <Card
+          href="https://astro.build/themes/"
+          title="Themes"
+          body="Explore a galaxy of community-built starter themes."
+        />
+        <Card
+          href="https://astro.build/chat/"
+          title="Community"
+          body="Come say hi to our amazing Discord community. ❤️"
+        />
+      </ul>
+      <div class="mt-10 grid gap-4 rounded-lg border border-dashed border-black p-4">
+        <h2 class="text-lg">JSX Elements</h2>
+        <Foo client:load />
+        <Bar client:load />
+      </div>
+    </Spacer>
   </main>
 </Layout>
 
-<style>
-  main {
-    max-width: 60ch;
-    padding: 1.5rem;
-    margin: auto;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 3rem;
-    font-weight: 800;
-  }
-
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    background-position: 0%;
-    background-clip: text;
-    background-size: 400%;
-    -webkit-text-fill-color: transparent;
-  }
-
+<style lang="scss">
   .instructions {
     padding: 1rem;
     margin: 1rem 0;
@@ -70,25 +50,23 @@ import Layout from '~/layouts/Layout.astro'
     background-color: white;
     border: 1px solid rgb(var(--accent) 25%);
     border-radius: 0.4rem;
-  }
 
-  .instructions code {
-    padding: 0.3em 0.45em;
-    font-size: 0.875em;
-    font-weight: bold;
-    color: rgb(var(--accent));
-    background: rgb(var(--accent) 12%);
-    border-radius: 4px;
-  }
-
-  .instructions strong {
-    color: rgb(var(--accent));
+    code {
+      padding: 0.3em 0.45em;
+      font-size: 0.875em;
+      font-weight: bold;
+      border-radius: 4px;
+    }
   }
 
   .link-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    grid-template-columns: repeat(2, auto);
     gap: 1rem;
     padding: 0;
+
+    @include mqw-down {
+      grid-template-columns: repeat(1, auto);
+    }
   }
 </style>

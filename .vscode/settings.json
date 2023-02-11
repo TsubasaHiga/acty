@@ -19,10 +19,12 @@
     "classname",
     "commitlint",
     "cssnano",
+    "deepmerge",
     "esbuild",
     "Mqpacker",
     "nanostores",
     "nocjsp",
-    "tailwindcss"
+    "tailwindcss",
+    "usehooks"
   ]
 }

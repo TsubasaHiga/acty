@@ -1,7 +1,6 @@
+import type UaType from '@type/UaType'
+import GetUaData from '@utils/getUaData'
 import autoBind from 'auto-bind'
-
-import type UaType from '~/types/UaType'
-import GetUaData from '~/utils/getUaData'
 
 /**
  * UA情報をhtml要素にデータ属性として追加

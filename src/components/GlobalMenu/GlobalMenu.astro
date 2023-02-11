@@ -1,0 +1,50 @@
+---
+import GlobalMenuItem from '../GlobalMenuItem/GlobalMenuItem.astro'
+
+export interface Props {
+  menuList: {
+    title: string
+    href: string
+  }[]
+}
+
+const { menuList } = Astro.props
+---
+
+<nav>
+  <div class="inner">
+    {menuList.map((item) => <GlobalMenuItem title={item.title} href={item.href} />)}
+  </div>
+</nav>
+
+<style lang="scss">
+  nav {
+    @include mqw-down {
+      position: absolute;
+      top: map.get($map: $header-h, $key: sm);
+      left: 0;
+      width: 100%;
+      visibility: hidden;
+      background-color: #fff;
+      opacity: 0;
+      transition: $com-ms $com-es;
+
+      @include is-open-menu {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-auto-rows: auto;
+    gap: 0 20px;
+    column-gap: 20px;
+
+    @include mqw-down {
+      grid-template-columns: repeat(1, auto);
+    }
+  }
+</style>

@@ -1,4 +1,4 @@
-import GetStylePropertyValue from '~/utils/getStylePropertyValue'
+import GetStylePropertyValue from '@utils/getStylePropertyValue'
 
 /**
  * CSSカスタムプロパティーを数字で取得します

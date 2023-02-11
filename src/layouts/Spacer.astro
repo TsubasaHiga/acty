@@ -1,0 +1,23 @@
+<div>
+  <slot />
+</div>
+
+<style lang="scss">
+  div {
+    padding-right: map.get($map: $space, $key: md);
+    padding-left: map.get($map: $space, $key: md);
+
+    @include mqw-up(xmd) {
+      padding-right: map.get($map: $space, $key: xmd);
+      padding-left: map.get($map: $space, $key: xmd);
+    }
+    @include mqw-down {
+      padding-right: map.get($map: $space, $key: sm);
+      padding-left: map.get($map: $space, $key: sm);
+    }
+    @include mqw-down(xs) {
+      padding-right: map.get($map: $space, $key: xs);
+      padding-left: map.get($map: $space, $key: xs);
+    }
+  }
+</style>

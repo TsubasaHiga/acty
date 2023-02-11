@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@use 'sass:map';
+@use 'sass:math';
+@use '../variables' as *;
+@use '../mixin' as *;
+
+.u-mqw-up {
+  @include mqw-down {
+    display: none !important;
+  }
+}
+
+.u-mqw-down {
+  @include mqw-up {
+    display: none !important;
+  }
+}
+
+.u-mqw-xmd-up {
+  @include mqw-down(xmd) {
+    display: none !important;
+  }
+}
+
+.u-mqw-xmd-down {
+  @include mqw-up(xmd) {
+    display: none !important;
+  }
+}

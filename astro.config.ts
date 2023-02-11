@@ -36,19 +36,14 @@ const defaultConfig: AstroUserConfig = {
           additionalData: `
             @use "sass:map";
             @use "sass:math";
-            @use "${__dirname}/src/styles/Foundation/_variables.scss" as *;
-            @use "${__dirname}/src/styles/Foundation/_mixin.scss" as *;
+            @use "${__dirname}/src/styles/_variables.scss" as *;
+            @use "${__dirname}/src/styles/_mixin.scss" as *;
           `
         }
       }
     },
     build: {
       emptyOutDir: true
-    },
-    resolve: {
-      alias: {
-        '~/': `${__dirname}/src/`
-      }
     }
   }
 }

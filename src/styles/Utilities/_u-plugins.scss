@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+@use 'sass:map';
+@use 'sass:math';
+@use '../variables' as *;
+@use '../mixin' as *;
+
+// focus-visible
+
+.focus-visible:not([not-focus-visible]) {
+  outline: 1px solid rgb(var(--primary-color-rgb) 0.18);
+  outline-width: 5px !important;
+}
+
+[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
+  outline: none;
+}
