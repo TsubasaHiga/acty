@@ -1,3 +1,4 @@
+import prefetch from '@astrojs/prefetch'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -21,6 +22,7 @@ const defaultConfig: AstroUserConfig = {
     react(),
     tailwind(),
     sitemap(),
+    prefetch({ throttle: 3 }),
     compress({
       css: false,
       html: true,
