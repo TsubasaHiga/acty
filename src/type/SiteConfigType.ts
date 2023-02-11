@@ -1,3 +1,5 @@
+type TwitterCardType = 'summary' | 'summary_large_image' | 'app' | 'player'
+
 type SiteConfigType = {
   // Site Name
   siteName: string
@@ -8,8 +10,18 @@ type SiteConfigType = {
   // Base Path
   basePath: string
 
+  // author
+  author: string
+
   // theme color
   themeColor: string
+
+  // twitter meta
+  twitter: {
+    card: TwitterCardType
+    site: string
+    creator: string
+  }
 }
 
 export default SiteConfigType

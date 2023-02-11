@@ -7,14 +7,15 @@ import { siteConfig } from '@/siteConfig'
 
 export interface Props {
   title: string
+  description: string
 }
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
-  <Head title={title} />
+  <Head title={title} description={description} />
   <body>
     <Header title={siteConfig.siteName} />
     <slot />

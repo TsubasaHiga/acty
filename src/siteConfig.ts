@@ -11,6 +11,16 @@ export const siteConfig: SiteConfigType = {
   // example: '/' or '/foo/bar/dist' or etc.
   basePath: '/',
 
+  // author
+  author: 'example',
+
   // theme color
-  themeColor: '#fff'
+  themeColor: '#fff',
+
+  // twitter meta
+  twitter: {
+    card: 'summary_large_image',
+    site: '@example',
+    creator: '@example'
+  }
 } as const
