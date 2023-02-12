@@ -20,7 +20,7 @@ const { href, origin } = Astro.url
     description={description}
     openGraph={{
       basic: {
-        title: title,
+        title: title + ' | ' + siteConfig.siteName,
         type: 'website',
         image: origin + '/ogp-image.png',
         url: href
@@ -32,7 +32,8 @@ const { href, origin } = Astro.url
       },
       image: {
         width: 1200,
-        height: 630
+        height: 630,
+        alt: siteConfig.siteName
       }
     }}
     twitter={siteConfig.twitter}
