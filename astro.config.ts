@@ -9,12 +9,10 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 import { siteConfig } from './src/siteConfig'
+import isProduction from './src/utils/isProduction'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-
-// isProduction
-const isProduction = process.env.NODE_ENV === 'production'
 
 // defaultConfig
 const defaultConfig: AstroUserConfig = {
@@ -33,10 +31,10 @@ const defaultConfig: AstroUserConfig = {
   ],
 
   // Site URL
-  site: isProduction ? siteConfig.siteUrl : 'https://example.com',
+  site: isProduction() ? siteConfig.siteUrl : 'https://example.com',
 
   // Base Path
-  base: isProduction ? siteConfig.basePath : '/',
+  base: isProduction() ? siteConfig.basePath : '/',
 
   // server
   server: {
@@ -46,7 +44,7 @@ const defaultConfig: AstroUserConfig = {
   // ビルド設定
   vite: {
     css: {
-      devSourcemap: !isProduction,
+      devSourcemap: !isProduction(),
       preprocessorOptions: {
         scss: {
           additionalData: `
@@ -76,7 +74,7 @@ const productionConfig: AstroUserConfig = {
 }
 
 // productionの時はisProductionをマージ
-const config: AstroUserConfig = isProduction ? merge(defaultConfig, productionConfig) : defaultConfig
+const config: AstroUserConfig = isProduction() ? merge(defaultConfig, productionConfig) : defaultConfig
 
 // https://astro.build/config
 export default defineConfig(config)
