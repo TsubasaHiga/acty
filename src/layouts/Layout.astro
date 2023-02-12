@@ -1,4 +1,7 @@
 ---
+import AnalyticsBody from '@components/Analytics/AnalyticsBody.astro'
+import AnalyticsFooter from '@components/Analytics/AnalyticsFooter.astro'
+import AnalyticsHead from '@components/Analytics/AnalyticsHead.astro'
 import Footer from '@components/Footer/Footer.astro'
 import Head from '@components/Head/Head.astro'
 import Header from '@components/Header/Header.astro'
@@ -15,10 +18,14 @@ const { title, description } = Astro.props
 
 <!DOCTYPE html>
 <html lang="ja">
-  <Head title={title} description={description} />
+  <Head title={title} description={description}>
+    <AnalyticsHead />
+  </Head>
   <body>
+    <AnalyticsBody />
     <Header title={siteConfig.siteName} />
     <slot />
     <Footer title={siteConfig.siteName} />
+    <AnalyticsFooter />
   </body>
 </html>
