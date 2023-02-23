@@ -2,9 +2,4 @@
 import isProduction from '@utils/isProduction'
 ---
 
-{
-  isProduction() && (
-    // analytics code here (e.g. Google Analytics)
-    <p>analytics-head</p>
-  )
-}
+{isProduction() && <>{/* analytics code here (e.g. Google Analytics) */}</>}
