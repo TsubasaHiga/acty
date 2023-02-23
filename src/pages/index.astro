@@ -7,7 +7,7 @@ import Spacer from '@layouts/Spacer.astro'
 import GetPath from '@utils/getPath'
 ---
 
-<Layout title="Top" description="Topページのディスクリプションです。">
+<Layout pageName="top">
   <main class="mx-auto max-w-4xl">
     <Spacer>
       <h1 class="text-5xl font-bold leading-[2.5]">Welcome to <span class="text-gradient">Acty</span></h1>
@@ -16,7 +16,7 @@ import GetPath from '@utils/getPath'
         <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
       </p>
       <ul class="link-card-grid">
-        <Card href={GetPath('about')} title="about" body="Learn how Astro works and explore the official API docs." />
+        <Card href={GetPath('about/')} title="about" body="Learn how Astro works and explore the official API docs." />
         <Card
           href="https://astro.build/integrations/"
           title="Integrations"

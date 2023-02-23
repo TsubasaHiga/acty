@@ -5,20 +5,20 @@ import AnalyticsHead from '@components/Analytics/AnalyticsHead.astro'
 import Footer from '@components/Footer/Footer.astro'
 import Head from '@components/Head/Head.astro'
 import Header from '@components/Header/Header.astro'
+import type { PageNameType } from '@type/PageDataListType'
 
 import { siteConfig } from '@/siteConfig'
 
 export interface Props {
-  title: string
-  description: string
+  pageName: PageNameType
 }
 
-const { title, description } = Astro.props
+const { pageName } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
-  <Head title={title} description={description}>
+  <Head pageName={pageName}>
     <AnalyticsHead />
   </Head>
   <body>

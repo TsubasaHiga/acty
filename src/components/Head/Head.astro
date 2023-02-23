@@ -1,15 +1,17 @@
 ---
 import '@styles/common.scss'
 
+import type { PageNameType } from '@type/PageDataListType'
+import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
 import { SEO } from 'astro-seo'
 
-export interface Props {
-  title: string
-  description: string
-}
-
 import { siteConfig } from '@/siteConfig'
-const { title, description } = Astro.props
+
+export interface Props {
+  pageName: PageNameType
+}
+const { pageName } = Astro.props
+const { title, description } = GetPageDataFromPageDataList(pageName)
 const { href, origin } = Astro.url
 ---
 
