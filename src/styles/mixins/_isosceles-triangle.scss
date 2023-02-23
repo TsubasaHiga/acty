@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@mixin isosceles-triangle($width, $height, $color, $rotate) {
+@mixin isosceles-triangle($width, $height, $colors, $rotate) {
   position: absolute;
   width: 0;
   height: 0;

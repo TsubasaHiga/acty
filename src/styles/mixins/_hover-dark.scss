@@ -1,57 +1,20 @@
 @charset "utf-8";
 
+@use 'sass:map';
 @use '../variables' as *;
 @use './icon-ini' as *;
 @use './canhover' as *;
 
-@mixin hover-dark($target: false, $pos: after) {
+@mixin hover-dark($darken: 1, $ms: false, $ease: false) {
   @include canhover {
-    @if $target {
-      &:hover {
-        opacity: 1;
-
-        #{$target} {
-          &:#{$pos} {
-            background-color: rgba(#000, 0.6);
-          }
-        }
-      }
-
-      #{$target} {
-        position: relative;
-
-        &:#{$pos} {
-          @include icon-ini;
-
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          transition: $com-ms $com-es;
-        }
-      }
+    @if $ease {
+      transition: color $ms $ease;
     } @else {
-      position: relative;
+      transition: color $com-ms $com-es;
+    }
 
-      &:hover {
-        opacity: 1;
-
-        &:#{$pos} {
-          background-color: rgba(#000, 0.6);
-        }
-      }
-
-      &:#{$pos} {
-        @include icon-ini;
-
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: $com-ms $com-es;
-      }
+    &:hover {
+      color: rgba(map.get($colors, 'color-black'), $darken);
     }
   }
 }

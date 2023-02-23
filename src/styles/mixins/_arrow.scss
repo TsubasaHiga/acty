@@ -2,7 +2,7 @@
 
 @use './icon-ini.scss' as *;
 
-@mixin arrow($width, $bold, $color, $deg) {
+@mixin arrow($width, $bold, $colors, $deg) {
   @include icon-ini;
 
   width: #{$width}px;

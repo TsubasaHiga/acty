@@ -24,10 +24,6 @@ $breakpoint-h: (
 // mainW
 $main-w: 1280px;
 
-// Basis vw
-$basis-w: 1280;
-$sm-basis-w: 375;
-
 // Basis space
 $space: (
   xmd: 60px,
@@ -46,9 +42,9 @@ $header-h: (
 // ----------------------------------------------------------
 $font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
 
-// color
+// colors
 // ----------------------------------------------------------
-$color: (
+$colors: (
   color-white: #fff,
   color-black: #000
 );

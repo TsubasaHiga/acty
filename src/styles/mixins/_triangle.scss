@@ -2,7 +2,7 @@
 
 @use 'sass:math';
 
-@mixin triangle($width, $height, $color, $rotate) {
+@mixin triangle($width, $height, $colors, $rotate) {
   position: absolute;
   width: 0;
   height: 0;

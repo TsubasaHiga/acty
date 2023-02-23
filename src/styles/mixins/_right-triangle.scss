@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@mixin right-triangle($width, $color, $rotate) {
+@mixin right-triangle($width, $colors, $rotate) {
   position: absolute;
   width: 0;
   height: 0;
