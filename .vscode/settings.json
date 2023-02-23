@@ -17,6 +17,7 @@
     "acty",
     "astrojs",
     "classname",
+    "clsx",
     "commitlint",
     "cssnano",
     "deepmerge",
@@ -24,7 +25,7 @@
     "Mqpacker",
     "nanostores",
     "nocjsp",
-    "tailwindcss",
-    "usehooks"
+    "partytown",
+    "tailwindcss"
   ]
 }

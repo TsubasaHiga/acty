@@ -4,6 +4,9 @@ type SiteConfigType = {
   // Site Name
   siteName: string
 
+  // Site Domain
+  siteDomain: string
+
   // Site URL
   siteUrl: string
 

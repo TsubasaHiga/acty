@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { siteState } from '@store/atoms/siteState'
-import classNames from 'classNames'
+import clsx from 'clsx'
 import { useEffect } from 'react'
 
 import styles from './MenuButton.module.scss'
@@ -30,7 +30,7 @@ const MenuButton = (): JSX.Element => {
     <>
       <button
         aria-label="メニューを開く"
-        className={classNames(styles.button, 'u-mqw-down')}
+        className={clsx(styles.button, 'u-mqw-down')}
         onClick={handleClick}
         title="メニューを開く"
       >

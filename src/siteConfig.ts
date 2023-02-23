@@ -4,6 +4,9 @@ export const siteConfig: SiteConfigType = {
   // Site Name
   siteName: 'Acty',
 
+  // Site Domain
+  siteDomain: 'example.com',
+
   // Site URL
   siteUrl: 'https://example.com',
 

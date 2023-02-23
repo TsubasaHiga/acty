@@ -1,9 +1,12 @@
+import image from '@astrojs/image'
+import partytown from '@astrojs/partytown'
 import prefetch from '@astrojs/prefetch'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { AstroUserConfig, defineConfig } from 'astro/config'
 import compress from 'astro-compress'
+import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -20,6 +23,12 @@ const defaultConfig: AstroUserConfig = {
     react(),
     tailwind(),
     sitemap(),
+    robotsTxt({
+      host: siteConfig.siteDomain
+    }),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp'
+    }),
     prefetch({ throttle: 3 }),
     compress({
       css: false,
@@ -27,6 +36,12 @@ const defaultConfig: AstroUserConfig = {
       img: false,
       js: false,
       svg: false
+    }),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {
+        forward: ['dataLayer.push']
+      }
     })
   ],
 
