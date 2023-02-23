@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+@mixin is-ipados {
+  html[data-type='laptop'][data-osname='mac-os'][data-browsername='safari'][data-touchSupport='true'] & {
+    @content;
+  }
+}

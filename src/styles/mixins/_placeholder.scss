@@ -1,7 +1,11 @@
 @charset "utf-8";
 
 @mixin placeholder {
-  &::placeholder {
+  &:placeholder {
+    @content;
+  }
+
+  &:placeholder-shown {
     @content;
   }
 }

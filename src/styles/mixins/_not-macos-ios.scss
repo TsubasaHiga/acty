@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin not-macos-ios {
-  html:not([data-osname='mac-os'], [data-osname='ios']) & {
-    @content;
-  }
-}

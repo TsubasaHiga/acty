@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+@mixin is-firefox {
+  html[data-browsername='firefox'] & {
+    @content;
+  }
+}
