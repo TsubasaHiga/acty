@@ -12,7 +12,7 @@
       "@pages/*": ["src/pages/*"],
       "@store/*": ["src/store/*"],
       "@styles/*": ["src/styles/*"],
-      "@type/*": ["src/type/*"],
+      "@type/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
       "@images/*": ["src/images/*"]
     },
