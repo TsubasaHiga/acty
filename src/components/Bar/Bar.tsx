@@ -7,7 +7,7 @@ const Bar = (): JSX.Element => {
   return (
     <div className="flex flex-col items-center justify-center">
       <h3>Bar Component</h3>
-      <button className="mt-2 rounded-lg bg-white py-4 px-6 shadow" onClick={() => count.set($count + 1)}>
+      <button className="mt-2 rounded-lg bg-white px-6 py-4 shadow" onClick={() => count.set($count + 1)}>
         count is {$count}
       </button>
     </div>
