@@ -51,9 +51,6 @@ const defaultConfig: AstroUserConfig = {
   // Base Path
   base: isProduction() ? siteConfig.basePath : '/',
 
-  // trailingSlash
-  trailingSlash: 'always',
-
   // server
   server: {
     host: true
