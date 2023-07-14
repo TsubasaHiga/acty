@@ -27,11 +27,11 @@ const { menuList } = Astro.props
       visibility: hidden;
       background-color: #fff;
       opacity: 0;
-      transition: $com-ms $com-es;
 
       @include is-open-menu {
         visibility: visible;
         opacity: 1;
+        transition: $com-ms $com-es;
       }
     }
   }
