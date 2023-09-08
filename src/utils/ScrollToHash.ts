@@ -5,7 +5,7 @@ const ScrollToHash = async (hash: string, manualOffset?: number): Promise<boolea
   const targetElement = document.querySelector(hash)
   if (!targetElement) return false
 
-  const elementPosY = Math.floor(targetElement.getBoundingClientRect().top + window.pageYOffset)
+  const elementPosY = Math.floor(targetElement.getBoundingClientRect().top + window.scrollY)
 
   // manualOffsetがある場合はmanualOffsetを優先する
   const offset = manualOffset ? manualOffset : 0
@@ -23,20 +23,20 @@ const ScrollToHash = async (hash: string, manualOffset?: number): Promise<boolea
     }, 1000)
 
     const scrollHandler = () => {
-      console.log(window.pageYOffset, posY)
-      if (window.pageYOffset !== posY) return
+      console.log(window.scrollY, posY)
+      if (window.scrollY !== posY) return
 
       window.removeEventListener('scroll', scrollHandler)
       clearTimeout(rejectTimer)
       resolve(true)
     }
 
-    if (window.pageYOffset === posY) {
+    if (window.scrollY === posY) {
       clearTimeout(rejectTimer)
       resolve(true)
     }
 
-    if (window.pageYOffset !== posY) {
+    if (window.scrollY !== posY) {
       window.addEventListener('scroll', scrollHandler, false)
     }
   })

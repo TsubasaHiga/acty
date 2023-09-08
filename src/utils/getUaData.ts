@@ -11,7 +11,7 @@ const GetUaData = (): UaType => {
   const result = parser.getResult()
 
   const browserName = result.browser.name
-  const browserVersion = result.browser.major
+  const browserVersion = result.browser.version
   const browserEngine = result.engine.name
   const osName = result.os.name
   const type = result.device.type

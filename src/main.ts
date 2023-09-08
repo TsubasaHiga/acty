@@ -23,7 +23,7 @@ const onLoad = () => {
 }
 
 const onScroll = () => {
-  const y = Math.round(window.scrollY || window.pageYOffset)
+  const y = Math.round(window.scrollY)
 
   // add className is-scroll
   y > 0 ? document.documentElement.classList.add('is-scroll') : document.documentElement.classList.remove('is-scroll')
