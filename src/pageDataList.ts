@@ -1,4 +1,4 @@
-import type PageDataListType from '@type/PageDataListType'
+import type { PageDataListType } from '@type/PageDataListType'
 
 export const pageDataList: PageDataListType[] = [
   // top

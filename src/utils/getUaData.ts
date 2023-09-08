@@ -1,4 +1,4 @@
-import type UaType from '@type/UaType'
+import type { UaType } from '@type/UaType'
 import UAParser from 'ua-parser-js'
 
 import IsTouchSupport from './isTouchSupport'

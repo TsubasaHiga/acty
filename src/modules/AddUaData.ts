@@ -1,4 +1,4 @@
-import type UaType from '@type/UaType'
+import type { UaType } from '@type/UaType'
 import GetUaData from '@utils/getUaData'
 import autoBind from 'auto-bind'
 

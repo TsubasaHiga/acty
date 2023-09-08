@@ -1,6 +1,6 @@
 type TwitterCardType = 'summary' | 'summary_large_image' | 'app' | 'player'
 
-type SiteConfigType = {
+export type SiteConfigType = {
   // Site Name
   siteName: string
 
@@ -26,5 +26,3 @@ type SiteConfigType = {
     creator: string
   }
 }
-
-export default SiteConfigType

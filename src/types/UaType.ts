@@ -1,4 +1,4 @@
-type UaType = {
+export type UaType = {
   browserName?: string
   browserVersion?: string
   browserEngine?: string
@@ -6,5 +6,3 @@ type UaType = {
   type?: string
   touchSupport?: boolean
 }
-
-export default UaType

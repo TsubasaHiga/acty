@@ -1,4 +1,4 @@
-import type SiteConfigType from '@type/SiteConfigType'
+import type { SiteConfigType } from '@type/SiteConfigType'
 
 export const siteConfig: SiteConfigType = {
   // Site Name
