@@ -8,6 +8,7 @@
       "@const/*": ["src/const/*"],
       "@hooks/*": ["src/hooks/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@libs/*": ["src/libs/*"],
       "@modules/*": ["src/modules/*"],
       "@pages/*": ["src/pages/*"],
       "@store/*": ["src/store/*"],
