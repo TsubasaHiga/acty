@@ -28,3 +28,7 @@ pnpm-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/README.md
+
+# public/assets/images配下を無視
+public/assets/images/*
+

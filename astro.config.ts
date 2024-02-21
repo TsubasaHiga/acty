@@ -3,9 +3,9 @@ import prefetch from '@astrojs/prefetch'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+import type { AstroUserConfig } from 'astro/config'
 import { defineConfig } from 'astro/config'
 import compress from 'astro-compress'
-import { astroImageTools } from 'astro-imagetools'
 import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { dirname } from 'path'
@@ -18,9 +18,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 // defaultConfig
-const defaultConfig = {
+const defaultConfig: AstroUserConfig = {
   integrations: [
-    astroImageTools,
     react(),
     tailwind(),
     sitemap(),
@@ -76,7 +75,7 @@ const defaultConfig = {
 }
 
 // productionでのみ有効な設定
-const productionConfig = {
+const productionConfig: AstroUserConfig = {
   vite: {
     // ビルド時にconsole.logやdebuggerを削除
     esbuild: {
@@ -87,7 +86,7 @@ const productionConfig = {
 }
 
 // productionの時はisProductionをマージ
-const config = isProduction() ? merge(defaultConfig, productionConfig) : defaultConfig
+const config: AstroUserConfig = isProduction() ? merge(defaultConfig, productionConfig) : defaultConfig
 
 // https://astro.build/config
 export default defineConfig(config)

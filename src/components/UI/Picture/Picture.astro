@@ -1,0 +1,50 @@
+---
+/**
+ * Pictureコンポーネント
+ */
+import { values } from '@const/values'
+
+export type ArtDirectiveType = {
+  media: string
+  srcset: string[]
+}
+
+export type SrcsetType = {
+  sm?: string[]
+  lg?: string[]
+}
+
+export interface Props {
+  src: string
+  srcset: SrcsetType
+  alt?: string
+  lazy?: boolean
+}
+const { src, srcset, alt = '', lazy = true, ...attr } = Astro.props
+
+// srcsetをartDirectivesの形式に変換
+const artDirectives: ArtDirectiveType[] = Object.entries(srcset).map(([key, srcset]) => {
+  switch (key) {
+    case 'sm':
+      return {
+        media: `(max-width: ${values.BREAKPOINT}px)`,
+        srcset
+      }
+    case 'lg':
+      return {
+        media: `(min-width: ${values.BREAKPOINT + 1}px)`,
+        srcset
+      }
+    default:
+      return {
+        media: '',
+        srcset
+      }
+  }
+})
+---
+
+<picture {...attr}>
+  {artDirectives.map(({ media, srcset }) => <source media={media} srcset={srcset.join(', ')} />)}
+  <img src={src} alt={alt} loading={lazy ? 'lazy' : 'eager'} />
+</picture>
