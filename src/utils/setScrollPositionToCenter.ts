@@ -7,8 +7,8 @@ const SetScrollPositionToCenter = (
   behavior: 'auto' | 'smooth' = 'smooth'
 ): void => {
   const rootHalfW = rootElement.getBoundingClientRect().width / 2
-  const btnHalfW = targetElement.getBoundingClientRect().width / 2
-  const currentPosLeft = targetElement.offsetLeft + btnHalfW
+  const buttonHalfW = targetElement.getBoundingClientRect().width / 2
+  const currentPosLeft = targetElement.offsetLeft + buttonHalfW
   const posLeft = currentPosLeft - rootHalfW
 
   // console.log(behavior)
