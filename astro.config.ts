@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import type { AstroUserConfig } from 'astro/config'
 import { defineConfig } from 'astro/config'
-import compress from 'astro-compress'
 import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { dirname } from 'path'
@@ -27,13 +26,6 @@ const defaultConfig: AstroUserConfig = {
       host: siteConfig.siteDomain
     }),
     prefetch({ throttle: 3 }),
-    compress({
-      css: false,
-      html: true,
-      img: false,
-      js: false,
-      svg: false
-    }),
     partytown({
       // Adds dataLayer.push as a forwarding-event.
       config: {
