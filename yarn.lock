@@ -155,7 +155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/react@npm:^3.0.10":
+"@astrojs/react@npm:^3.3.0":
   version: 3.3.0
   resolution: "@astrojs/react@npm:3.3.0"
   dependencies:
@@ -3130,7 +3130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.30":
+"@types/node@npm:*, @types/node@npm:^20.12.7":
   version: 20.12.7
   resolution: "@types/node@npm:20.12.7"
   dependencies:
@@ -3270,7 +3270,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^7.0.2":
+"@typescript-eslint/eslint-plugin@npm:^7.7.0":
   version: 7.7.0
   resolution: "@typescript-eslint/eslint-plugin@npm:7.7.0"
   dependencies:
@@ -3323,7 +3323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^7.0.2":
+"@typescript-eslint/parser@npm:^7.7.0":
   version: 7.7.0
   resolution: "@typescript-eslint/parser@npm:7.7.0"
   dependencies:
@@ -3409,7 +3409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:5.62.0":
+"@typescript-eslint/typescript-estree@npm:5.62.0, @typescript-eslint/typescript-estree@npm:^5.0.0":
   version: 5.62.0
   resolution: "@typescript-eslint/typescript-estree@npm:5.62.0"
   dependencies:
@@ -3685,7 +3685,7 @@ __metadata:
     "@astrojs/check": "npm:^0.5.10"
     "@astrojs/partytown": "npm:^2.0.4"
     "@astrojs/prefetch": "npm:^0.4.0"
-    "@astrojs/react": "npm:^3.0.10"
+    "@astrojs/react": "npm:^3.3.0"
     "@astrojs/sitemap": "npm:^3.1.2"
     "@astrojs/tailwind": "npm:^5.1.0"
     "@commitlint/cli": "npm:^18.6.1"
@@ -3695,36 +3695,36 @@ __metadata:
     "@types/archiver": "npm:^6.0.2"
     "@types/chokidar": "npm:^2.1.3"
     "@types/is-touch-device": "npm:^1.0.2"
-    "@types/node": "npm:^20.11.30"
+    "@types/node": "npm:^20.12.7"
     "@types/react": "npm:^18.2.79"
     "@types/react-dom": "npm:^18.2.25"
     "@types/throttle-debounce": "npm:^5.0.2"
     "@types/ua-parser-js": "npm:^0.7.39"
-    "@typescript-eslint/eslint-plugin": "npm:^7.0.2"
-    "@typescript-eslint/parser": "npm:^7.0.2"
+    "@typescript-eslint/eslint-plugin": "npm:^7.7.0"
+    "@typescript-eslint/parser": "npm:^7.7.0"
     archiver: "npm:^6.0.2"
-    astro: "npm:^4.4.15"
+    astro: "npm:^4.6.1"
     astro-robots-txt: "npm:^1.0.0"
     astro-seo: "npm:^0.8.3"
     auto-bind: "npm:^5.0.1"
     autoprefixer: "npm:^10.4.19"
     chokidar: "npm:^3.6.0"
     clsx: "npm:^2.1.0"
-    cssnano: "npm:^6.0.5"
+    cssnano: "npm:^6.1.2"
     dayjs: "npm:^1.11.10"
     deepmerge: "npm:^4.3.1"
-    eslint: "npm:^8.56.0"
+    eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-config-react-app: "npm:^7.0.1"
-    eslint-plugin-astro: "npm:^0.31.4"
+    eslint-plugin-astro: "npm:^0.34.0"
     eslint-plugin-jsx-a11y: "npm:^6.8.0"
-    eslint-plugin-simple-import-sort: "npm:^12.0.0"
-    eslint-plugin-tailwindcss: "npm:^3.14.3"
+    eslint-plugin-simple-import-sort: "npm:^12.1.0"
+    eslint-plugin-tailwindcss: "npm:^3.15.1"
     fs: "npm:^0.0.2"
     glob: "npm:^10.3.12"
     husky: "npm:^9.0.11"
     is-touch-device: "npm:^1.0.1"
-    isomorphic-dompurify: "npm:^2.4.0"
+    isomorphic-dompurify: "npm:^2.7.0"
     lint-staged: "npm:^15.2.2"
     nanostores: "npm:^0.10.3"
     path: "npm:^0.12.7"
@@ -3735,18 +3735,18 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     ress: "npm:^5.0.2"
-    sass: "npm:^1.71.1"
+    sass: "npm:^1.75.0"
     sharp: "npm:^0.33.3"
-    stylelint: "npm:^16.2.1"
+    stylelint: "npm:^16.3.1"
     stylelint-config-html: "npm:^1.1.0"
     stylelint-config-prettier-scss: "npm:^1.0.0"
     stylelint-config-recess-order: "npm:^4.6.0"
-    stylelint-config-standard-scss: "npm:^13.0.0"
+    stylelint-config-standard-scss: "npm:^13.1.0"
     svgo: "npm:^3.2.0"
     tailwindcss: "npm:^3.4.3"
     throttle-debounce: "npm:^5.0.0"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5.4.5"
     ua-parser-js: "npm:^1.0.37"
   languageName: unknown
   linkType: soft
@@ -4093,20 +4093,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:^0.16.3":
-  version: 0.16.3
-  resolution: "astro-eslint-parser@npm:0.16.3"
+"astro-eslint-parser@npm:^0.17.0":
+  version: 0.17.0
+  resolution: "astro-eslint-parser@npm:0.17.0"
   dependencies:
     "@astrojs/compiler": "npm:^2.0.0"
     "@typescript-eslint/scope-manager": "npm:^5.0.0"
     "@typescript-eslint/types": "npm:^5.0.0"
+    "@typescript-eslint/typescript-estree": "npm:^5.0.0"
     astrojs-compiler-sync: "npm:^0.3.0"
     debug: "npm:^4.3.4"
     entities: "npm:^4.5.0"
     eslint-visitor-keys: "npm:^3.0.0"
     espree: "npm:^9.0.0"
+    globby: "npm:^11.1.0"
+    is-glob: "npm:^4.0.3"
     semver: "npm:^7.3.8"
-  checksum: 10c0/b38e203f034023dc3016f5feafedad2b1ee80530d0c3226c23b69c16a134b00956d61973e927bb209caa4efb1d10f995cf6af5bf6be831c1eeffd103b74c4b5e
+  checksum: 10c0/a1d863f8033b906a9d894230120e644e21e5c9ff1f247f29c006b77e570bf8e282a4fffd4c5c8e6dade8284f71b429e762264b654a96a8b1f433ac48663a0947
   languageName: node
   linkType: hard
 
@@ -4129,7 +4132,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^4.4.15":
+"astro@npm:^4.6.1":
   version: 4.6.1
   resolution: "astro@npm:4.6.1"
   dependencies:
@@ -5228,7 +5231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano@npm:^6.0.5":
+"cssnano@npm:^6.1.2":
   version: 6.1.2
   resolution: "cssnano@npm:6.1.2"
   dependencies:
@@ -6017,14 +6020,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-compat-utils@npm:^0.4.0":
-  version: 0.4.1
-  resolution: "eslint-compat-utils@npm:0.4.1"
+"eslint-compat-utils@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "eslint-compat-utils@npm:0.5.0"
   dependencies:
     semver: "npm:^7.5.4"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 10c0/a96d3e2041a81ee188252b4fad6c2d999be8ae918e1ac70d29567f855b3762c8e83e31b5975f5676b58e436a53debf1588271dd195a988f1a2a2b50c0ac62e15
+  checksum: 10c0/aea9ff05df3f4d5db95361c13cb89baf3669fe34ad73e5771843dbb5cafdc7a9636c6f93814a29d0e0b87f147846ddef6672b71e28c4e73f889b5ea8d1d454d2
   languageName: node
   linkType: hard
 
@@ -6086,20 +6089,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-astro@npm:^0.31.4":
-  version: 0.31.4
-  resolution: "eslint-plugin-astro@npm:0.31.4"
+"eslint-plugin-astro@npm:^0.34.0":
+  version: 0.34.0
+  resolution: "eslint-plugin-astro@npm:0.34.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
     "@typescript-eslint/types": "npm:^5.25.0"
-    astro-eslint-parser: "npm:^0.16.3"
-    eslint-compat-utils: "npm:^0.4.0"
+    astro-eslint-parser: "npm:^0.17.0"
+    eslint-compat-utils: "npm:^0.5.0"
+    globals: "npm:^13.0.0"
     postcss: "npm:^8.4.14"
     postcss-selector-parser: "npm:^6.0.10"
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 10c0/82bbe72397cf58ad12b4fdffd1ecd7817fa2e45a3c8a74152b8f36cfee0991529b2399ce86ce50e71aee8560a8506e7f811ec6daff1a11a3e894e507b63295ed
+  checksum: 10c0/537f3accae6c3af642b84d42c6304c28eab8ed5768de318f8d4d52186b2eec37869425023d804947a93530d510c32f29d37b20d39d783b79c168d1b3112c8994
   languageName: node
   linkType: hard
 
@@ -6224,7 +6228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-simple-import-sort@npm:^12.0.0":
+"eslint-plugin-simple-import-sort@npm:^12.1.0":
   version: 12.1.0
   resolution: "eslint-plugin-simple-import-sort@npm:12.1.0"
   peerDependencies:
@@ -6233,7 +6237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tailwindcss@npm:^3.14.3":
+"eslint-plugin-tailwindcss@npm:^3.15.1":
   version: 3.15.1
   resolution: "eslint-plugin-tailwindcss@npm:3.15.1"
   dependencies:
@@ -6290,7 +6294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.56.0":
+"eslint@npm:^8.57.0":
   version: 8.57.0
   resolution: "eslint@npm:8.57.0"
   dependencies:
@@ -6939,7 +6943,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.19.0":
+"globals@npm:^13.0.0, globals@npm:^13.19.0":
   version: 13.24.0
   resolution: "globals@npm:13.24.0"
   dependencies:
@@ -7866,7 +7870,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"isomorphic-dompurify@npm:^2.4.0":
+"isomorphic-dompurify@npm:^2.7.0":
   version: 2.7.0
   resolution: "isomorphic-dompurify@npm:2.7.0"
   dependencies:
@@ -11175,7 +11179,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.71.1":
+"sass@npm:^1.75.0":
   version: 1.75.0
   resolution: "sass@npm:1.75.0"
   dependencies:
@@ -11919,7 +11923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard-scss@npm:^13.0.0":
+"stylelint-config-standard-scss@npm:^13.1.0":
   version: 13.1.0
   resolution: "stylelint-config-standard-scss@npm:13.1.0"
   dependencies:
@@ -11973,7 +11977,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^16.2.1":
+"stylelint@npm:^16.3.1":
   version: 16.3.1
   resolution: "stylelint@npm:16.3.1"
   dependencies:
@@ -12584,7 +12588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3":
+"typescript@npm:^5.4.5":
   version: 5.4.5
   resolution: "typescript@npm:5.4.5"
   bin:
@@ -12594,7 +12598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>":
   version: 5.4.5
   resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"
   bin:
