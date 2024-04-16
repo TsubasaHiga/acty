@@ -32,3 +32,11 @@ pnpm-debug.log*
 # public/assets/images配下を無視
 public/assets/images/*
 
+# yarn (using Zero-Installs)
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
