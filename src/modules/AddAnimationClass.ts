@@ -50,7 +50,7 @@ class AddAnimationClass {
   }
 
   init(): void {
-    const y = window.scrollY || window.pageYOffset
+    const y = window.scrollY
 
     this.elements.forEach((element) => {
       // 個別のオプションを取得
