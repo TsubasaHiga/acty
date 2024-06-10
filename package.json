@@ -74,7 +74,7 @@
     "autoprefixer": "^10.4.19",
     "chokidar": "^3.6.0",
     "cssnano": "^6.1.2",
-    "eslint": "^9.0.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-astro": "^0.34.0",
