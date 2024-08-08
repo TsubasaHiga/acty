@@ -25,6 +25,18 @@ if (!ToBoolean(IGNORE_FOO)) {
   excludePages.push(`${siteConfig.siteUrl}/foo/`)
 }
 
+// scss logger
+const SCSS_Logger = {
+  warn(message: any, options: any) {
+    // Mute "Mixed Declarations" warning
+    if (options.deprecation && message.includes('mixed-decls')) {
+      return
+    }
+    // List all other warnings
+    console.warn(`▲ [WARNING]: ${message}`)
+  }
+}
+
 // defaultConfig
 const defaultConfig: AstroUserConfig = {
   integrations: [
@@ -70,7 +82,8 @@ const defaultConfig: AstroUserConfig = {
             @use "${__dirname}/src/styles/_variables.scss" as *;
             @use "${__dirname}/src/styles/_mixin.scss" as *;
             @use "${__dirname}/src/styles/_functions.scss" as *;
-          `
+          `,
+          logger: SCSS_Logger
         }
       }
     },
