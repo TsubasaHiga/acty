@@ -25,7 +25,7 @@ const { menuList } = Astro.props
       left: 0;
       width: 100%;
       visibility: hidden;
-      background-color: #fff;
+      background-color: var(--color-white);
       opacity: 0;
 
       @include is-open-menu {
@@ -40,8 +40,8 @@ const { menuList } = Astro.props
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-auto-rows: auto;
-    gap: 0 20px;
-    column-gap: 20px;
+    gap: 0 rem(20);
+    column-gap: rem(20);
 
     @include mqw-down {
       grid-template-columns: repeat(1, auto);

@@ -9,10 +9,18 @@ import { siteConfig } from '@/siteConfig'
 
 export interface Props {
   pageName: PageNameType
+  meta?: {
+    title?: string
+    description?: string
+  }
 }
-const { pageName } = Astro.props
-const { title, description } = GetPageDataFromPageDataList(pageName)
+const { pageName, meta } = Astro.props
+const { title: defaultTitle, description: defaultDescription } = GetPageDataFromPageDataList(pageName)
 const { href, origin } = Astro.url
+
+const title =
+  pageName === 'top' ? meta?.title || defaultTitle : (meta?.title || defaultTitle) + '｜' + siteConfig.siteName
+const description = meta?.description || defaultDescription
 ---
 
 <head>
@@ -22,7 +30,7 @@ const { href, origin } = Astro.url
     description={description}
     openGraph={{
       basic: {
-        title: title + ' | ' + siteConfig.siteName,
+        title: title,
         type: 'website',
         image: origin + '/ogp-image.png',
         url: href

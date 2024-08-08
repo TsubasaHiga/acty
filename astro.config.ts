@@ -1,5 +1,3 @@
-import partytown from '@astrojs/partytown'
-import prefetch from '@astrojs/prefetch'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -9,28 +7,34 @@ import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { loadEnv } from 'vite'
 
 import { siteConfig } from './src/siteConfig'
 import isProduction from './src/utils/isProduction'
+import ToBoolean from './src/utils/toBoolean'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
+const { IGNORE_FOO } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '')
+
+// sitemapで除外するページのリスト
+const excludePages = [`${siteConfig.siteUrl}/contact/result/`]
+// IGNORE_FOOがfalseの場合は/foo/をexcludePagesに追加
+if (!ToBoolean(IGNORE_FOO)) {
+  excludePages.push(`${siteConfig.siteUrl}/foo/`)
+}
 
 // defaultConfig
 const defaultConfig: AstroUserConfig = {
   integrations: [
     react(),
     tailwind(),
-    sitemap(),
+    sitemap({
+      filter: (page: string) => !excludePages.includes(page)
+    }),
     robotsTxt({
       host: siteConfig.siteDomain
-    }),
-    prefetch({ throttle: 3 }),
-    partytown({
-      // Adds dataLayer.push as a forwarding-event.
-      config: {
-        forward: ['dataLayer.push']
-      }
     })
   ],
 
@@ -45,6 +49,11 @@ const defaultConfig: AstroUserConfig = {
     host: true
   },
 
+  // prefetch
+  prefetch: {
+    prefetchAll: true
+  },
+
   // ビルド設定
   vite: {
     css: {
@@ -56,6 +65,7 @@ const defaultConfig: AstroUserConfig = {
             @use "sass:math";
             @use "${__dirname}/src/styles/_variables.scss" as *;
             @use "${__dirname}/src/styles/_mixin.scss" as *;
+            @use "${__dirname}/src/styles/_functions.scss" as *;
           `
         }
       }

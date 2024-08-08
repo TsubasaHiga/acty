@@ -17,8 +17,8 @@
   span {
     $color: #fff;
     $height: 1px;
-    $width: calc(100% - 38px);
-    $line-space: 10px;
+    $width: calc(100% - rem(38));
+    $line-space: rem(10);
 
     position: relative;
     width: $width;

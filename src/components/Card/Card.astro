@@ -27,13 +27,13 @@ const { href, title, body } = Astro.props
     display: flex;
     padding: 0.15rem;
     list-style: none;
-    background-color: white;
+    background-color: var(--color-white);
     background-position: 100%;
     background-size: 400%;
     border-radius: 0.5rem;
     box-shadow:
-      0 4px 6px -1px rgb(0 0 0 / 10%),
-      0 2px 4px -2px rgb(0 0 0 / 10%);
+      0 rem(4) rem(6) rem(-1) rgb(0 0 0 / 10%),
+      0 rem(2) rem(4) rem(-2) rgb(0 0 0 / 10%);
   }
 
   .link-card > a {
@@ -42,7 +42,7 @@ const { href, title, body } = Astro.props
     line-height: 1.4;
     color: #111;
     text-decoration: none;
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 0.35rem;
     opacity: 0.8;
   }

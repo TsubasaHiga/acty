@@ -4,34 +4,71 @@
 @use 'sass:math';
 @use './variables' as *;
 @use './mixin' as *;
+@use './functions' as *;
+
+:root {
+  // primary color
+  --color-primary: #000;
+  --color-primary-rgb: #{convert-rgb(#000)};
+
+  // secondary color
+  --color-secondary: #999;
+  --color-secondary-rgb: #{convert-rgb(#999)};
+
+  // basis color
+  --color-black: #000;
+  --color-black-rgb: #{convert-rgb(#000)};
+  --color-white: #fff;
+  --color-white-rgb: #{convert-rgb(#fff)};
+}
 
 * {
+  @include add-selection-color(var(--color-primary-rgb) / 20%);
+
   box-sizing: border-box;
 
   &::before,
   &::after {
     box-sizing: border-box;
   }
-
-  &::selection {
-    background-color: rgba(map.get($map: $colors, $key: color-black), 0.1);
-  }
 }
 
 html {
-  @include letter-spacing(50);
+  @include letter-spacing(10);
+  @include responsive-font-size(14, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
 
   height: 100%;
   font-family: $font-family;
-  font-size: 16px;
+  font-optical-sizing: auto;
   line-height: math.div(33, 14);
-  color: map.get($map: $colors, $key: color-black);
-  background-color: #f6f6f6;
+  color: var(--color-black);
+  background-color: #eee;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgb(#000, 0);
   scroll-behavior: smooth;
+
+  @include mqw-up {
+    &[data-type='tablet'][data-orientation='portrait'] {
+      @include responsive-font-size(11, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+    }
+  }
+
+  @include mqw-up(lg) {
+    @include responsive-font-size(16, 20, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xlg'));
+  }
+
+  @include mqw-up(xlg) {
+    @include responsive-font-size(20, 25, map.get($breakpoint-w, 'xlg') + 1, 3000px);
+  }
+
   @include mqw-down {
+    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'sm'), map.get($breakpoint-w, 'md') - 1);
+
     padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  }
+
+  @include mqw-down(sm) {
+    @include responsive-font-size(14, 16, map.get($breakpoint-w, 'xs'), map.get($breakpoint-w, 'sm'));
   }
 }
 
@@ -55,6 +92,10 @@ a {
   &[href^='tel:'] {
     @include mqw-up {
       pointer-events: none;
+    }
+
+    @include mqw-down {
+      text-decoration: underline;
     }
   }
 }
@@ -110,6 +151,6 @@ sup {
 
   @include mqw-down {
     top: -0.4em;
-    font-size: 10px;
+    font-size: rem(10);
   }
 }

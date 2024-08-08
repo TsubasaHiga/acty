@@ -1,6 +1,8 @@
 @charset "utf-8";
 
+@forward 'mixins/add-selection-color';
 @forward 'mixins/arrow';
+@forward 'mixins/aspect-ratio';
 @forward 'mixins/browser/is-edge';
 @forward 'mixins/browser/is-firefox';
 @forward 'mixins/browser/is-safari-desktop';
@@ -32,7 +34,9 @@
 @forward 'mixins/os/is-ipados';
 @forward 'mixins/os/is-macos';
 @forward 'mixins/placeholder';
+@forward 'mixins/responsive-font-size';
 @forward 'mixins/touch-support';
+@forward 'mixins/triangle';
 @forward 'mixins/type/is-type-mobile';
 @forward 'mixins/type/is-type-tablet';
 @forward 'mixins/vh100';

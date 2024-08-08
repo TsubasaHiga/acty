@@ -1,3 +1,6 @@
+import 'focus-visible'
+
+import AddAnimationClass from '@modules/AddAnimationClass'
 import AddUaData from '@modules/AddUaData'
 import SetOrientation from '@modules/SetOrientation'
 import GetDocumentH from '@utils/getDocumentHeight'
@@ -11,6 +14,11 @@ const onDOMContentLoaded = () => {
 const onLoad = () => {
   // SetOrientation
   new SetOrientation()
+
+  // addAnimationClass
+  new AddAnimationClass({
+    isDebug: true
+  })
 
   // onScroll
   onScroll()

@@ -5,7 +5,7 @@
 @use './icon-ini' as *;
 @use './canhover' as *;
 
-@mixin hover-dark($darken: 1, $ms: false, $ease: false) {
+@mixin hover-dark($darken: 100%, $ms: false, $ease: false) {
   @include canhover {
     @if $ease {
       transition: color $ms $ease;
@@ -14,7 +14,7 @@
     }
 
     &:hover {
-      color: rgba(map.get($colors, 'color-black'), $darken);
+      color: rgba(var(--color-black-rgb) / $darken);
     }
   }
 }

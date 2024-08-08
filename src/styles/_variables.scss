@@ -1,12 +1,13 @@
 @charset "utf-8";
 
+@use './functions' as *;
+
 // layout
 // ----------------------------------------------------------
 // break point - width
 $breakpoint-w: (
-  xxlg: 1821px,
-  xlg: 1536px,
-  lg: 1300px,
+  xlg: 1920px,
+  lg: 1440px,
   xmd: 1100px,
   md: 768px,
   sm: 375px,
@@ -26,28 +27,21 @@ $main-w: 1280px;
 
 // Basis space
 $space: (
-  xmd: 60px,
-  md: 20px,
-  sm: 15px,
-  xs: 10px
+  xmd: rem(60),
+  md: rem(20),
+  sm: rem(15),
+  xs: rem(10)
 );
 
 // headerH
 $header-h: (
-  md: 80px,
-  sm: 60px
+  md: rem(80),
+  sm: rem(60)
 );
 
 // font
 // ----------------------------------------------------------
 $font-family: 'Noto Sans JP', sans-serif;
-
-// colors
-// ----------------------------------------------------------
-$colors: (
-  color-white: #fff,
-  color-black: #000
-);
 
 // 基本easing
 // ----------------------------------------------------------
@@ -95,3 +89,9 @@ $ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 // ----------------------------------------------------------
 $com-ms: 400ms;
 $com-es: ease;
+
+// 長めのeasing変数
+// ----------------------------------------------------------
+$long-ms: 1200ms;
+$long-es: ease;
+$long-each-ms: 80ms;

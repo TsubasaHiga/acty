@@ -11,14 +11,18 @@ import { siteConfig } from '@/siteConfig'
 
 export interface Props {
   pageName: PageNameType
+  meta?: {
+    title?: string
+    description?: string
+  }
 }
 
-const { pageName } = Astro.props
+const { pageName, meta } = Astro.props
 ---
 
 <!doctype html>
 <html lang="ja">
-  <Head pageName={pageName}>
+  <Head pageName={pageName} meta={meta}>
     <AnalyticsHead />
   </Head>
   <body>

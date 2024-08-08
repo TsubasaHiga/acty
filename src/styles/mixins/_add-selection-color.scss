@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+@mixin add-selection-color($color-rgb: var(--color-white-rgb), $opacity: 20%) {
+  *::selection {
+    background-color: rgb($color-rgb / $opacity);
+  }
+}

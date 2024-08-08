@@ -34,6 +34,8 @@ module.exports = {
       {
         ignorePseudoClasses: ['global']
       }
-    ]
+    ],
+    'no-descending-specificity': null,
+    'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['grid-template'] }]
   }
 }

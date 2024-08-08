@@ -1,6 +1,6 @@
 import { atom } from 'nanostores'
 
-type SiteStateType = {
+export type SiteStateType = {
   isOpenMenu: boolean
 }
 export const siteState = atom<SiteStateType>({

@@ -14,7 +14,7 @@ const { href, title } = Astro.props
 <style lang="scss">
   a {
     @include mqw-down {
-      padding: 20px 0;
+      padding: rem(20) 0;
       padding-right: map.get($map: $space, $key: sm);
       padding-left: map.get($map: $space, $key: sm);
       text-align: center;
