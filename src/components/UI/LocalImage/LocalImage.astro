@@ -1,0 +1,23 @@
+---
+/**
+ * Local Image Component
+ */
+import { getImageSize } from '@utils/getImageSize'
+import GetPathFromLocalPublic from '@utils/getPathFromLocalPublic'
+
+export interface Props {
+  src: string
+  height?: number
+  width?: number
+  alt?: string
+  lazy?: boolean
+}
+const { src, width: srcWidth, height: srcHeight, alt = '', lazy = true, ...attr } = Astro.props
+
+// srcの画像サイズを取得
+// srcWidthとsrcHeightが指定されている場合はそれを優先
+const { width, height } =
+  srcWidth && srcHeight ? { width: srcWidth, height: srcHeight } : await getImageSize(GetPathFromLocalPublic(src))
+---
+
+<img src={src} alt={alt} loading={lazy ? 'lazy' : 'eager'} height={height} width={width} {...attr} />

@@ -54,6 +54,10 @@ const defaultConfig: AstroUserConfig = {
     prefetchAll: true
   },
 
+  // image
+  image: {
+    domains: ['placehold.jp']
+  },
   // ビルド設定
   vite: {
     css: {

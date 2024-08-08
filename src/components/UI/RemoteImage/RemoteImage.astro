@@ -1,0 +1,17 @@
+---
+/**
+ * Remote Image Component
+ */
+import { Image } from 'astro:assets'
+
+export interface Props {
+  src: string
+  height?: number
+  width?: number
+  alt?: string
+  lazy?: boolean
+}
+const { src, width, height, alt = '', lazy = true, ...attr } = Astro.props
+---
+
+<Image src={src} alt={alt} height={height} width={width} loading={lazy ? 'lazy' : 'eager'} {...attr} inferSize />

@@ -1,5 +1,7 @@
 ---
-import Picture from '@components/UI/Picture/Picture.astro'
+import LocalImage from '@components/UI/LocalImage/LocalImage.astro'
+import LocalPicture from '@components/UI/LocalPicture/LocalPicture.astro'
+import RemoteImage from '@components/UI/RemoteImage/RemoteImage.astro'
 import Layout from '@layouts/Layout.astro'
 import Spacer from '@layouts/Spacer.astro'
 const { BASE_URL } = import.meta.env
@@ -9,23 +11,54 @@ const { BASE_URL } = import.meta.env
   <main class="mx-auto max-w-4xl">
     <Spacer>
       <h1 class="text-5xl font-bold leading-[2.5]">About</h1>
-      <div class="flex flex-col items-center gap-2">
-        <Picture
-          src="/assets/images/img__lg.webp"
-          alt="ダミーテキスト"
-          srcset={{
-            sm: ['/assets/images/img__sm.webp 1x'],
-            lg: ['/assets/images/img__lg.webp 1x']
-          }}
-        />
-        <Picture
-          src="/assets/images/img_quality_check.webp"
-          srcset={{
-            lg: ['/assets/images/img_quality_check.webp 1x']
-          }}
-        />
+      <div class="flex flex-col items-center gap-5 tracking-normal">
+        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
+          <h3 class="text-2xl">Use LocalPicture Component</h3>
+          <p>
+            <code>sm</code> size and <code>lg</code> size are specified by <code>src</code> attribute and <code
+              >srcset</code
+            > attribute.
+          </p>
+          <LocalPicture
+            src="/assets/images/img__lg.webp"
+            alt="ダミーテキスト"
+            srcset={{
+              sm: ['/assets/images/img__sm.webp 1x'],
+              lg: ['/assets/images/img__lg.webp 1x']
+            }}
+          />
+        </section>
+        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
+          <h3 class="text-2xl">Use LocalPicture Component</h3>
+          <p>Only <code>lg</code> size is specified by <code>src</code> attribute and <code>srcset</code> attribute.</p>
+          <LocalPicture
+            src="/assets/images/img_quality_check.webp"
+            srcset={{
+              lg: ['/assets/images/img_quality_check.webp 1x']
+            }}
+          />
+        </section>
+        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
+          <h3 class="text-2xl">Use LocalImage Component</h3>
+          <LocalImage src="/assets/images/img_quality_check.webp" />
+        </section>
+        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
+          <h3 class="text-2xl">Use RemoteImage Component</h3>
+          <RemoteImage src="https://placehold.jp/3d4070/ffffff/300x300.png?text=Remote%20Image" />
+        </section>
         <a href={BASE_URL}>戻る</a>
       </div>
     </Spacer>
   </main>
 </Layout>
+
+<style lang="scss">
+  code {
+    padding: 0.3em 0.45em;
+    font-size: 0.875em;
+    font-weight: bold;
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+  }
+</style>
