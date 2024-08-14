@@ -23,7 +23,7 @@
 }
 
 * {
-  @include add-selection-color(var(--color-primary-rgb) / 20%);
+  @include add-selection-color(var(--color-primary-rgb), 20%);
 
   box-sizing: border-box;
 
