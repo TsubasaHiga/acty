@@ -15,7 +15,7 @@
     "lint:styles": "stylelint \"src/**/*.{css,scss,html,astro}\"",
     "format": "prettier --write . --ignore-unknown",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=18.17.1"
