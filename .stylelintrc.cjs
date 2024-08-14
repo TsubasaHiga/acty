@@ -25,7 +25,8 @@ module.exports = {
           'return',
           'screen',
           'tailwind',
-          'use'
+          'use',
+          'else'
         ]
       }
     ],
@@ -36,6 +37,14 @@ module.exports = {
       }
     ],
     'no-descending-specificity': null,
-    'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['grid-template'] }]
+    'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['grid-template'] }],
+    'at-rule-empty-line-before': [
+      'always',
+      {
+        except: ['blockless-after-same-name-blockless', 'first-nested'],
+        ignore: ['after-comment'],
+        ignoreAtRules: ['else']
+      }
+    ]
   }
 }

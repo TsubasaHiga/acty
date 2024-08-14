@@ -42,6 +42,7 @@ const { BASE_URL } = import.meta.env
       display: flex;
       align-items: center;
       height: map.get($map: $header-h, $key: md);
+
       @include mqw-down {
         height: map.get($map: $header-h, $key: sm);
       }
