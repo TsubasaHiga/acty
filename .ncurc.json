@@ -8,6 +8,7 @@
     "eslint-plugin-simple-import-sort",
     "eslint-plugin-tailwindcss",
     "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser"
+    "@typescript-eslint/parser",
+    "chokidar"
   ]
 }
