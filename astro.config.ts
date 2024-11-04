@@ -30,14 +30,18 @@ if (!toBoolean(IGNORE_FOO)) {
 }
 
 // scss logger
+const muteScssWarningList = [
+  'mixed-decls',
+  'legacy-js-api',
+  'Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.'
+]
 const SCSS_Logger = {
   warn(message: any, options: any) {
-    // Mute "Mixed Declarations" warning
-    if (options.deprecation && message.includes('mixed-decls')) {
-      return
-    }
+    // Mute warning for muteScssWarningList
+    if (options.deprecation && muteScssWarningList.some((mute) => message.includes(mute))) return
+
     // List all other warnings
-    console.warn(`▲ [WARNING]: ${message}`)
+    // console.warn(`▲ [WARNING]: ${message}`)
   }
 }
 
