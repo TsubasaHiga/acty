@@ -8,7 +8,7 @@
 // focus-visible
 
 .focus-visible:not([not-focus-visible]) {
-  outline: 1px solid rgb(var(--primary-color-rgb) 0.18);
+  outline: 1px solid rgb(var(--color-primary-rgb) / 50%) !important;
   outline-width: 5px !important;
 }
 

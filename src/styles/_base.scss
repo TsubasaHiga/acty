@@ -6,21 +6,7 @@
 @use './mixin' as *;
 @use './functions' as *;
 
-:root {
-  // primary color
-  --color-primary: #000;
-  --color-primary-rgb: #{convert-rgb(#000)};
-
-  // secondary color
-  --color-secondary: #999;
-  --color-secondary-rgb: #{convert-rgb(#999)};
-
-  // basis color
-  --color-black: #000;
-  --color-black-rgb: #{convert-rgb(#000)};
-  --color-white: #fff;
-  --color-white-rgb: #{convert-rgb(#fff)};
-}
+@import './root';
 
 * {
   @include add-selection-color(var(--color-primary-rgb), 20%);
