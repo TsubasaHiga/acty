@@ -1,6 +1,6 @@
 import type { UaType } from '@type/UaType'
-import GetUaData from '@utils/getUaData'
 import autoBind from 'auto-bind'
+import { getUaData } from 'umaki'
 
 /**
  * UA情報をhtml要素にデータ属性として追加
@@ -9,7 +9,7 @@ class AddUaData {
   constructor() {
     autoBind(this)
 
-    const clientData = GetUaData()
+    const clientData = getUaData()
 
     this.addDataset(clientData)
   }

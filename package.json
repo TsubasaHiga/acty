@@ -55,7 +55,8 @@
     "tailwindcss": "^3.4.9",
     "throttle-debounce": "^5.0.2",
     "typescript": "^5.5.4",
-    "ua-parser-js": "^1.0.38"
+    "ua-parser-js": "^1.0.38",
+    "umaki": "^0.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",

@@ -3,8 +3,8 @@ import 'focus-visible'
 import AddAnimationClass from '@modules/AddAnimationClass'
 import AddUaData from '@modules/AddUaData'
 import SetOrientation from '@modules/SetOrientation'
-import GetDocumentH from '@utils/getDocumentHeight'
 import { debounce, throttle } from 'throttle-debounce'
+import { getDocumentHeight } from 'umaki'
 
 const onDOMContentLoaded = () => {
   // AddUaData
@@ -33,7 +33,7 @@ const onScroll = () => {
   y > 0 ? document.documentElement.classList.add('is-scroll') : document.documentElement.classList.remove('is-scroll')
 
   // add className is-footer
-  GetDocumentH() <= y
+  getDocumentHeight() <= y
     ? document.documentElement.classList.add('is-footer')
     : document.documentElement.classList.remove('is-footer')
 }

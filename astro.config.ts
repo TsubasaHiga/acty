@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -6,22 +8,24 @@ import { defineConfig } from 'astro/config'
 import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { dirname } from 'path'
-import { fileURLToPath } from 'url'
 import { loadEnv } from 'vite'
 
 import { siteConfig } from './src/siteConfig'
 import isProduction from './src/utils/isProduction'
-import ToBoolean from './src/utils/toBoolean'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const { IGNORE_FOO } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '')
 
+const toBoolean = (booleanStr: string | null): boolean => {
+  return booleanStr ? booleanStr.toLowerCase() === 'true' : false
+}
+
 // sitemapで除外するページのリスト
 const excludePages = [`${siteConfig.siteUrl}/contact/result/`]
 // IGNORE_FOOがfalseの場合は/foo/をexcludePagesに追加
-if (!ToBoolean(IGNORE_FOO)) {
+if (!toBoolean(IGNORE_FOO)) {
   excludePages.push(`${siteConfig.siteUrl}/foo/`)
 }
 
