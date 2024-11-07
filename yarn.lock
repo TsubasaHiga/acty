@@ -3642,7 +3642,6 @@ __metadata:
     chokidar: "npm:^3.6.0"
     clsx: "npm:^2.1.1"
     cssnano: "npm:^7.0.6"
-    dayjs: "npm:^1.11.13"
     deepmerge: "npm:^4.3.1"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
