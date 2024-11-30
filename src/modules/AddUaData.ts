@@ -1,4 +1,3 @@
-import type { UaType } from '@type/UaType'
 import autoBind from 'auto-bind'
 import { getUaData } from 'umaki'
 
@@ -8,13 +7,11 @@ import { getUaData } from 'umaki'
 class AddUaData {
   constructor() {
     autoBind(this)
-
-    const clientData = getUaData()
-
-    this.addDataset(clientData)
+    this.addDataset()
   }
 
-  addDataset(data: UaType): void {
+  addDataset(): void {
+    const data = getUaData()
     Object.entries(data).forEach(([key, value]) => {
       document.getElementsByTagName('html')[0].dataset[key.toLowerCase()] =
         typeof value === 'boolean' ? value.toString() : value
