@@ -35,7 +35,6 @@
     "@astrojs/react": "3.6.3",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "^5.1.2",
-    "@fontsource/noto-sans-jp": "^5.1.0",
     "@nanostores/react": "^0.8.2",
     "astro": "4.16.16",
     "astro-robots-txt": "^1.0.0",

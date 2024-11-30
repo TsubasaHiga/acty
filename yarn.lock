@@ -2159,13 +2159,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/noto-sans-jp@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "@fontsource/noto-sans-jp@npm:5.1.0"
-  checksum: 10c0/1b9bda3e19fdbdc25cec03964fffc9d22f8f38ef13911300711f4a9b8e9d61555f458d376a3613a5705c2d869e17c14c1b1195eceb8a96c08b02ff4ed5f3eb1e
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -3669,7 +3662,6 @@ __metadata:
     "@astrojs/tailwind": "npm:^5.1.2"
     "@commitlint/cli": "npm:^19.6.0"
     "@commitlint/config-conventional": "npm:^19.6.0"
-    "@fontsource/noto-sans-jp": "npm:^5.1.0"
     "@nanostores/react": "npm:^0.8.2"
     "@types/archiver": "npm:^6.0.3"
     "@types/chokidar": "npm:^2.1.7"
