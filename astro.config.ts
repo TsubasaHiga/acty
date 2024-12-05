@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import type { AstroUserConfig } from 'astro/config'
+// import type { AstroUserConfig } from 'astro/config'
 import { defineConfig } from 'astro/config'
 import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
@@ -15,6 +15,8 @@ import prettyHtml from './integrations/prettyHtml'
 import { siteConfig } from './src/siteConfig'
 import isProduction from './src/utils/isProduction'
 
+type AstroUserConfig = typeof defineConfig extends (config: infer T) => any ? T : never
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -23,7 +25,7 @@ const { IGNORE_FOO } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '')
 // settings
 const settings = {
   // enable prettyHtml
-  prettyHtml: false
+  prettyHtml: true
 }
 
 const toBoolean = (booleanStr: string | null): boolean => {
