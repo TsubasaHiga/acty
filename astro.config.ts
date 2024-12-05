@@ -10,6 +10,7 @@ import merge from 'deepmerge'
 import { dirname } from 'path'
 import { loadEnv } from 'vite'
 
+import prettyHtml from './integrations/prettyHtml'
 import { siteConfig } from './src/siteConfig'
 import isProduction from './src/utils/isProduction'
 
@@ -17,6 +18,12 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const { IGNORE_FOO } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '')
+
+// settings
+const settings = {
+  // enable prettyHtml
+  prettyHtml: false
+}
 
 const toBoolean = (booleanStr: string | null): boolean => {
   return booleanStr ? booleanStr.toLowerCase() === 'true' : false
@@ -50,6 +57,7 @@ const defaultConfig: AstroUserConfig = {
   integrations: [
     react(),
     tailwind(),
+    prettyHtml(settings.prettyHtml),
     sitemap({
       filter: (page: string) => !excludePages.includes(page)
     }),
@@ -78,6 +86,10 @@ const defaultConfig: AstroUserConfig = {
   image: {
     domains: ['placehold.jp']
   },
+  compressHTML: !settings.prettyHtml,
+  build: {
+    inlineStylesheets: 'never'
+  },
   // ビルド設定
   vite: {
     css: {
@@ -96,6 +108,7 @@ const defaultConfig: AstroUserConfig = {
       }
     },
     build: {
+      minify: !settings.prettyHtml,
       emptyOutDir: true
     }
   }

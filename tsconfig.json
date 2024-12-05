@@ -18,7 +18,8 @@
       "@images/*": ["src/images/*"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "esModuleInterop": true
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.astro"]
 }
