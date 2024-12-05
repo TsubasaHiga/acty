@@ -6,18 +6,21 @@ import sharp from 'sharp'
 import type { Config } from 'svgo'
 import { optimize } from 'svgo'
 
+import { logError, logInfo, logSuccess } from '../helpers/logging.js'
+
+const name = '[convertImages]'
 const inputDir: string = 'src/images'
 const outputDir: string = 'public/assets/images'
 
 // 画像の品質を設定
 const sharpOptions = {
-  quality: 70 // 画像の品質（0-100）
+  quality: 70 // Image quality (0-100)
 }
 
 // SVGOの設定
 const svgoOptions: Config = {
   plugins: [
-    // ここにSVGOのプラグインを追加
+    // Add SVGO plugins here to optimize SVG files, such as removing unnecessary elements or attributes
     {
       name: 'cleanupIds',
       params: {
@@ -36,7 +39,6 @@ const svgoOptions: Config = {
     'removeEmptyAttrs',
     'removeComments',
     'removeDimensions',
-    'removeEmptyAttrs',
     'removeMetadata',
     'removeXMLProcInst',
     'removeUnusedNS',
@@ -44,13 +46,8 @@ const svgoOptions: Config = {
   ]
 }
 
-// 変換をSkipするファイルのPATHリスト
-const skipFiles: [] = []
-
-// ログメッセージを出力する関数
-const logSuccess = (message: string) => console.log(`\x1b[32m${message}\x1b[0m`) // 緑色のテキスト
-const logError = (message: string) => console.error(`\x1b[31m${message}\x1b[0m`) // 赤色のテキスト
-const logInfo = (message: string) => console.info(`\x1b[34m${message}\x1b[0m`) // 青色のテキスト
+// List of file paths to skip conversion
+const skipFiles: string[] = []
 
 /**
  * Cleans the output directory by removing all files and directories within it, and then recreating it.
@@ -58,10 +55,10 @@ const logInfo = (message: string) => console.info(`\x1b[34m${message}\x1b[0m`) /
  */
 const cleanOutputDir = (): void => {
   if (fs.existsSync(outputDir)) {
-    fs.rmdirSync(outputDir, { recursive: true })
+    fs.rmSync(outputDir, { recursive: true })
   }
   fs.mkdirSync(outputDir, { recursive: true })
-  logInfo('Output directory cleaned.')
+  logInfo({ message: `${name} Output directory cleaned.` })
 }
 
 /**
@@ -85,8 +82,8 @@ const processJPGorPNG = (filePath: string, outputFilePath: string): void => {
   sharp(filePath)
     .toFormat('webp', sharpOptions)
     .toFile(outputFilePath)
-    .then(() => logSuccess(`Processed: ${outputFilePath}`))
-    .catch((err: Error) => logError(`Error processing ${filePath}: ${err}`))
+    .then(() => logSuccess({ message: `${name} Processed: ${outputFilePath}` }))
+    .catch((err: Error) => logError({ message: `${name} [processJPGorPNG] Error processing ${filePath}: ${err}` }))
 }
 
 /**
@@ -100,7 +97,7 @@ const processSVG = (filePath: string, outputFilePath: string): void => {
   const result = optimize(data, svgoOptions)
   if (result.data) {
     fs.writeFileSync(outputFilePath, result.data)
-    logSuccess(`Compressed and saved SVG: ${outputFilePath}`)
+    logSuccess({ message: `${name} Compressed and saved SVG: ${outputFilePath}` })
   }
 }
 
@@ -109,7 +106,7 @@ const processSVG = (filePath: string, outputFilePath: string): void => {
  */
 const copyFile = (filePath: string, outputFilePath: string): void => {
   fs.copyFileSync(filePath, outputFilePath)
-  logInfo(`Copied file: ${outputFilePath}`)
+  logInfo({ message: `${name} Copied file: ${outputFilePath}` })
 }
 
 /**
@@ -123,28 +120,28 @@ const processFile = (filePath: string): void => {
     return
   }
 
-  // Skipするファイルかどうかを判定
-  const isSkip = skipFiles.some((skipFile) => filePath.includes(skipFile))
+  // Determine if the file should be skipped
+  const shouldSkip = skipFiles.some((skipFile) => filePath.includes(skipFile))
 
-  const ext: string = path.extname(filePath).toLowerCase()
+  const fileExtension: string = path.extname(filePath).toLowerCase()
   const outputFilePath: string = getOutputFilePath(
     filePath,
-    ['.jpg', '.png'].includes(ext) && !isSkip
-      ? // 拡張子が.jpgまたは.pngの場合は.webpに変換
+    ['.jpg', '.png'].includes(fileExtension) && !shouldSkip
+      ? // Convert to .webp if the extension is .jpg or .png
         'webp'
-      : ext.replace('.', '')
+      : fileExtension.replace('.', '')
   )
 
-  // ディレクトリを作成
+  // Create directory
   fs.mkdirSync(path.dirname(outputFilePath), { recursive: true })
 
-  // Skipするファイルの場合はコピー
-  if (isSkip) {
+  // If the file should be skipped, copy it
+  if (shouldSkip) {
     copyFile(filePath, outputFilePath)
     return
   }
 
-  switch (ext) {
+  switch (fileExtension) {
     case '.jpg':
     case '.png':
       processJPGorPNG(filePath, outputFilePath)
@@ -168,7 +165,7 @@ const deleteFile = (inputFilePath: string): void => {
   const relativePath = path.relative(inputDir, inputFilePath)
   const outputFilePathWithoutExt = path.join(outputDir, relativePath.replace(/\..+$/, ''))
 
-  // 削除するファイルの拡張子を決定
+  // Determine the extension of the file to be deleted
   let outputFilePath = ''
   if (['.jpg', '.jpeg', '.png'].includes(path.extname(inputFilePath).toLowerCase())) {
     outputFilePath = `${outputFilePathWithoutExt}.webp`
@@ -178,10 +175,10 @@ const deleteFile = (inputFilePath: string): void => {
     outputFilePath = `${outputFilePathWithoutExt}${path.extname(inputFilePath)}`
   }
 
-  // ファイルが存在する場合は削除
+  // If the file exists, delete it
   if (fs.existsSync(outputFilePath)) {
     fs.unlinkSync(outputFilePath)
-    logSuccess(`Deleted: ${outputFilePath}`)
+    logSuccess({ message: `${name} Deleted: ${outputFilePath}`, color: 'red' })
   }
 }
 
@@ -199,18 +196,18 @@ const processAllFiles = async (): Promise<void> => {
       }
     }
   } catch (err) {
-    logError(`Error finding files: ${err}`)
+    logError({ message: `${name} Error finding files: ${err}` })
   }
 }
 
-// --watchオプションが指定されているかどうかを判定
-const shouldWatch = process.argv.includes('--watch')
+// Determine if the --watch option is specified
+const isWatchMode = process.argv.includes('--watch')
 
-// 出力ディレクトリをクリーン
+// Clean the output directory
 cleanOutputDir()
 
-// --watchオプションが指定されている場合はファイルの変更を監視
-if (shouldWatch) {
+// If the --watch option is specified, watch for file changes
+if (isWatchMode) {
   const watcher = chokidar.watch(`${inputDir}/**/*`, {
     persistent: true,
     ignoreInitial: false
@@ -218,8 +215,8 @@ if (shouldWatch) {
 
   watcher.on('add', processFile).on('unlink', deleteFile).on('change', processFile)
 
-  logInfo('Watching for file changes...')
+  logInfo({ message: `${name} Watching for file changes...` })
 } else {
-  // --watchオプションが指定されていない場合は一度だけファイルを処理
+  // If the --watch option is not specified, process the files once
   processAllFiles()
 }

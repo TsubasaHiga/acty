@@ -10,6 +10,7 @@ import merge from 'deepmerge'
 import { dirname } from 'path'
 import { loadEnv } from 'vite'
 
+import imagesOptimize from './integrations/imagesOptimize'
 import prettyHtml from './integrations/prettyHtml'
 import { siteConfig } from './src/siteConfig'
 import isProduction from './src/utils/isProduction'
@@ -58,6 +59,7 @@ const defaultConfig: AstroUserConfig = {
     react(),
     tailwind(),
     prettyHtml(settings.prettyHtml),
+    imagesOptimize(),
     sitemap({
       filter: (page: string) => !excludePages.includes(page)
     }),

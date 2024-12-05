@@ -21,5 +21,9 @@
     "jsxImportSource": "react",
     "esModuleInterop": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "ts-node": {
+    "esm": true,
+    "require": ["tsconfig-paths/register"]
+  }
 }
