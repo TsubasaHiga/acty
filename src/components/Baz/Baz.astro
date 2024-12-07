@@ -1,0 +1,27 @@
+<div class="flex flex-col items-center justify-center">
+  <h3>Baz Component</h3>
+  <button id="increment-button" class="mt-2 rounded-lg bg-white px-6 py-4 shadow">count is count</button>
+</div>
+
+<script>
+  import { count } from '@store/atoms/count'
+
+  // Get the increment button element
+  const incrementButtonElement = document.getElementById('increment-button')
+  if (incrementButtonElement) {
+    const renderCount = () => {
+      const value = count.get()
+      incrementButtonElement.textContent = `count is ${value}`
+    }
+
+    // Subscribe to count changes
+    count.subscribe(renderCount)
+
+    incrementButtonElement.addEventListener('click', () => {
+      count.set(count.get() + 1)
+    })
+
+    // 初期値を設定
+    renderCount()
+  }
+</script>
