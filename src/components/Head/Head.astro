@@ -28,9 +28,10 @@ const description = meta?.description || defaultDescription
     title={title}
     charset={'UTF-8'}
     description={description}
+    canonical={siteConfig.siteUrl}
     openGraph={{
       basic: {
-        title: title,
+        title,
         type: 'website',
         image: origin + '/ogp-image.png',
         url: href

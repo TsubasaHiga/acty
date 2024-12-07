@@ -3,8 +3,8 @@ import { fileURLToPath } from 'node:url'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-// import type { AstroUserConfig } from 'astro/config'
 import { defineConfig } from 'astro/config'
+import relativeLinks from 'astro-relative-links'
 import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { dirname } from 'path'
@@ -49,9 +49,6 @@ const SCSS_Logger = {
   warn(message: any, options: any) {
     // Mute warning for muteScssWarningList
     if (options.deprecation && muteScssWarningList.some((mute) => message.includes(mute))) return
-
-    // List all other warnings
-    // console.warn(`▲ [WARNING]: ${message}`)
   }
 }
 
@@ -60,6 +57,7 @@ const defaultConfig: AstroUserConfig = {
   integrations: [
     react(),
     tailwind(),
+    relativeLinks(),
     prettyHtml(settings.prettyHtml),
     imagesOptimize(),
     sitemap({
@@ -110,6 +108,9 @@ const defaultConfig: AstroUserConfig = {
           logger: SCSS_Logger
         }
       }
+    },
+    ssr: {
+      noExternal: ['umaki']
     },
     build: {
       minify: !settings.prettyHtml,

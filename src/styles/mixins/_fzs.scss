@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@use '../functions' as *;
+@use 'sass:math';
+
+@mixin fzs($size, $height: false, $weight: false) {
+  $size-half: math.div($size, 2);
+
+  margin-block: calc((1em - 1lh) / 2);
+  font-size: rem($size-half);
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $height {
+    line-height: math.div(math.div($height, 2), $size-half);
+  }
+}

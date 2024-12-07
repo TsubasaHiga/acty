@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@use './mqw-up' as *;
+
+@mixin no-select($state: true) {
+  @if $state {
+    pointer-events: none;
+    user-select: none;
+  } @else {
+    pointer-events: unset;
+    user-select: unset;
+  }
+}

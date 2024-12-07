@@ -1,5 +1,5 @@
 import autoBind from 'auto-bind'
-import { debounce } from 'throttle-debounce'
+import { debounce } from 'umaki'
 
 class SetOrientation {
   constructor() {
@@ -7,7 +7,7 @@ class SetOrientation {
 
     this.check()
 
-    window.addEventListener('resize', debounce(100, this.check), false)
+    window.addEventListener('resize', debounce(this.check, 100), false)
   }
 
   check() {

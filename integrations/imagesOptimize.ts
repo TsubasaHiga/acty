@@ -19,7 +19,7 @@ const runConvertImages = async (watch: boolean = false) => {
   if (watch) {
     const process = spawn(
       'yarn',
-      ['node', '--no-warnings=ExperimentalWarning --loader', 'ts-node/esm', 'utils/convertImages.ts', watchFlag],
+      ['node', '--no-warnings=ExperimentalWarning --loader', 'ts-node/esm', 'scripts/convertImages.ts', watchFlag],
       {
         stdio: 'inherit',
         shell: true
@@ -34,7 +34,7 @@ const runConvertImages = async (watch: boolean = false) => {
   } else {
     try {
       const { stdout, stderr } = await execPromise(
-        `yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm utils/convertImages.ts ${watchFlag}`
+        `yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts ${watchFlag}`
       )
 
       // Output the stdout and stderr

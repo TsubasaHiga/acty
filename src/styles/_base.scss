@@ -44,13 +44,23 @@ html {
   }
 
   @include mqw-up(xlg) {
-    @include responsive-font-size(20, 25, map.get($breakpoint-w, 'xlg') + 1, 3000px);
+    @include responsive-font-size(20, 22, map.get($breakpoint-w, 'xlg') + 1, 3000px);
+  }
+
+  @include mqh-down(xmd) {
+    @include mqw-up {
+      @include responsive-font-size(11, 17, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+    }
   }
 
   @include mqw-down {
-    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'sm'), map.get($breakpoint-w, 'md') - 1);
+    @include responsive-font-size(16, 24, map.get($breakpoint-w, 'sm'), map.get($breakpoint-w, 'md') - 1);
 
     padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+
+    &[data-type='mobile'][data-orientation='landscape'] {
+      @include responsive-font-size(11, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+    }
   }
 
   @include mqw-down(sm) {
@@ -137,6 +147,6 @@ sup {
 
   @include mqw-down {
     top: -0.4em;
-    font-size: rem(10);
+    font-size: 10px;
   }
 }

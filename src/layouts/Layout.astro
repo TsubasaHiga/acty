@@ -5,7 +5,9 @@ import AnalyticsHead from '@components/Analytics/AnalyticsHead.astro'
 import Footer from '@components/Footer/Footer.astro'
 import Head from '@components/Head/Head.astro'
 import Header from '@components/Header/Header.astro'
+import Icons from '@components/Icons/Icons.astro'
 import type { PageNameType } from '@type/PageDataListType'
+import isProduction from '@utils/isProduction'
 
 import { siteConfig } from '@/siteConfig'
 
@@ -23,13 +25,14 @@ const { pageName, meta } = Astro.props
 <!doctype html>
 <html lang="ja">
   <Head pageName={pageName} meta={meta}>
-    <AnalyticsHead />
+    {isProduction() && <AnalyticsHead />}
   </Head>
   <body>
-    <AnalyticsBody />
+    {isProduction() && <AnalyticsBody />}
+    <Icons />
     <Header title={siteConfig.siteName} />
     <slot />
     <Footer title={siteConfig.siteName} />
-    <AnalyticsFooter />
+    {isProduction() && <AnalyticsFooter />}
   </body>
 </html>
