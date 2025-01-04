@@ -1,5 +1,3 @@
-import { fileURLToPath } from 'node:url'
-
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -7,7 +5,6 @@ import { defineConfig } from 'astro/config'
 import relativeLinks from 'astro-relative-links'
 import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
-import { dirname } from 'path'
 import { loadEnv } from 'vite'
 
 import imagesOptimize from './integrations/imagesOptimize'
@@ -16,9 +13,6 @@ import { siteConfig } from './src/siteConfig'
 import isProduction from './src/utils/isProduction'
 
 type AstroUserConfig = typeof defineConfig extends (config: infer T) => any ? T : never
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 
 const { IGNORE_FOO } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '')
 
@@ -101,9 +95,9 @@ const defaultConfig: AstroUserConfig = {
           additionalData: `
             @use "sass:map";
             @use "sass:math";
-            @use "${__dirname}/src/styles/_variables.scss" as *;
-            @use "${__dirname}/src/styles/_mixin.scss" as *;
-            @use "${__dirname}/src/styles/_functions.scss" as *;
+            @use "src/styles/_variables.scss" as *;
+            @use "src/styles/_mixin.scss" as *;
+            @use "src/styles/_functions.scss" as *;
           `,
           logger: SCSS_Logger
         }
