@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build-stg": "yarn build && yarn copyDistDir",
     "preview": "astro preview",
     "archive": "yarn build && yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/genDistArchive.ts",
+    "copyDistDir": "yarn node --loader ts-node/esm scripts/copyDistDirectory.ts",
     "astro": "astro",
     "convertImages": "yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro",
