@@ -14,6 +14,7 @@
     "convertImages": "yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro",
     "lint:styles": "stylelint \"src/**/*.{css,scss,html,astro}\"",
+    "lint:html": "markuplint \"./src/**/*.astro\"",
     "format": "prettier --write . --ignore-unknown",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "prepare": "husky"
@@ -56,6 +57,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@markuplint/astro-parser": "^4.6.18",
     "@types/archiver": "^6.0.3",
     "@types/chokidar": "^2.1.7",
     "@types/js-beautify": "^1",
@@ -81,6 +83,7 @@
     "husky": "^9.1.7",
     "js-beautify": "^1.15.4",
     "lint-staged": "^15.5.0",
+    "markuplint": "^4.11.8",
     "path": "^0.12.7",
     "postcss": "^8.5.3",
     "postcss-html": "^1.8.0",

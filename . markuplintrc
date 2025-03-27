@@ -1,0 +1,11 @@
+{
+  "parser": {
+    ".astro$": "@markuplint/astro-parser"
+  },
+  "extends": [
+    "markuplint:recommended"
+  ],
+  "rules": {
+    "wai-aria": true
+  }
+}
