@@ -2,6 +2,8 @@
 
 基本ルールは[@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional)を採用します。
 
+<small>※ なおPJ特有のルールがある場合はこの限りではありません。</small>
+
 ## 基本形
 
 ```txt
