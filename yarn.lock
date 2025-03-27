@@ -2675,6 +2675,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nanostores/logger@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@nanostores/logger@npm:0.4.0"
+  peerDependencies:
+    nanostores: ">=0.10.2"
+  checksum: 10c0/a7048016f5ec0e408a1d9943610ea27f35e0b1bd903cd2febfaf954c620c0de5dcade3b3f39fcbdcbe644267f41a0b7fc13c81684f32b6f94a3f1b233c4e790f
+  languageName: node
+  linkType: hard
+
 "@nanostores/react@npm:^0.8.4":
   version: 0.8.4
   resolution: "@nanostores/react@npm:0.8.4"
@@ -3942,6 +3951,7 @@ __metadata:
     "@commitlint/cli": "npm:^19.8.0"
     "@commitlint/config-conventional": "npm:^19.8.0"
     "@markuplint/astro-parser": "npm:^4.6.18"
+    "@nanostores/logger": "npm:^0.4.0"
     "@nanostores/react": "npm:^0.8.4"
     "@types/archiver": "npm:^6.0.3"
     "@types/chokidar": "npm:^2.1.7"

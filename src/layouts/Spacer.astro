@@ -4,22 +4,29 @@
 
 <style lang="scss">
   div {
-    padding-right: map.get($map: $space, $key: md);
-    padding-left: map.get($map: $space, $key: md);
+    @include mqw-up {
+      padding-right: var(--space-md);
+      padding-left: var(--space-md);
 
-    @include mqw-up(xmd) {
-      padding-right: map.get($map: $space, $key: xmd);
-      padding-left: map.get($map: $space, $key: xmd);
+      @include mqw-up(xmd) {
+        padding-right: var(--space-xmd);
+        padding-left: var(--space-xmd);
+      }
+
+      @include mqw-up(lg) {
+        padding-right: var(--space-lg);
+        padding-left: var(--space-lg);
+      }
     }
 
     @include mqw-down {
-      padding-right: map.get($map: $space, $key: sm);
-      padding-left: map.get($map: $space, $key: sm);
+      padding-right: var(--space-sm);
+      padding-left: var(--space-sm);
     }
 
     @include mqw-down(xs) {
-      padding-right: map.get($map: $space, $key: xs);
-      padding-left: map.get($map: $space, $key: xs);
+      padding-right: var(--space-xs);
+      padding-left: var(--space-xs);
     }
   }
 </style>

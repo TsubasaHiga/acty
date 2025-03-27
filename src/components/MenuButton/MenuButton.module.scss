@@ -5,13 +5,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: map.get($map: $header-h, $key: md);
-  height: map.get($map: $header-h, $key: md);
+  width: var(--header-h-md);
+  height: var(--header-h-md);
   background-color: #000;
 
   @include mqw-down {
-    width: map.get($map: $header-h, $key: sm);
-    height: map.get($map: $header-h, $key: sm);
+    width: var(--header-h-sm);
+    height: var(--header-h-sm);
   }
 
   span {

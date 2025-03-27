@@ -6,7 +6,6 @@
 @mixin fzs($size, $height: false, $weight: false) {
   $size-half: math.div($size, 2);
 
-  margin-block: calc((1em - 1lh) / 2);
   font-size: rem($size-half);
 
   @if $weight {

@@ -12,4 +12,24 @@
   --color-black-rgb: #{convert-rgb(#000)};
   --color-white: #fff;
   --color-white-rgb: #{convert-rgb(#fff)};
+  --color-gray: #eee;
+  --color-gray-rgb: #{convert-rgb(#eee)};
+
+  // SPACE
+  --space-lg: #{rem(100)};
+  --space-xmd: #{rem(60)};
+  --space-md: #{rem(20)};
+  --space-sm: #{rem(15)};
+  --space-xs: #{rem(10)};
+
+  // SHORT SPACE
+  --short-space-lg: #{rem(60)};
+  --short-space-xmd: #{rem(40)};
+  --short-space-md: #{rem(20)};
+  --short-space-sm: #{rem(15)};
+  --short-space-xs: #{rem(10)};
+
+  // HEADER HEIGHT
+  --header-h-md: #{rem(80)};
+  --header-h-sm: #{rem(60)};
 }

@@ -59,4 +59,5 @@ const onScroll = () => {
 // addEventListeners
 window.addEventListener('DOMContentLoaded', onDOMContentLoaded)
 window.addEventListener('load', onLoad)
-window.addEventListener('scroll', throttle(onScroll, 100), false)
+window.addEventListener('scroll', throttle(onScroll, 30), false)
+window.addEventListener('scroll', debounce(onScroll, 100), false)

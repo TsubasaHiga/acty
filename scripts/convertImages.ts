@@ -49,6 +49,10 @@ const svgoOptions: Config = {
 // List of file paths to skip conversion
 const skipFiles: string[] = []
 
+// List of files to format
+type SharpFormatKey = keyof typeof sharp.format
+const formatFiles: { [key: string]: SharpFormatKey } = {}
+
 /**
  * Cleans the output directory by removing all files and directories within it, and then recreating it.
  * @returns {void}
@@ -73,17 +77,18 @@ const getOutputFilePath = (filePath: string, ext: string): string => {
 }
 
 /**
- * Processes a JPG or PNG image file and converts it to WebP format.
+ * Processes a JPG or PNG image file and converts it to the specified format.
  * @param filePath - The path to the input image file.
- * @param outputFilePath - The path to the output WebP file.
+ * @param outputFilePath - The path to the output file.
+ * @param format - The format to convert the image to.
  * @returns void
  */
-const processJPGorPNG = (filePath: string, outputFilePath: string): void => {
+const processImage = (filePath: string, outputFilePath: string, format: SharpFormatKey): void => {
   sharp(filePath)
-    .toFormat('webp', sharpOptions)
+    .toFormat(format, sharpOptions)
     .toFile(outputFilePath)
     .then(() => logSuccess({ message: `${name} Processed: ${outputFilePath}` }))
-    .catch((err: Error) => logError({ message: `${name} [processJPGorPNG] Error processing ${filePath}: ${err}` }))
+    .catch((err: Error) => logError({ message: `${name} [processImage] Error processing ${filePath}: ${err}` }))
 }
 
 /**
@@ -124,13 +129,10 @@ const processFile = (filePath: string): void => {
   const shouldSkip = skipFiles.some((skipFile) => filePath.includes(skipFile))
 
   const fileExtension: string = path.extname(filePath).toLowerCase()
-  const outputFilePath: string = getOutputFilePath(
-    filePath,
-    ['.jpg', '.png'].includes(fileExtension) && !shouldSkip
-      ? // Convert to .webp if the extension is .jpg or .png
-        'webp'
-      : fileExtension.replace('.', '')
-  )
+  const format =
+    formatFiles[filePath] ||
+    (['.jpg', '.png'].includes(fileExtension) && !shouldSkip ? 'webp' : fileExtension.replace('.', ''))
+  const outputFilePath: string = getOutputFilePath(filePath, format)
 
   // Create directory
   fs.mkdirSync(path.dirname(outputFilePath), { recursive: true })
@@ -144,7 +146,7 @@ const processFile = (filePath: string): void => {
   switch (fileExtension) {
     case '.jpg':
     case '.png':
-      processJPGorPNG(filePath, outputFilePath)
+      processImage(filePath, outputFilePath, format as SharpFormatKey)
       break
     case '.svg':
       processSVG(filePath, outputFilePath)
@@ -167,8 +169,9 @@ const deleteFile = (inputFilePath: string): void => {
 
   // Determine the extension of the file to be deleted
   let outputFilePath = ''
+  const format = formatFiles[inputFilePath] || path.extname(inputFilePath).toLowerCase().replace('.', '')
   if (['.jpg', '.jpeg', '.png'].includes(path.extname(inputFilePath).toLowerCase())) {
-    outputFilePath = `${outputFilePathWithoutExt}.webp`
+    outputFilePath = `${outputFilePathWithoutExt}.${format}`
   } else if (path.extname(inputFilePath).toLowerCase() === '.svg') {
     outputFilePath = `${outputFilePathWithoutExt}.svg`
   } else {

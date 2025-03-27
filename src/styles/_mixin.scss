@@ -11,6 +11,7 @@
 @forward 'mixins/canhover';
 @forward 'mixins/custom-scrollbar';
 @forward 'mixins/ellipsis';
+@forward 'mixins/even';
 @forward 'mixins/first';
 @forward 'mixins/fz';
 @forward 'mixins/fzs';
@@ -19,7 +20,10 @@
 @forward 'mixins/hover-opacity';
 @forward 'mixins/icon-ini';
 @forward 'mixins/is-loaded';
+@forward 'mixins/is-not-page';
 @forward 'mixins/is-open-menu';
+@forward 'mixins/is-page';
+@forward 'mixins/is-scroll';
 @forward 'mixins/last';
 @forward 'mixins/letter-spacing';
 @forward 'mixins/mq';
@@ -30,6 +34,7 @@
 @forward 'mixins/no-select';
 @forward 'mixins/notfirst';
 @forward 'mixins/notlast';
+@forward 'mixins/odd';
 @forward 'mixins/orientation';
 @forward 'mixins/os/is-android';
 @forward 'mixins/os/is-ios';

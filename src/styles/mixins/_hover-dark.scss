@@ -14,7 +14,7 @@
     }
 
     &:hover {
-      color: rgba(var(--color-black-rgb) / $darken);
+      color: rgb(var(--color-black-rgb) / $darken);
     }
   }
 }

@@ -15,8 +15,8 @@ const { href, title } = Astro.props
   a {
     @include mqw-down {
       padding: rem(20) 0;
-      padding-right: map.get($map: $space, $key: sm);
-      padding-left: map.get($map: $space, $key: sm);
+      padding-right: var(--space-sm);
+      padding-left: var(--space-sm);
       text-align: center;
 
       @include notfirst {
@@ -25,8 +25,8 @@ const { href, title } = Astro.props
     }
 
     @include mqw-down(xs) {
-      padding-right: map.get($map: $space, $key: xs);
-      padding-left: map.get($map: $space, $key: xs);
+      padding-right: var(--space-xs);
+      padding-left: var(--space-xs);
     }
   }
 </style>

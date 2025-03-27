@@ -8,10 +8,11 @@
 $breakpoint-w: (
   xlg: 1920px,
   lg: 1440px,
-  xmd: 1100px,
-  md: 768px,
-  sm: 375px,
-  xs: 321px
+  xmd: 1180px,
+  md: 980px,
+  sm: 640px,
+  xs: 375px,
+  xxs: 320px
 ) !default;
 
 // break point - height
@@ -21,23 +22,6 @@ $breakpoint-h: (
   sm: 635px,
   xs: 549px
 ) !default;
-
-// mainW
-$main-w: 1280px;
-
-// Basis space
-$space: (
-  xmd: rem(60),
-  md: rem(20),
-  sm: rem(15),
-  xs: rem(10)
-);
-
-// headerH
-$header-h: (
-  md: rem(80),
-  sm: rem(60)
-);
 
 // font
 // ----------------------------------------------------------

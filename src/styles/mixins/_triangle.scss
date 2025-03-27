@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @use 'sass:math';
+@use '../functions' as *;
 
 @mixin triangle($width, $height, $color, $rotate) {
   position: absolute;
@@ -11,15 +12,15 @@
 
   @if $rotate == 'top' {
     border-color: transparent transparent $color;
-    border-width: 0 #{math.div($width, 2)}px #{$height}px #{math.div($width, 2)}px;
+    border-width: 0 rem(math.div($width, 2)) #{$height}px rem(math.div($width, 2));
   } @else if $rotate == 'right' {
     border-color: transparent transparent transparent $color;
-    border-width: #{math.div($width, 2)}px 0 #{math.div($width, 2)}px #{$height}px;
+    border-width: rem(math.div($width, 2)) 0 rem(math.div($width, 2)) #{$height}px;
   } @else if $rotate == 'bottom' {
     border-color: $color transparent transparent transparent;
-    border-width: #{$height}px #{math.div($width, 2)}px 0 #{math.div($width, 2)}px;
+    border-width: #{$height}px rem(math.div($width, 2)) 0 rem(math.div($width, 2));
   } @else if $rotate == 'left' {
     border-color: transparent $color transparent transparent;
-    border-width: #{math.div($width, 2)}px #{$height}px #{math.div($width, 2)}px 0;
+    border-width: rem(math.div($width, 2)) #{$height}px rem(math.div($width, 2)) 0;
   }
 }

@@ -20,7 +20,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=18.17.1"
+    "node": ">=20.9.0"
   },
   "husky": {
     "hooks": {
@@ -58,6 +58,7 @@
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
     "@markuplint/astro-parser": "^4.6.18",
+    "@nanostores/logger": "^0.4.0",
     "@types/archiver": "^6.0.3",
     "@types/chokidar": "^2.1.7",
     "@types/js-beautify": "^1",

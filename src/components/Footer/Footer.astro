@@ -5,10 +5,13 @@ export interface Props {
   title: string
 }
 const { title } = Astro.props
+const { BASE_URL } = import.meta.env
 ---
 
 <footer>
   <Spacer>
+    <a href={BASE_URL}>Home</a>
+    <a href={BASE_URL + 'about/'}>About</a>
     <div class="inner">
       <p>©{title}</p>
     </div>

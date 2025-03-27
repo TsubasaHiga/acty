@@ -21,7 +21,7 @@ const { menuList } = Astro.props
   nav {
     @include mqw-down {
       position: absolute;
-      top: map.get($map: $header-h, $key: sm);
+      top: var(--header-h-sm);
       left: 0;
       width: 100%;
       visibility: hidden;

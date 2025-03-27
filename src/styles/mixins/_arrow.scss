@@ -1,17 +1,17 @@
 @charset "utf-8";
 
-@use '../functions' as *;
 @use './icon-ini.scss' as *;
+@use '../functions' as *;
 
 @mixin arrow($width, $bold, $color, $deg) {
   @include icon-ini;
 
-  width: #{$width}px;
-  height: #{$width}px;
+  width: rem($width);
+  height: rem($width);
   vertical-align: middle;
   border-color: $color;
   border-style: solid;
-  border-width: 0 #{$bold}px #{$bold}px 0;
+  border-width: 0 rem($bold) rem($bold) 0;
 
   // 角度
   @if $deg == 'left' {
