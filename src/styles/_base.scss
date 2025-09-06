@@ -20,8 +20,7 @@
 }
 
 html {
-  @include letter-spacing(10);
-  @include responsive-font-size(14, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+  @include responsive-font-size(8, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
 
   height: 100%;
   font-family: $font-family;
@@ -40,22 +39,56 @@ html {
     scroll-behavior: auto;
   }
 
+  // @include mqw-up {
+  //   &[data-type='tablet'][data-orientation='portrait'] {
+  //     @include responsive-font-size(11, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+  //   }
+  // }
+
   @include mqw-up {
-    &[data-type='tablet'][data-orientation='portrait'] {
-      @include responsive-font-size(11, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+    @include mqh-down(lg) {
+      @include responsive-font-size(8.5, 12, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
     }
   }
 
   @include mqw-up(lg) {
-    @include responsive-font-size(16, 20, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xlg'));
+    @include responsive-font-size(15, 18, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xl'));
+
+    @include mqh-down(lg) {
+      @include responsive-font-size(14, 18, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xl'));
+    }
+
+    @include mqh-down(xmd) {
+      @include responsive-font-size(13.5, 14, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xl'));
+    }
   }
 
-  @include mqw-up(xlg) {
-    @include responsive-font-size(20, 25, map.get($breakpoint-w, 'xlg') + 1, 3000px);
+  @include mqw-up(xl) {
+    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'xl') + 1, map.get($breakpoint-w, 'xl2'));
+
+    @include mqh-down(lg) {
+      @include responsive-font-size(14, 18, map.get($breakpoint-w, 'xl') + 1, map.get($breakpoint-w, 'xl2'));
+    }
+
+    @include mqh-down(xmd) {
+      @include responsive-font-size(10, 14, map.get($breakpoint-w, 'xl') + 1, map.get($breakpoint-w, 'xl2'));
+    }
+  }
+
+  @include mqw-up(xl2) {
+    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'xl2') + 1, 3000px);
+
+    @include mqh-down(lg) {
+      @include responsive-font-size(14, 18, map.get($breakpoint-w, 'xl2') + 1, 3000px);
+    }
+
+    @include mqh-down(xmd) {
+      @include responsive-font-size(10, 14, map.get($breakpoint-w, 'xl2') + 1, 3000px);
+    }
   }
 
   @include mqw-down {
-    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'sm'), map.get($breakpoint-w, 'md') - 1);
+    @include responsive-font-size(16, 20, map.get($breakpoint-w, 'sm'), map.get($breakpoint-w, 'md') - 1);
   }
 
   @include mqw-down(sm) {

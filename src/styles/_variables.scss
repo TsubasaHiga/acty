@@ -6,10 +6,11 @@
 // ----------------------------------------------------------
 // break point - width
 $breakpoint-w: (
-  xlg: 1920px,
+  xl2: 1860px,
+  xl: 1600px,
   lg: 1440px,
-  xmd: 1180px,
-  md: 980px,
+  xmd: 1280px,
+  md: 768px,
   sm: 640px,
   xs: 375px,
   xxs: 320px
@@ -17,10 +18,11 @@ $breakpoint-w: (
 
 // break point - height
 $breakpoint-h: (
+  lg: 910px,
   xmd: 845px,
   md: 668px,
-  sm: 635px,
-  xs: 549px
+  sm: 510px,
+  xs: 380px
 ) !default;
 
 // font

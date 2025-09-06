@@ -41,3 +41,13 @@ public/assets/images/*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# serena
+.serena/memories/
+.serena/cache/
+.serena/index/
+.serena/logs/
+.serena/dashboard/
+
+# custom
+tmp/

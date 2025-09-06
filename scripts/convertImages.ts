@@ -1,7 +1,8 @@
+import path from 'node:path'
+
 import chokidar from 'chokidar'
 import fs from 'fs'
 import { glob } from 'glob'
-import path from 'path'
 import sharp from 'sharp'
 import type { Config } from 'svgo'
 import { optimize } from 'svgo'

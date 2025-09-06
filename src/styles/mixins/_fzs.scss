@@ -3,7 +3,7 @@
 @use '../functions' as *;
 @use 'sass:math';
 
-@mixin fzs($size, $height: false, $weight: false) {
+@mixin fzs($size, $height: false, $weight: false, $clip: true) {
   $size-half: math.div($size, 2);
 
   font-size: rem($size-half);
@@ -14,5 +14,9 @@
 
   @if $height {
     line-height: math.div(math.div($height, 2), $size-half);
+  }
+
+  @if $clip {
+    margin-block: calc((1em - 1lh) / 2);
   }
 }

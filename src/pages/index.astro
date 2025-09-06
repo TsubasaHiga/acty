@@ -4,12 +4,13 @@ import Baz from '@components/Baz/Baz.astro'
 import Card from '@components/Card/Card.astro'
 import Foo from '@components/Foo/Foo'
 import Layout from '@layouts/Layout.astro'
+import MainContainer from '@layouts/MainContainer.astro'
 import Spacer from '@layouts/Spacer.astro'
 import GetPath from '@utils/getPath'
 ---
 
 <Layout pageName="top">
-  <main class="mx-auto max-w-4xl">
+  <MainContainer className="mx-auto max-w-4xl">
     <Spacer>
       <h1 class="text-5xl font-bold leading-[2.5]">Welcome to <span class="text-gradient">Acty</span></h1>
       <p class="instructions">
@@ -44,7 +45,7 @@ import GetPath from '@utils/getPath'
         <Baz />
       </div>
     </Spacer>
-  </main>
+  </MainContainer>
 </Layout>
 
 <style lang="scss">

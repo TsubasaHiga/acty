@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "build-stg": "yarn build && yarn copyDistDir",
-    "preview": "astro preview",
+    "preview": "yarn build && astro preview",
     "archive": "yarn build && yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/genDistArchive.ts",
     "copyDistDir": "yarn node --loader ts-node/esm scripts/copyDistDirectory.ts",
     "astro": "astro",
@@ -16,11 +16,10 @@
     "lint:styles": "stylelint \"src/**/*.{css,scss,html,astro}\"",
     "lint:html": "markuplint \"./src/**/*.astro\"",
     "format": "prettier --write . --ignore-unknown",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=20.18.1"
   },
   "husky": {
     "hooks": {
@@ -46,6 +45,7 @@
     "deepmerge": "^4.3.1",
     "focus-visible": "^5.2.1",
     "image-size": "^1.2.0",
+    "jsdom": "^26.1.0",
     "nanostores": "^0.11.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -55,13 +55,12 @@
     "umaki": "^0.3.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
     "@markuplint/astro-parser": "^4.6.18",
     "@nanostores/logger": "^0.4.0",
     "@types/archiver": "^6.0.3",
     "@types/chokidar": "^2.1.7",
     "@types/js-beautify": "^1",
+    "@types/jsdom": "^21.1.7",
     "@types/node": "^22.13.14",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
@@ -85,7 +84,6 @@
     "js-beautify": "^1.15.4",
     "lint-staged": "^15.5.0",
     "markuplint": "^4.11.8",
-    "path": "^0.12.7",
     "postcss": "^8.5.3",
     "postcss-html": "^1.8.0",
     "prettier": "^3.5.3",

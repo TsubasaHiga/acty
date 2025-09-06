@@ -13,6 +13,15 @@
   }
 }
 
+// percent
+@function percent($num, $size: md) {
+  @if $size == md {
+    @return (math.div($num, 1600)) * 100%;
+  } @else if $size == sm {
+    @return (math.div($num, 375)) * 100%;
+  }
+}
+
 // vw
 @function vw($num, $size: md) {
   @if $size == md {
@@ -20,6 +29,13 @@
   } @else if $size == sm {
     @return (math.div($num, 375)) * 100vw;
   }
+}
+
+// vws
+@function vws($num, $divide-ratio: 1) {
+  $w: math.div($num, $divide-ratio);
+
+  @return (math.div($w, 375)) * 100vw;
 }
 
 // vh

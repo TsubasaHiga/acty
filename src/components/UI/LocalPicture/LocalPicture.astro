@@ -5,6 +5,7 @@
 import { values } from '@const/values'
 import { getImageSize } from '@utils/getImageSize'
 import GetPathFromLocalPublic from '@utils/getPathFromLocalPublic'
+import type { HTMLAttributes } from 'astro/types'
 
 export type ArtDirectiveType = {
   media: string
@@ -16,15 +17,16 @@ export type SrcsetType = {
   lg?: string[]
 }
 
-export interface Props {
+export interface Props extends HTMLAttributes<'picture'> {
   src: string
   srcset: SrcsetType
   width?: number
   height?: number
   alt?: string
   lazy?: boolean
+  fetchpriority?: HTMLAttributes<'img'>['fetchpriority']
 }
-const { src, srcset, width: srcWidth, height: srcHeight, alt = '', lazy = true, ...attr } = Astro.props
+const { src, srcset, width: srcWidth, height: srcHeight, alt = '', lazy = true, fetchpriority, ...attr } = Astro.props
 
 // srcの画像サイズを取得
 // srcWidthとsrcHeightが指定されている場合はそれを優先
@@ -55,5 +57,12 @@ const artDirectives: ArtDirectiveType[] = Object.entries(srcset).map(([key, srcs
 
 <picture {...attr}>
   {artDirectives.map(({ media, srcset }) => <source media={media} srcset={srcset.join(', ')} />)}
-  <img src={src} height={height} width={width} alt={alt} loading={lazy ? 'lazy' : 'eager'} />
+  <img
+    src={src}
+    height={height}
+    width={width}
+    alt={alt}
+    loading={lazy ? 'lazy' : 'eager'}
+    fetchpriority={fetchpriority}
+  />
 </picture>

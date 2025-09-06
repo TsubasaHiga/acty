@@ -4,8 +4,9 @@
  */
 import { getImageSize } from '@utils/getImageSize'
 import GetPathFromLocalPublic from '@utils/getPathFromLocalPublic'
+import type { HTMLAttributes } from 'astro/types'
 
-export interface Props {
+export interface Props extends HTMLAttributes<'img'> {
   src: string
   height?: number
   width?: number

@@ -1,10 +1,10 @@
+import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import type { AstroIntegration } from 'astro'
 import fs from 'fs'
 import { globSync } from 'glob'
 import beautify, { type CoreBeautifyOptions } from 'js-beautify'
-import path from 'path'
 
 import { logInfo, logSuccess } from '../helpers/logging.js'
 
