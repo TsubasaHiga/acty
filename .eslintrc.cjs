@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:tailwindcss/recommended', 'prettier'],
+  extends: ['eslint:recommended', 'prettier'],
   plugins: ['simple-import-sort'],
   env: {
     browser: true,
@@ -10,9 +10,6 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    // tailwindcss
-    'tailwindcss/no-custom-classname': 'off',
-
     // simple-import-sort
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error'

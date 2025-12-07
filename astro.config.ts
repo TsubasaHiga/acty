@@ -1,6 +1,5 @@
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 import relativeLinks from 'astro-relative-links'
 import robotsTxt from 'astro-robots-txt'
@@ -50,7 +49,6 @@ const SCSS_Logger = {
 const defaultConfig: AstroUserConfig = {
   integrations: [
     react(),
-    tailwind(),
     relativeLinks(),
     prettyHtml(settings.prettyHtml),
     imagesOptimize(),

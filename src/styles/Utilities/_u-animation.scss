@@ -16,11 +16,11 @@
 
     &.is-animation {
       opacity: 1;
+      translate: 0 0;
       transition:
         translate $long-ms $long-es,
         opacity $long-ms $long-es;
       transition-delay: 100ms;
-      translate: 0 0;
     }
   }
 
@@ -31,11 +31,11 @@
 
     &.is-animation {
       opacity: 1;
+      translate: 0 0;
       transition:
         translate $long-ms $long-es,
         opacity $long-ms $long-es;
       transition-delay: 100ms;
-      translate: 0 0;
     }
   }
 
@@ -46,11 +46,11 @@
 
     &.is-animation {
       opacity: 1;
+      translate: 0 0;
       transition:
         opacity $long-ms $long-es,
         translate $long-ms $long-es;
       transition-delay: 100ms;
-      translate: 0 0;
     }
   }
 }

@@ -1,13 +1,15 @@
 import { useStore } from '@nanostores/react'
 import { count } from '@store/atoms/count'
 
+import styles from './Bar.module.scss'
+
 const Bar = (): JSX.Element => {
   const $count = useStore(count)
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className={styles.bar}>
       <h3>Bar Component</h3>
-      <button className="mt-2 rounded-lg bg-white px-6 py-4 shadow" onClick={() => count.set($count + 1)}>
+      <button className={styles.bar__button} onClick={() => count.set($count + 1)}>
         count is {$count}
       </button>
     </div>

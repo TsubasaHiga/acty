@@ -1,7 +1,26 @@
-<div class="flex flex-col items-center justify-center">
+<div class="baz">
   <h3>Baz Component</h3>
-  <button id="increment-button" class="mt-2 rounded-lg bg-white px-6 py-4 shadow">count is count</button>
+  <button id="increment-button" class="baz__button">count is count</button>
 </div>
+
+<style lang="scss">
+  .baz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__button {
+      padding: 1rem 1.5rem;
+      margin-top: 0.5rem;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow:
+        0 1px 3px 0 rgb(0 0 0 / 10%),
+        0 1px 2px -1px rgb(0 0 0 / 10%);
+    }
+  }
+</style>
 
 <script>
   import { count } from '@store/atoms/count'

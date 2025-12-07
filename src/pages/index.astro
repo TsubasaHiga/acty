@@ -10,9 +10,9 @@ import GetPath from '@utils/getPath'
 ---
 
 <Layout pageName="top">
-  <MainContainer className="mx-auto max-w-4xl">
+  <MainContainer>
     <Spacer>
-      <h1 class="text-5xl font-bold leading-[2.5]">Welcome to <span class="text-gradient">Acty</span></h1>
+      <h1 class="page-title">Welcome to <span class="text-gradient">Acty</span></h1>
       <p class="instructions">
         To get started, open the directory <code>src/pages</code> in your project.<br />
         <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -35,13 +35,13 @@ import GetPath from '@utils/getPath'
           body="Come say hi to our amazing Discord community. ❤️"
         />
       </ul>
-      <div class="mt-10 grid gap-4 rounded-lg border border-dashed border-black p-4">
-        <h2 class="text-lg">JSX Elements</h2>
+      <div class="demo-section">
+        <h2 class="demo-section__title">JSX Elements</h2>
         <Foo client:only="react" />
         <Bar client:only="react" />
       </div>
-      <div class="mt-10 grid gap-4 rounded-lg border border-dashed border-black p-4">
-        <h2 class="text-lg">Vanilla HTML Elements</h2>
+      <div class="demo-section">
+        <h2 class="demo-section__title">Vanilla HTML Elements</h2>
         <Baz />
       </div>
     </Spacer>
@@ -49,6 +49,12 @@ import GetPath from '@utils/getPath'
 </Layout>
 
 <style lang="scss">
+  .page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 2.5;
+  }
+
   .instructions {
     padding: 1rem;
     margin: 1rem 0;
@@ -73,6 +79,19 @@ import GetPath from '@utils/getPath'
 
     @include mqw-down {
       grid-template-columns: repeat(1, auto);
+    }
+  }
+
+  .demo-section {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 2.5rem;
+    border: 1px dashed #000;
+    border-radius: 0.5rem;
+
+    &__title {
+      font-size: 1.125rem;
     }
   }
 </style>

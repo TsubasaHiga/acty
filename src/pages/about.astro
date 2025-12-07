@@ -9,12 +9,12 @@ const { BASE_URL } = import.meta.env
 ---
 
 <Layout pageName="about">
-  <MainContainer className="mx-auto max-w-4xl">
+  <MainContainer>
     <Spacer>
-      <h1 class="text-5xl font-bold leading-[2.5]">About</h1>
-      <div class="flex flex-col items-center gap-5 tracking-normal">
-        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
-          <h3 class="text-2xl">Use LocalPicture Component</h3>
+      <h1 class="page-title">About</h1>
+      <div class="content-wrapper">
+        <section class="content-section">
+          <h3 class="content-section__title">Use LocalPicture Component</h3>
           <p>
             <code>sm</code> size and <code>lg</code> size are specified by <code>src</code> attribute and <code
               >srcset</code
@@ -29,8 +29,8 @@ const { BASE_URL } = import.meta.env
             }}
           />
         </section>
-        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
-          <h3 class="text-2xl">Use LocalPicture Component</h3>
+        <section class="content-section">
+          <h3 class="content-section__title">Use LocalPicture Component</h3>
           <p>Only <code>lg</code> size is specified by <code>src</code> attribute and <code>srcset</code> attribute.</p>
           <LocalPicture
             src="/assets/images/img_quality_check.webp"
@@ -39,12 +39,12 @@ const { BASE_URL } = import.meta.env
             }}
           />
         </section>
-        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
-          <h3 class="text-2xl">Use LocalImage Component</h3>
+        <section class="content-section">
+          <h3 class="content-section__title">Use LocalImage Component</h3>
           <LocalImage src="/assets/images/img_quality_check.webp" />
         </section>
-        <section class="flex w-full flex-col items-start gap-5 rounded-lg bg-white p-5">
-          <h3 class="text-2xl">Use RemoteImage Component</h3>
+        <section class="content-section">
+          <h3 class="content-section__title">Use RemoteImage Component</h3>
           <RemoteImage src="https://placehold.jp/3d4070/ffffff/300x300.png?text=Remote%20Image" />
         </section>
         <a href={BASE_URL}>戻る</a>
@@ -54,6 +54,35 @@ const { BASE_URL } = import.meta.env
 </Layout>
 
 <style lang="scss">
+  .page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 2.5;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    letter-spacing: normal;
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1.25rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+
+    &__title {
+      font-size: 1.5rem;
+    }
+  }
+
   code {
     padding: 0.3em 0.45em;
     font-size: 0.875em;

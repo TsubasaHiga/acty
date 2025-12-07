@@ -10,7 +10,6 @@ module.exports = {
       true,
       {
         ignoreAtRules: [
-          'apply',
           'each',
           'else',
           'extend',
@@ -21,12 +20,8 @@ module.exports = {
           'include',
           'layer',
           'mixin',
-          'responsive',
           'return',
-          'screen',
-          'tailwind',
-          'use',
-          'else'
+          'use'
         ]
       }
     ],

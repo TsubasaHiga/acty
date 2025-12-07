@@ -104,7 +104,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 100%;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   text-size-adjust: none;
 
   @include mq(retina2x) {
