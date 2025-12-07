@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@use '../variables' as *;
+@use '../breakpoints' as *;
 @use './canhover' as *;
 
 @mixin hover-opacity($opacity: 0.5, $ms: false, $ease: false) {

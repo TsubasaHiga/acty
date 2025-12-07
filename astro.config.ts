@@ -94,7 +94,7 @@ const defaultConfig: AstroUserConfig = {
             @use "sass:map";
             @use "sass:math";
             @use "src/styles/Extends/e-spacer" as *;
-            @use "src/styles/_variables.scss" as *;
+            @use "src/styles/_breakpoints.scss" as *;
             @use "src/styles/_mixin.scss" as *;
             @use "src/styles/_functions.scss" as *;
           `,
