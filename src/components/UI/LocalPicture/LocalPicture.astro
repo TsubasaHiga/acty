@@ -10,6 +10,8 @@ import type { HTMLAttributes } from 'astro/types'
 export type ArtDirectiveType = {
   media: string
   srcset: string[]
+  width?: number
+  height?: number
 }
 
 export type SrcsetType = {
@@ -34,29 +36,59 @@ const { width, height } =
   srcWidth && srcHeight ? { width: srcWidth, height: srcHeight } : await getImageSize(GetPathFromLocalPublic(src))
 
 // srcsetをartDirectivesの形式に変換
-const artDirectives: ArtDirectiveType[] = Object.entries(srcset).map(([key, srcset]) => {
-  switch (key) {
-    case 'sm':
-      return {
-        media: `(max-width: ${values.BREAKPOINT}px)`,
-        srcset
+// 各srcsetの画像サイズも自動取得
+const artDirectives: ArtDirectiveType[] = await Promise.all(
+  Object.entries(srcset).map(async ([key, srcset]) => {
+    // srcset配列の最初の画像パスを取得（例: '/path/to/image.webp 1x' -> '/path/to/image.webp'）
+    const firstImagePath = srcset[0]?.split(' ')[0]
+
+    // 画像サイズを取得
+    let sourceWidth: number | undefined
+    let sourceHeight: number | undefined
+
+    if (firstImagePath) {
+      try {
+        const size = await getImageSize(GetPathFromLocalPublic(firstImagePath))
+        sourceWidth = size.width ?? undefined
+        sourceHeight = size.height ?? undefined
+      } catch (error) {
+        console.warn(`Failed to get image size for: ${firstImagePath}`, error)
       }
-    case 'lg':
-      return {
-        media: `(min-width: ${values.BREAKPOINT + 1}px)`,
-        srcset
-      }
-    default:
-      return {
-        media: '',
-        srcset
-      }
-  }
-})
+    }
+
+    switch (key) {
+      case 'sm':
+        return {
+          media: `(max-width: ${values.BREAKPOINT}px)`,
+          srcset,
+          width: sourceWidth,
+          height: sourceHeight
+        }
+      case 'lg':
+        return {
+          media: `(min-width: ${values.BREAKPOINT + 1}px)`,
+          srcset,
+          width: sourceWidth,
+          height: sourceHeight
+        }
+      default:
+        return {
+          media: '',
+          srcset,
+          width: sourceWidth,
+          height: sourceHeight
+        }
+    }
+  })
+)
 ---
 
 <picture {...attr}>
-  {artDirectives.map(({ media, srcset }) => <source media={media} srcset={srcset.join(', ')} />)}
+  {
+    artDirectives.map(({ media, srcset, width, height }) => (
+      <source media={media} srcset={srcset.join(', ')} width={width} height={height} />
+    ))
+  }
   <img
     src={src}
     height={height}
