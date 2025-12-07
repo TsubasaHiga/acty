@@ -1,10 +1,11 @@
 import { useStore } from '@nanostores/react'
+import type { ReactNode } from 'react'
 
 import { count } from '@/store/atoms/count'
 
 import styles from './Bar.module.scss'
 
-const Bar = (): JSX.Element => {
+const Bar = (): ReactNode => {
   const $count = useStore(count)
 
   return (

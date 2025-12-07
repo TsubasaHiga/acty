@@ -1,12 +1,13 @@
 import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
+import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 
 import { siteState } from '@/store/atoms/siteState'
 
 import styles from './MenuButton.module.scss'
 
-const MenuButton = (): JSX.Element => {
+const MenuButton = (): ReactNode => {
   const $siteState = useStore(siteState)
   const { isOpenMenu } = $siteState
 
