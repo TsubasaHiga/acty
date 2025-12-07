@@ -10,7 +10,7 @@
     @if $ease {
       transition: color $ms $ease;
     } @else {
-      transition: color $com-ms $com-es;
+      transition: color var(--com-ms) var(--com-es);
     }
 
     &:hover {

@@ -18,8 +18,8 @@
       opacity: 1;
       translate: 0 0;
       transition:
-        translate $long-ms $long-es,
-        opacity $long-ms $long-es;
+        translate var(--long-ms) var(--long-es),
+        opacity var(--long-ms) var(--long-es);
       transition-delay: 100ms;
     }
   }
@@ -33,8 +33,8 @@
       opacity: 1;
       translate: 0 0;
       transition:
-        translate $long-ms $long-es,
-        opacity $long-ms $long-es;
+        translate var(--long-ms) var(--long-es),
+        opacity var(--long-ms) var(--long-es);
       transition-delay: 100ms;
     }
   }
@@ -48,8 +48,8 @@
       opacity: 1;
       translate: 0 0;
       transition:
-        opacity $long-ms $long-es,
-        translate $long-ms $long-es;
+        opacity var(--long-ms) var(--long-es),
+        translate var(--long-ms) var(--long-es);
       transition-delay: 100ms;
     }
   }

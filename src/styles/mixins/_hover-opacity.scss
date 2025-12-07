@@ -8,7 +8,7 @@
     @if $ease {
       transition: opacity $ms $ease;
     } @else {
-      transition: opacity $com-ms $com-es;
+      transition: opacity var(--com-ms) var(--com-es);
     }
 
     &:hover {

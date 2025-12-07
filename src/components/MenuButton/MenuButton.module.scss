@@ -24,7 +24,7 @@
     width: $width;
     height: $height;
     background-color: $color;
-    transition: $com-ms $com-es;
+    transition: var(--com-ms) var(--com-es);
 
     &::before,
     &::after {
@@ -34,7 +34,7 @@
       width: 100%;
       height: $height;
       background-color: $color;
-      transition: $com-ms $com-es;
+      transition: var(--com-ms) var(--com-es);
       will-change: transform;
     }
 
@@ -74,7 +74,7 @@
   height: 100%;
   background-color: rgba(#000, 0.8);
   opacity: 0;
-  transition: $com-ms $com-es;
+  transition: var(--com-ms) var(--com-es);
   will-change: opacity;
 
   @include is-open-menu {
