@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+@use '../abstracts' as *;
+
+// ============================================
+// Responsive Utilities
+// レスポンシブ表示制御用ユーティリティクラス
+// ============================================
+
+// Desktop only (md breakpoint and up)
+.u-mqw-up {
+  @include mqw-down {
+    display: none !important;
+  }
+}
+
+// Mobile only (below md breakpoint)
+.u-mqw-down {
+  @include mqw-up {
+    display: none !important;
+  }
+}
+
+// xmd breakpoint and up
+.u-mqw-xmd-up {
+  @include mqw-down(xmd) {
+    display: none !important;
+  }
+}
+
+// Below xmd breakpoint
+.u-mqw-xmd-down {
+  @include mqw-up(xmd) {
+    display: none !important;
+  }
+}

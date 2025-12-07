@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+// ============================================
+// Breakpoints
+// メディアクエリで使用するSCSS変数
+// ※CSS変数はメディアクエリ内で使用不可のためSCSS変数で定義
+// ============================================
+
+// Width breakpoints
+$breakpoint-w: (
+  xl2: 1860px,
+  xl: 1600px,
+  lg: 1440px,
+  xmd: 1280px,
+  md: 768px,
+  sm: 640px,
+  xs: 375px,
+  xxs: 320px
+) !default;
+
+// Height breakpoints
+$breakpoint-h: (
+  lg: 910px,
+  xmd: 845px,
+  md: 668px,
+  sm: 510px,
+  xs: 380px
+) !default;

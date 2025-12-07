@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/// メニューオープン時
+/// @param {String} $state - 状態値
+@mixin is-open-menu($state: 'true') {
+  html[data-open-menu='#{$state}'] & {
+    @content;
+  }
+}

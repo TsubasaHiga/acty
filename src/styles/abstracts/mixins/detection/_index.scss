@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+// ============================================
+// Detection Mixins - Index
+// 検出系 mixin の集約
+// ============================================
+
+// Browser Detection
+@forward 'is-safari';
+@forward 'is-safari-desktop';
+@forward 'is-safari-mobile';
+@forward 'is-firefox';
+@forward 'is-edge';
+
+// OS Detection
+@forward 'is-ios';
+@forward 'is-android';
+@forward 'is-macos';
+@forward 'is-ipados';
+
+// Device Detection
+@forward 'is-type-mobile';
+@forward 'is-type-tablet';
+@forward 'touch-support';
+@forward 'orientation';

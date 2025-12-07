@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+@use 'sass:map';
+@use 'sass:math';
+@use '../abstracts' as *;
+
+// ============================================
+// Reset & Base Styles
+// ============================================
+
+* {
+  @include add-selection-color(var(--color-primary-rgb), 20%);
+
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  @include responsive-font-size(8, 16, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+
+  height: 100%;
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  line-height: math.div(33, 14);
+  color: var(--color-black);
+  background-color: var(--color-gray);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgb(#000, 0);
+
+  &.is-loaded {
+    scroll-behavior: smooth;
+  }
+
+  &.no-smooth-scroll {
+    scroll-behavior: auto;
+  }
+
+  @include mqw-up {
+    @include mqh-down(lg) {
+      @include responsive-font-size(8.5, 12, map.get($breakpoint-w, 'md'), map.get($breakpoint-w, 'lg'));
+    }
+  }
+
+  @include mqw-up(lg) {
+    @include responsive-font-size(15, 18, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xl'));
+
+    @include mqh-down(lg) {
+      @include responsive-font-size(14, 18, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xl'));
+    }
+
+    @include mqh-down(xmd) {
+      @include responsive-font-size(13.5, 14, map.get($breakpoint-w, 'lg') + 1, map.get($breakpoint-w, 'xl'));
+    }
+  }
+
+  @include mqw-up(xl) {
+    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'xl') + 1, map.get($breakpoint-w, 'xl2'));
+
+    @include mqh-down(lg) {
+      @include responsive-font-size(14, 18, map.get($breakpoint-w, 'xl') + 1, map.get($breakpoint-w, 'xl2'));
+    }
+
+    @include mqh-down(xmd) {
+      @include responsive-font-size(10, 14, map.get($breakpoint-w, 'xl') + 1, map.get($breakpoint-w, 'xl2'));
+    }
+  }
+
+  @include mqw-up(xl2) {
+    @include responsive-font-size(16, 18, map.get($breakpoint-w, 'xl2') + 1, 3000px);
+
+    @include mqh-down(lg) {
+      @include responsive-font-size(14, 18, map.get($breakpoint-w, 'xl2') + 1, 3000px);
+    }
+
+    @include mqh-down(xmd) {
+      @include responsive-font-size(10, 14, map.get($breakpoint-w, 'xl2') + 1, 3000px);
+    }
+  }
+
+  @include mqw-down {
+    @include responsive-font-size(16, 20, map.get($breakpoint-w, 'sm'), map.get($breakpoint-w, 'md') - 1);
+  }
+
+  @include mqw-down(sm) {
+    @include responsive-font-size(16, 16, map.get($breakpoint-w, xs), map.get($breakpoint-w, sm));
+  }
+
+  @include mqw-down(xs) {
+    @include responsive-font-size(13, 16, map.get($breakpoint-w, xxs), map.get($breakpoint-w, xs) - 1);
+  }
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow-wrap: break-word;
+  text-size-adjust: none;
+
+  @include mq(retina2x) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &[href^='tel:'] {
+    @include mqw-up {
+      pointer-events: none;
+    }
+
+    @include mqw-down {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Image
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+picture {
+  display: block;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+// Table
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    word-break: break-all;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+  list-style-position: inside;
+}
+
+sup {
+  top: -0.7em;
+  font-size: 50%;
+  line-height: inherit;
+  vertical-align: unset;
+
+  @include mqw-down {
+    top: -0.4em;
+    font-size: 10px;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+button {
+  color: inherit;
+}

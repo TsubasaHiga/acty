@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-page($page-name) {
-  body.#{$page-name} & {
-    @content;
-  }
-}

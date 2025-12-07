@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-edge {
-  html[data-browsername='edge'] & {
-    @content;
-  }
-}

@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+@use 'sass:math';
+@use '../functions' as *;
+
+/// アスペクト比（最大公約数で簡約化）
+/// @param {Number} $number-a - 幅
+/// @param {Number} $number-b - 高さ
+@mixin aspect-ratio($number-a, $number-b) {
+  $gcd: gcd($number-a, $number-b);
+  $a: math.div($number-a, $gcd);
+  $b: math.div($number-b, $gcd);
+
+  aspect-ratio: #{$a} / #{$b};
+}

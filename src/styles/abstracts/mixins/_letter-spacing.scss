@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+@use 'sass:math';
+
+/// レタースペーシング（トラッキング値から変換）
+/// @param {Number} $tracking - トラッキング値（1000分の1em）
+@mixin letter-spacing($tracking) {
+  letter-spacing: #{math.div($tracking, 1000)}em;
+}

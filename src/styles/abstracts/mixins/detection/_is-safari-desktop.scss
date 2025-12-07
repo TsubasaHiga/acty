@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+/// Safari Desktop
+@mixin is-safari-desktop {
+  html[data-browsername='safari'] & {
+    @content;
+  }
+}

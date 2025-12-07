@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@use '../functions' as *;
+@use './icon-ini' as *;
+
+/// 矢印アイコン
+/// @param {Number} $width - サイズ（px）
+/// @param {Number} $bold - 線の太さ（px）
+/// @param {Color} $color - 色
+/// @param {String} $deg - 方向 (left, top, right, bottom)
+@mixin arrow($width, $bold, $color, $deg) {
+  @include icon-ini;
+
+  width: rem($width);
+  height: rem($width);
+  vertical-align: middle;
+  border-color: $color;
+  border-style: solid;
+  border-width: 0 rem($bold) rem($bold) 0;
+
+  @if $deg == 'left' {
+    transform: rotate(135deg);
+  } @else if $deg == 'top' {
+    transform: rotate(225deg);
+  } @else if $deg == 'right' {
+    transform: rotate(-45deg);
+  } @else if $deg == 'bottom' {
+    transform: rotate(45deg);
+  }
+}

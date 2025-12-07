@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/// 画面の向き
+/// @param {String} $orientation - 向き (landscape, portrait)
+/// @param {String} $type - デバイスタイプ
+@mixin orientation($orientation: landscape, $type: mobile) {
+  html[data-type='#{$type}'][data-orientation='#{$orientation}'] & {
+    @content;
+  }
+}

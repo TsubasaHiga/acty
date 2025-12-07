@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/// テキスト非表示
+@mixin hide-text() {
+  overflow: hidden;
+  font: 0/0;
+  color: transparent;
+  text-shadow: none;
+}

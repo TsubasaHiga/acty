@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+// ============================================
+// Base - Index
+// 基本スタイルの集約
+// ============================================
+
+// Design Tokens（CSS Custom Properties）
+@use '../abstracts/config/design-tokens';
+
+// Reset & Base Styles
+@use 'reset';

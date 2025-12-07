@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-type-mobile {
-  html[data-type='mobile'] & {
-    @content;
-  }
-}

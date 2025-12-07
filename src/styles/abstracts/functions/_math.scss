@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+// ============================================
+// Math Functions
+// 数学関数
+// ============================================
+
+/// 最大公約数を計算
+/// @param {Number} $a - 数値A
+/// @param {Number} $b - 数値B
+/// @return {Number} 最大公約数
+@function gcd($a, $b) {
+  @if $b == 0 {
+    @return $a;
+  } @else {
+    @return gcd($b, $a % $b);
+  }
+}

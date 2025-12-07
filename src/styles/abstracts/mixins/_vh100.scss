@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/// 100vh（CSS変数フォールバック対応）
+/// @param {String} $name - CSS変数名
+/// @param {String} $target - 対象プロパティ
+@mixin vh100($name, $target: height) {
+  #{$target}: 100vh;
+  #{$target}: calc(var(#{$name}, 1vh) * 100);
+}

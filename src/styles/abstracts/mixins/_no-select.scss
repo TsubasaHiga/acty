@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/// 選択不可
+/// @param {Boolean} $state - 有効/無効
+@mixin no-select($state: true) {
+  @if $state {
+    pointer-events: none;
+    user-select: none;
+  } @else {
+    pointer-events: unset;
+    user-select: unset;
+  }
+}

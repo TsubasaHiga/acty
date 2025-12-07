@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+// ============================================
+// Main Entry Point
+// グローバルスタイルのメインエントリーポイント
+// ============================================
+
+// External Dependencies
+// 外部CSSリセット
+@use 'ress/ress.css';
+
+// Base Styles
+// ベーススタイル（デザイントークン、リセット）
+@use './base';
+
+// Extends
+// プレースホルダーセレクタ（必要に応じてコンポーネントで @extend）
+@use './extends';
+
+// Utilities
+// ユーティリティクラス
+@use './utilities';

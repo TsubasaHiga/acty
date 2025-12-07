@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@use './canhover' as *;
+
+/// ホバー時のカラー変更（ダーク）
+/// @param {Number} $darken - 暗さのパーセンテージ
+/// @param {Number|Boolean} $ms - トランジション時間
+/// @param {String|Boolean} $ease - イージング関数
+@mixin hover-dark($darken: 100%, $ms: false, $ease: false) {
+  @include canhover {
+    @if $ease {
+      transition: color $ms $ease;
+    } @else {
+      transition: color var(--com-ms) var(--com-es);
+    }
+
+    &:hover {
+      color: rgb(var(--color-black-rgb) / $darken);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+@use '../abstracts' as *;
+
+// ============================================
+// Visibility Utilities
+// 表示制御用ユーティリティクラス
+// ============================================
+
+// Screen Reader Only
+// アクセシビリティ用に視覚的に非表示だがスクリーンリーダーには読み上げられる
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(50%);
+}

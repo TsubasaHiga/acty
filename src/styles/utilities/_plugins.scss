@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@use '../abstracts' as *;
+
+// ============================================
+// Plugin Utilities
+// 外部プラグイン関連のスタイル
+// ============================================
+
+// focus-visible polyfill styles
+.focus-visible:not([not-focus-visible]) {
+  outline: 1px solid rgb(var(--color-primary-rgb) / 50%) !important;
+  outline-width: 5px !important;
+}
+
+[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
+  outline: none;
+}

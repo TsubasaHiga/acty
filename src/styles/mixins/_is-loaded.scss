@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-loaded() {
-  html.is-loaded & {
-    @content;
-  }
-}

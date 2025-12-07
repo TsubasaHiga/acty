@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/// 特定ページ
+/// @param {String} $page-name - ページクラス名
+@mixin is-page($page-name) {
+  body.#{$page-name} & {
+    @content;
+  }
+}

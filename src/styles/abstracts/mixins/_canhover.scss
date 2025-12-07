@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+/// ホバー可能なデバイス
+@mixin canhover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

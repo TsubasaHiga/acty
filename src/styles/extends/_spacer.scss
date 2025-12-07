@@ -1,0 +1,418 @@
+@charset "utf-8";
+
+@use '../abstracts' as *;
+
+// ============================================
+// Spacer Placeholders
+// スペーシング用プレースホルダー
+// ============================================
+
+%e-spacer {
+  @include mqw-up {
+    padding: 0 calc(var(--space-md) * 1);
+
+    @include mqw-up(xmd) {
+      padding: 0 calc(var(--space-xmd) * 1);
+    }
+
+    @include mqw-up(lg) {
+      padding: 0 calc(var(--space-lg) * 1);
+    }
+  }
+
+  @include mqw-down {
+    padding: 0 calc(var(--space-sm) * 1);
+  }
+
+  @include mqw-down(xs) {
+    padding: 0 calc(var(--space-xs) * 1);
+  }
+}
+
+%e-spacer-left {
+  @include mqw-up {
+    padding-left: var(--space-md);
+
+    @include mqw-up(xmd) {
+      padding-left: var(--space-xmd);
+    }
+
+    @include mqw-up(lg) {
+      padding-left: var(--space-lg);
+    }
+  }
+
+  @include mqw-down {
+    padding-left: var(--space-sm);
+  }
+
+  @include mqw-down(xs) {
+    padding-left: var(--space-xs);
+  }
+}
+
+%e-spacer-left-x2 {
+  @include mqw-up {
+    padding-left: calc(var(--space-md) * 1);
+
+    @include mqw-up(xmd) {
+      padding-left: calc(var(--space-xmd) * 1);
+    }
+
+    @include mqw-up(lg) {
+      padding-left: calc(var(--space-lg) * 1);
+    }
+  }
+
+  @include mqw-down {
+    padding-left: calc(var(--space-sm) * 2);
+  }
+
+  @include mqw-down(xs) {
+    padding-left: calc(var(--space-xs) * 2);
+  }
+}
+
+%e-spacer-left-up {
+  @include mqw-up {
+    padding-left: var(--space-md);
+
+    @include mqw-up(xmd) {
+      padding-left: var(--space-xmd);
+    }
+
+    @include mqw-up(lg) {
+      padding-left: var(--space-lg);
+    }
+  }
+}
+
+%e-spacer-left-down {
+  @include mqw-down {
+    padding-left: var(--space-sm);
+  }
+
+  @include mqw-down(xs) {
+    padding-left: var(--space-xs);
+  }
+}
+
+%e-spacer-left-down-x2 {
+  @include mqw-down {
+    padding-left: calc(var(--space-sm) * 2);
+  }
+
+  @include mqw-down(xs) {
+    padding-left: calc(var(--space-xs) * 2);
+  }
+}
+
+%e-spacer-right-down {
+  @include mqw-down {
+    padding-right: calc(var(--space-sm) * 1);
+  }
+
+  @include mqw-down(xs) {
+    padding-right: calc(var(--space-xs) * 1);
+  }
+}
+
+%e-spacer-right-down-x2 {
+  @include mqw-down {
+    padding-right: calc(var(--space-sm) * 2);
+  }
+
+  @include mqw-down(xs) {
+    padding-right: calc(var(--space-xs) * 2);
+  }
+}
+
+%e-spacer-right {
+  @include mqw-up {
+    padding-right: var(--space-md);
+
+    @include mqw-up(xmd) {
+      padding-right: var(--space-xmd);
+    }
+
+    @include mqw-up(lg) {
+      padding-right: var(--space-lg);
+    }
+  }
+
+  @include mqw-down {
+    padding-right: var(--space-sm);
+  }
+
+  @include mqw-down(xs) {
+    padding-right: var(--space-xs);
+  }
+}
+
+%e-spacer-right-x2 {
+  @include mqw-up {
+    padding-right: calc(var(--space-md) * 2);
+
+    @include mqw-up(xmd) {
+      padding-right: calc(var(--space-xmd) * 2);
+    }
+
+    @include mqw-up(lg) {
+      padding-right: calc(var(--space-lg) * 2);
+    }
+  }
+
+  @include mqw-down {
+    padding-right: calc(var(--space-sm) * 2);
+  }
+
+  @include mqw-down(xs) {
+    padding-right: calc(var(--space-xs) * 2);
+  }
+}
+
+%e-spacer-right-up {
+  @include mqw-up {
+    padding-right: var(--space-md);
+
+    @include mqw-up(xmd) {
+      padding-right: var(--space-xmd);
+    }
+
+    @include mqw-up(lg) {
+      padding-right: var(--space-lg);
+    }
+  }
+}
+
+%e-spacer-up {
+  @include mqw-up {
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+
+    @include mqw-up(xmd) {
+      padding-right: var(--space-xmd);
+      padding-left: var(--space-xmd);
+    }
+
+    @include mqw-up(lg) {
+      padding-right: var(--space-lg);
+      padding-left: var(--space-lg);
+    }
+  }
+}
+
+%e-spacer-xmd-down {
+  @include mqw-up {
+    @include mqw-down(xmd) {
+      padding-right: var(--space-xmd);
+      padding-left: var(--space-xmd);
+    }
+  }
+
+  @include mqw-down {
+    padding-right: var(--space-sm);
+    padding-left: var(--space-sm);
+  }
+
+  @include mqw-down(xs) {
+    padding-right: var(--space-xs);
+    padding-left: var(--space-xs);
+  }
+}
+
+%e-spacer-down {
+  @include mqw-down {
+    padding: 0 var(--space-sm);
+  }
+
+  @include mqw-down(xs) {
+    padding: 0 var(--space-xs);
+  }
+}
+
+%e-spacer-down-x2 {
+  @include mqw-down {
+    padding: 0 calc(var(--space-sm) * 2);
+  }
+
+  @include mqw-down(xs) {
+    padding: 0 calc(var(--space-xs) * 2);
+  }
+}
+
+%e-inherit-spacer {
+  @include mqw-up {
+    margin-inline: calc(var(--space-md) * -1);
+
+    @include mqw-up(xmd) {
+      margin-inline: calc(var(--space-xmd) * -1);
+    }
+
+    @include mqw-up(lg) {
+      margin-inline: calc(var(--space-lg) * -1);
+    }
+  }
+
+  @include mqw-down {
+    margin-inline: calc(var(--space-sm) * -1);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline: calc(var(--space-xs) * -1);
+  }
+}
+
+%e-inherit-spacer-sm-down {
+  @include mqw-down {
+    margin-inline: calc(var(--space-sm) * -1);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline: calc(var(--space-xs) * -1);
+  }
+}
+
+%e-inherit-spacer-sm-down-x2 {
+  @include mqw-down {
+    margin-inline: calc(var(--space-sm) * -2);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline: calc(var(--space-xs) * -2);
+  }
+}
+
+%e-inherit-spacer-x2 {
+  @include mqw-up {
+    margin-inline: calc(var(--space-md) * -2);
+
+    @include mqw-up(xmd) {
+      margin-inline: calc(var(--space-xmd) * -2);
+    }
+
+    @include mqw-up(lg) {
+      margin-inline: calc(var(--space-lg) * -2);
+    }
+  }
+
+  @include mqw-down {
+    margin-inline: calc(var(--space-sm) * -2);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline: calc(var(--space-xs) * -2);
+  }
+}
+
+%e-inherit-spacer-left {
+  @include mqw-up {
+    margin-inline-start: calc(var(--space-md) * -1);
+
+    @include mqw-up(xmd) {
+      margin-inline-start: calc(var(--space-xmd) * -1);
+    }
+
+    @include mqw-up(lg) {
+      margin-inline-start: calc(var(--space-lg) * -1);
+    }
+  }
+
+  @include mqw-down {
+    margin-inline-start: calc(var(--space-sm) * -1);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline-start: calc(var(--space-xs) * -1);
+  }
+}
+
+%e-inherit-spacer-left-up {
+  @include mqw-up {
+    margin-inline-start: calc(var(--space-md) * -1);
+
+    @include mqw-up(xmd) {
+      margin-inline-start: calc(var(--space-xmd) * -1);
+    }
+
+    @include mqw-up(lg) {
+      margin-inline-start: calc(var(--space-lg) * -1);
+    }
+  }
+}
+
+%e-inherit-spacer-right {
+  @include mqw-up {
+    margin-inline-end: calc(var(--space-md) * -1);
+
+    @include mqw-up(xmd) {
+      margin-inline-end: calc(var(--space-xmd) * -1);
+    }
+
+    @include mqw-up(lg) {
+      margin-inline-end: calc(var(--space-lg) * -1);
+    }
+  }
+
+  @include mqw-down {
+    margin-inline-end: calc(var(--space-sm) * -1);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline-end: calc(var(--space-xs) * -1);
+  }
+}
+
+%e-inherit-spacer-right-up {
+  @include mqw-up {
+    margin-inline-end: calc(var(--space-md) * -1);
+
+    @include mqw-up(xmd) {
+      margin-inline-end: calc(var(--space-xmd) * -1);
+    }
+
+    @include mqw-up(lg) {
+      margin-inline-end: calc(var(--space-lg) * -1);
+    }
+  }
+}
+
+%e-inherit-spacer-left-down {
+  @include mqw-down {
+    margin-inline-start: calc(var(--space-sm) * -1);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline-start: calc(var(--space-xs) * -1);
+  }
+}
+
+%e-inherit-spacer-right-down {
+  @include mqw-down {
+    margin-inline-end: calc(var(--space-sm) * -1);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline-end: calc(var(--space-xs) * -1);
+  }
+}
+
+%e-inherit-spacer-right-down-x2 {
+  @include mqw-down {
+    margin-inline-end: calc(var(--space-sm) * -2);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline-end: calc(var(--space-xs) * -2);
+  }
+}
+
+%e-inherit-spacer-left-down-x2 {
+  @include mqw-down {
+    margin-inline-start: calc(var(--space-sm) * -2);
+  }
+
+  @include mqw-down(xs) {
+    margin-inline-start: calc(var(--space-xs) * -2);
+  }
+}

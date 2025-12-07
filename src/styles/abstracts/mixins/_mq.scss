@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/// カスタムメディアクエリ
+/// @param {String} $size - クエリタイプ (retina2x, retina3x, max-width, min-width, max-height, min-height)
+/// @param {Number} $px - ピクセル値（オプション）
+@mixin mq($size, $px: false) {
+  @if $size == 'retina2x' {
+    @media (resolution >= 2dppx) {
+      @content;
+    }
+  }
+
+  @if $size == 'retina3x' {
+    @media (resolution >= 3dppx) {
+      @content;
+    }
+  }
+
+  @if $px {
+    @if $size == 'max-width' {
+      @media screen and (max-width: $px) {
+        @content;
+      }
+    } @else if $size == 'min-width' {
+      @media screen and (min-width: $px) {
+        @content;
+      }
+    } @else if $size == 'max-height' {
+      @media screen and (max-height: $px) {
+        @content;
+      }
+    } @else if $size == 'min-height' {
+      @media screen and (min-height: $px) {
+        @content;
+      }
+    }
+  }
+}

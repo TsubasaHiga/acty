@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/// 最後以外の要素
+/// @param {Boolean} $hasChild - :last-childを使用
+@mixin notlast($hasChild: false) {
+  @if $hasChild {
+    &:not(:last-child) {
+      @content;
+    }
+  } @else {
+    &:not(:last-of-type) {
+      @content;
+    }
+  }
+}

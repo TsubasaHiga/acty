@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin odd {
-  &:nth-of-type(odd) {
-    @content;
-  }
-}

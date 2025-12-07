@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@use 'sass:math';
+@use '../functions' as *;
+
+/// フォントサイズ設定（SP用・半分サイズ）
+/// @param {Number} $size - フォントサイズ（px・PC基準）
+/// @param {Number|Boolean} $height - 行の高さ（px）
+/// @param {Number|Boolean} $weight - フォントウェイト
+/// @param {Boolean} $clip - テキストクリップ有効化
+@mixin fzs($size, $height: false, $weight: false, $clip: true) {
+  $size-half: math.div($size, 2);
+
+  font-size: rem($size-half);
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $height {
+    line-height: math.div(math.div($height, 2), $size-half);
+  }
+
+  @if $clip {
+    margin-block: calc((1em - 1lh) / 2);
+  }
+}

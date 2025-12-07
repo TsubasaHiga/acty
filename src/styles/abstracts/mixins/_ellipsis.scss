@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/// テキスト省略
+/// @param {Boolean} $is-clamp - 複数行省略を使用
+/// @param {Number} $line - 表示行数
+@mixin ellipsis($is-clamp: false, $line: 2) {
+  @if $is-clamp {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $line;
+  } @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

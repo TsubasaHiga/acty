@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+@use 'sass:map';
+@use '../config' as *;
+
+/// 指定高さ未満（max-height）
+/// @param {String} $breakpoint - ブレークポイント名
+@mixin mqh-down($breakpoint: md) {
+  @media screen and (max-height: map.get($breakpoint-h, $breakpoint) - 1px) {
+    @content;
+  }
+}

@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/// 最初以外の要素
+/// @param {Boolean} $hasChild - :first-childを使用
+@mixin notfirst($hasChild: false) {
+  @if $hasChild {
+    &:not(:first-child) {
+      @content;
+    }
+  } @else {
+    &:not(:first-of-type) {
+      @content;
+    }
+  }
+}

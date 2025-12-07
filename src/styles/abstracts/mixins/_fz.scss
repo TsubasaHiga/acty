@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+@use 'sass:math';
+@use '../functions' as *;
+
+/// フォントサイズ設定（rem変換）
+/// @param {Number} $size - フォントサイズ（px）
+/// @param {Number|Boolean} $height - 行の高さ（px）
+/// @param {Number|Boolean} $weight - フォントウェイト
+/// @param {Boolean} $clip - テキストクリップ有効化
+@mixin fz($size, $height: false, $weight: false, $clip: true) {
+  font-size: rem($size);
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $height {
+    line-height: math.div($height, $size);
+  }
+
+  @if $clip {
+    margin-block: calc((1em - 1lh) / 2);
+  }
+}

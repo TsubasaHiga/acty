@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@use 'sass:math';
+
+/// レスポンシブフォントサイズ（clamp使用）
+/// @param {Number} $fontSizeMin - 最小フォントサイズ（px）
+/// @param {Number} $fontSizeMax - 最大フォントサイズ（px）
+/// @param {Number} $viewport-width-min - 最小ビューポート幅
+/// @param {Number} $viewport-width-max - 最大ビューポート幅
+@mixin responsive-font-size($fontSizeMin, $fontSizeMax, $viewport-width-min, $viewport-width-max) {
+  $viewport-width-min: math.div($viewport-width-min, 1px);
+  $viewport-width-max: math.div($viewport-width-max, 1px);
+  $x: math.div($fontSizeMax - $fontSizeMin, $viewport-width-max - $viewport-width-min);
+  $y: $fontSizeMax - ($viewport-width-max * $x);
+  $x: $x * 100;
+
+  font-size: clamp(#{$fontSizeMin}px, calc(#{$y}px + #{$x}vw), #{$fontSizeMax}px);
+}

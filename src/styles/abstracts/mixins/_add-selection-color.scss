@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/// 選択時の背景色
+/// @param {String} $color-rgb - RGB値のCSS変数
+/// @param {Number} $opacity - 透明度
+@mixin add-selection-color($color-rgb: var(--color-white-rgb), $opacity: 20%) {
+  *::selection {
+    background-color: rgb($color-rgb / $opacity);
+  }
+}

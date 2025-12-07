@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+@use 'sass:math';
+
+// ============================================
+// Unit Functions
+// 単位変換関数
+// ============================================
+
+/// px を rem に変換
+/// @param {Number} $num - ピクセル値
+/// @param {String} $size - サイズ (md: 16px基準, sm: 8px基準)
+/// @return {Number} rem値
+@function rem($num, $size: md) {
+  @if $size == md {
+    @return #{math.div($num, 16)}rem;
+  } @else if $size == sm {
+    @return #{math.div(math.div($num, 2), 16)}rem;
+  }
+}
+
+/// パーセント計算
+/// @param {Number} $num - 分子
+/// @param {Number} $base - 分母
+/// @return {Number} パーセント値
+@function percent($num, $base) {
+  @return (math.div($num, $base)) * 100%;
+}
+
+/// px を vw に変換
+/// @param {Number} $num - ピクセル値
+/// @param {String} $size - サイズ (md: 1600px基準, sm: 375px基準)
+/// @return {Number} vw値
+@function vw($num, $size: md) {
+  @if $size == md {
+    @return (math.div($num, 1600)) * 100vw;
+  } @else if $size == sm {
+    @return (math.div($num, 375)) * 100vw;
+  }
+}
+
+/// px を vw に変換（SP専用・分割比率対応）
+/// @param {Number} $num - ピクセル値
+/// @param {Number} $divide-ratio - 分割比率
+/// @return {Number} vw値
+@function vws($num, $divide-ratio: 1) {
+  $w: math.div($num, $divide-ratio);
+
+  @return (math.div($w, 375)) * 100vw;
+}
+
+/// px を vh に変換
+/// @param {Number} $num - ピクセル値
+/// @param {String} $size - サイズ (md: 948px基準, sm: 844px基準)
+/// @return {Number} vh値
+@function vh($num, $size: md) {
+  @if $size == md {
+    @return (math.div($num, 948)) * 100vh;
+  } @else if $size == sm {
+    @return (math.div($num, 844)) * 100vh;
+  }
+}

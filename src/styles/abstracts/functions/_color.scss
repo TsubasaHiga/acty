@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+@use 'sass:color';
+
+// ============================================
+// Color Functions
+// カラー関連関数
+// ============================================
+
+/// HEXカラーをRGB値に変換（CSS変数用）
+/// @param {Color} $color - カラー値
+/// @return {String} "R G B" 形式の文字列
+@function convert-rgb($color) {
+  @return color.channel($color, 'red') color.channel($color, 'green') color.channel($color, 'blue');
+}

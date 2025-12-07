@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/// タッチサポート
+/// @param {Boolean} $state - タッチ対応/非対応
+/// @param {Boolean} $notIncludeWindowsOs - Windows除外
+@mixin touch-support($state: true, $notIncludeWindowsOs: true) {
+  @if $state {
+    @if $notIncludeWindowsOs {
+      html[data-touchSupport='true']:not([data-osname='windows']) & {
+        @content;
+      }
+    } @else {
+      html[data-touchSupport='true'] & {
+        @content;
+      }
+    }
+  } @else {
+    html[data-touchSupport='false'] & {
+      @content;
+    }
+
+    html[data-touchSupport='true'][data-osname='windows'] & {
+      @content;
+    }
+  }
+}

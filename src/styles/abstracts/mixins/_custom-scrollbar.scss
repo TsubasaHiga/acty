@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+@use './mqw-up' as *;
+
+/// カスタムスクロールバー
+/// @param {Boolean} $isOverflowX - 横スクロール用
+@mixin custom-scrollbar($isOverflowX: true) {
+  @include mqw-up {
+    &::-webkit-scrollbar-track {
+      background-color: rgb(var(--color-white-rgb) / 15%);
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      cursor: pointer;
+      background-color: rgb(var(--color-white-rgb) / 50%);
+      background-clip: padding-box;
+    }
+
+    @if $isOverflowX {
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 0 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+    } @else {
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 4px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+      }
+    }
+  }
+}

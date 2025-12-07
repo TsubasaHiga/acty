@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-scroll() {
-  html.is-scroll & {
-    @content;
-  }
-}

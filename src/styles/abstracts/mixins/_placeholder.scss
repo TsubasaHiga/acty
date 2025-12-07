@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+/// プレースホルダースタイル
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+
+  &:placeholder-shown {
+    @content;
+  }
+}

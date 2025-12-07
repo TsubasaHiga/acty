@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+// ============================================
+// Abstracts - Public API
+// ============================================
+// 外部ファイルはこのファイルのみを @use する
+// 内部構造の変更はここで吸収される
+// Usage: @use '@/styles/abstracts' as *;
+// ============================================
+
+// Config（SCSS変数）
+@forward 'config';
+
+// Functions（関数）
+@forward 'functions';
+
+// Mixins
+@forward 'mixins';

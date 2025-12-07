@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/// Safari（デスクトップ・モバイル両方）
+@mixin is-safari {
+  html[data-browsername='safari'] &,
+  html[data-browsername='mobile-safari'] & {
+    @content;
+  }
+}

@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-open-menu($state: 'true') {
-  html[data-open-menu='#{$state}'] & {
-    @content;
-  }
-}

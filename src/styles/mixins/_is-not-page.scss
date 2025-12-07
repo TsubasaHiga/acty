@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin is-not-page($page-name) {
-  body:not(.#{$page-name}) & {
-    @content;
-  }
-}
