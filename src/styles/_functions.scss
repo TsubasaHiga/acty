@@ -14,12 +14,9 @@
 }
 
 // percent
-@function percent($num, $size: md) {
-  @if $size == md {
-    @return (math.div($num, 1600)) * 100%;
-  } @else if $size == sm {
-    @return (math.div($num, 375)) * 100%;
-  }
+// percent
+@function percent($num, $base) {
+  @return (math.div($num, $base)) * 100%;
 }
 
 // vw
