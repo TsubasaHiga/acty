@@ -31,12 +31,10 @@ pnpm-debug.log*
 # public/assets/images配下を無視
 public/assets/images/*
 
-# serena
-.serena/memories/
-.serena/cache/
-.serena/index/
-.serena/logs/
-.serena/dashboard/
+# AI tools (user-specific settings)
+.mcp.json
+.serena/
+.claude/settings.local.json
 
 # custom
 tmp/

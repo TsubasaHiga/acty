@@ -23,7 +23,21 @@
 
 ## プロジェクト概要
 
-Actyは**Astro 5**で構築された静的Webサイトです。インタラクティブなコンポーネントには**React 19**を使用し、スタイリングにはTailwind CSSとSCSS、状態管理にはnanostoresを採用しています。
+Actyは**Astro 5**で構築された静的Webサイトの**テンプレートリポジトリ**です。インタラクティブなコンポーネントには**React 19**を使用し、スタイリングにはTailwind CSSとSCSS、状態管理にはnanostoresを採用しています。
+
+### テンプレートとしての性質
+
+このリポジトリは新規プロジェクトのボイラープレートとして機能します。cloneした後、以下のファイルは利用者が自身の環境に合わせて設定する必要があります：
+
+- `src/siteConfig.ts`: サイト名、URL、テーマカラー等
+- `src/pageDataList.ts`: ページメタデータ
+- `public/`: ファビコン、OGP画像等のアセット
+
+以下のファイルは`.gitignore`で除外されており、利用者が各自で設定します：
+
+- `.mcp.json`: MCP（Model Context Protocol）サーバー設定
+- `.serena/`: Serena AI開発支援ツールの設定・メモリ
+- `.claude/settings.local.json`: Claude Codeの個人設定
 
 ## 開発コマンド
 

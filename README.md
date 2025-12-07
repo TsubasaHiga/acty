@@ -70,6 +70,31 @@ $ pnpm -v
 9.15.4
 ```
 
+## 利用開始前の準備
+
+Actyをclone/DLした後、開発を始める前に以下の対応を行ってください。
+
+### 必須
+
+| ファイル               | 対応                                          |
+| ---------------------- | --------------------------------------------- |
+| `CLAUDE.md`            | **削除**（Acty開発用のClaude Code設定のため） |
+| `package.json`         | `name`, `version`を変更                       |
+| `src/siteConfig.ts`    | サイト名、URL、テーマカラー等を変更           |
+| `src/pageDataList.ts`  | ページメタデータを変更                        |
+| `public/favicon.svg`   | ファビコンを差し替え                          |
+| `public/ogp-image.png` | OGP画像を差し替え                             |
+| `README.md`            | プロジェクトに合わせて書き換え                |
+
+### 任意
+
+以下は開発中に必要に応じて削除・編集してください。
+
+- **サンプルコンポーネント**: `src/components/Foo/`, `Bar/`, `Baz/`
+- **サンプル画像**: `src/images/`配下
+- **サンプルページ**: `src/pages/about.astro`等
+- **ドキュメント**: `docs/`配下（汎用的な内容のため残しても可）
+
 ## セットアップ
 
 ```bash
