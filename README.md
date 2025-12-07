@@ -2,6 +2,15 @@
 
 Astro製の静的サイト構築ボイラープレート。
 
+> [!IMPORTANT]
+> **v0.0.12 破壊的変更: パッケージマネージャーをyarnからpnpmに変更しました**
+>
+> 既存の環境で開発を継続する場合は以下を実行してください：
+>
+> ```bash
+> rm -rf node_modules yarn.lock && pnpm install
+> ```
+
 ## Required Environment
 
 - Node.js `v23.4.0`
