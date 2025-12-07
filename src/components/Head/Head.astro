@@ -16,7 +16,7 @@ export interface Props {
 }
 const { pageName, meta } = Astro.props
 const { title: defaultTitle, description: defaultDescription } = GetPageDataFromPageDataList(pageName)
-const { href, origin } = Astro.url
+const { pathname } = Astro.url
 
 const title =
   pageName === 'top' ? meta?.title || defaultTitle : (meta?.title || defaultTitle) + '｜' + siteConfig.siteName
@@ -28,13 +28,13 @@ const description = meta?.description || defaultDescription
     title={title}
     charset={'UTF-8'}
     description={description}
-    canonical={siteConfig.siteUrl}
+    canonical={siteConfig.siteUrl + pathname}
     openGraph={{
       basic: {
         title,
         type: 'website',
-        image: origin + '/ogp-image.png',
-        url: href
+        image: siteConfig.siteUrl + '/ogp-image.jpg',
+        url: siteConfig.siteUrl + pathname
       },
       optional: {
         description: description,
