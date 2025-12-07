@@ -1,4 +1,4 @@
-# Acty
+# Acty (Astro × React × Easy)
 
 日本語ユーザー向けのAstro製静的サイト構築ボイラープレートです。
 
