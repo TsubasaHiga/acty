@@ -126,14 +126,30 @@ import type { PageNameType } from '@/types/PageDataListType'
 
 ### SCSSアーキテクチャ
 
-グローバルSCSS変数、mixin、関数は`astro.config.ts`のVite設定で自動注入：
+7-1パターンをベースとしたSingle Entry Point構成を採用。詳細は[docs/style-system.md](./docs/style-system.md)を参照。
 
-- `src/styles/_variables.scss`: デザイントークン
-- `src/styles/_mixin.scss`: 再利用可能なmixin
-- `src/styles/_functions.scss`: SCSS関数
-- `src/styles/Extends/e-spacer`: スペーシングユーティリティ
+```
+src/styles/
+├── abstracts/           # 変数・関数・mixin（出力なし）
+│   ├── _index.scss      # Public API（エントリーポイント）
+│   ├── config/          # ブレークポイント、デザイントークン
+│   ├── functions/       # 単位変換関数（rem, vw, vh）
+│   └── mixins/          # 1ファイル1mixin構成
+│       └── detection/   # ブラウザ・OS・デバイス検出
+├── base/                # リセット・ベーススタイル
+├── extends/             # プレースホルダーセレクタ
+├── utilities/           # ユーティリティクラス
+└── main.scss            # メインエントリーポイント
+```
 
-mixinにはブラウザ検出（`is-safari`, `is-firefox`）、OS検出（`is-ios`, `is-android`）、レスポンシブユーティリティ（`mqw-up`, `mqw-down`）が含まれます。
+**Single Entry Point パターン**: コンポーネントSCSSでは明示的な`@use`が不要（`astro.config.ts`で自動注入）
+
+**主要なmixin**:
+
+- メディアクエリ: `mqw-up`, `mqw-down`, `mqh-up`, `mqh-down`
+- 検出系: `is-safari`, `is-firefox`, `is-ios`, `is-android`, `is-type-mobile`
+- タイポグラフィ: `fz`, `fzs`, `letter-spacing`, `responsive-font-size`
+- レイアウト: `vh100`, `aspect-ratio`, `custom-scrollbar`
 
 ### サイト設定
 

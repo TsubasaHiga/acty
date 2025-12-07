@@ -124,9 +124,12 @@ src/
 ├── components/     # Astro/Reactコンポーネント
 ├── layouts/        # レイアウトテンプレート
 ├── pages/          # ページファイル（ルーティング）
-├── styles/         # グローバルSCSS
-│   ├── mixins/     # SCSSミックスイン
-│   └── Utilities/  # ユーティリティクラス
+├── styles/         # グローバルSCSS（7-1パターンベース）
+│   ├── abstracts/  # 変数・関数・mixin（Single Entry Point）
+│   ├── base/       # リセット・ベーススタイル
+│   ├── extends/    # プレースホルダーセレクタ
+│   ├── utilities/  # ユーティリティクラス
+│   └── main.scss   # エントリーポイント
 ├── store/          # nanostores状態管理
 ├── modules/        # TypeScriptモジュール
 ├── utils/          # ユーティリティ関数
@@ -137,5 +140,6 @@ src/
 
 ## ドキュメント
 
+- [スタイルシステム](./docs/style-system.md)
 - [バージョニングについて](./docs/semver.md)
 - [コミットメッセージについて](./docs/commit-message.md)
