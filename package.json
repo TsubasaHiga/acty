@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "build-stg": "yarn build && yarn copyDistDir",
-    "preview": "yarn build && astro preview",
-    "archive": "yarn build && yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/genDistArchive.ts",
-    "copyDistDir": "yarn node --loader ts-node/esm scripts/copyDistDirectory.ts",
+    "build-stg": "pnpm build && pnpm copyDistDir",
+    "preview": "pnpm build && astro preview",
+    "archive": "pnpm build && node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/genDistArchive.ts",
+    "copyDistDir": "node --loader ts-node/esm scripts/copyDistDirectory.ts",
     "astro": "astro",
-    "convertImages": "yarn node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts",
+    "convertImages": "node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts",
     "lint:scripts": "eslint --ext .ts,.tsx,.astro",
     "lint:styles": "stylelint \"src/**/*.{css,scss,html,astro}\"",
     "lint:html": "markuplint \"./src/**/*.astro\"",
@@ -27,9 +27,9 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,astro}": "yarn lint:scripts",
-    "*.{css,scss,html,astro}": "yarn lint:styles",
-    "*": "yarn format"
+    "*.{ts,tsx,astro}": "pnpm lint:scripts",
+    "*.{css,scss,html,astro}": "pnpm lint:styles",
+    "*": "pnpm format"
   },
   "dependencies": {
     "@astrojs/check": "0.9.6",
@@ -97,5 +97,5 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "pnpm@9.15.4"
 }

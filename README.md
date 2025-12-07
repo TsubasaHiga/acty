@@ -5,7 +5,7 @@ Astro製の静的サイト構築ボイラープレート。
 ## Required Environment
 
 - Node.js `v23.4.0`
-- Yarn `v4.1.1`
+- pnpm `v9.15.4`
 
 ```bash
 # macOS
@@ -17,8 +17,8 @@ BuildVersion:   23E224
 $ node -v
 23.4.0
 
-$ yarn -v
-4.1.1
+$ pnpm -v
+9.15.4
 
 # Windows OS
 $ ver
@@ -27,30 +27,30 @@ Microsoft Windows [Version 10.0.22631.4602]
 $ node -v
 23.4.0
 
-$ yarn -v
-4.1.1
+$ pnpm -v
+9.15.4
 ```
 
 ## Install
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ## Dev
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## Build
 
 ```bash
 # production build
-yarn build
+pnpm build
 
 # production build + zip archive
-yarn archive
+pnpm archive
 ```
 
 ## Docs
