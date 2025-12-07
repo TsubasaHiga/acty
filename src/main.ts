@@ -1,9 +1,10 @@
 import 'focus-visible'
 
-import AddUaData from '@modules/AddUaData'
-import InView from '@modules/InView'
-import SetOrientation from '@modules/SetOrientation'
 import { debounce, getDocumentHeight, throttle } from 'umaki'
+
+import AddUaData from '@/modules/AddUaData'
+import InView from '@/modules/InView'
+import SetOrientation from '@/modules/SetOrientation'
 
 const onDOMContentLoaded = () => {
   // AddUaData

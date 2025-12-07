@@ -2,9 +2,10 @@
 /**
  * Local Image Component
  */
-import { getImageSize } from '@utils/getImageSize'
-import GetPathFromLocalPublic from '@utils/getPathFromLocalPublic'
 import type { HTMLAttributes } from 'astro/types'
+
+import { getImageSize } from '@/utils/getImageSize'
+import GetPathFromLocalPublic from '@/utils/getPathFromLocalPublic'
 
 export interface Props extends HTMLAttributes<'img'> {
   src: string

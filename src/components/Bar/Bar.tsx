@@ -1,5 +1,6 @@
 import { useStore } from '@nanostores/react'
-import { count } from '@store/atoms/count'
+
+import { count } from '@/store/atoms/count'
 
 import styles from './Bar.module.scss'
 

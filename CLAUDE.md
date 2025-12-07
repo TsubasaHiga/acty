@@ -72,19 +72,15 @@ pnpm convertImages
 `tsconfig.json`で設定済み：
 
 - `@/*` → `src/*`
-- `@components/*` → `src/components/*`
-- `@const/*` → `src/const/*`
-- `@contents/*` → `src/contents/*`
-- `@hooks/*` → `src/hooks/*`
-- `@layouts/*` → `src/layouts/*`
-- `@libs/*` → `src/libs/*`
-- `@modules/*` → `src/modules/*`
-- `@pages/*` → `src/pages/*`
-- `@store/*` → `src/store/*`
-- `@styles/*` → `src/styles/*`
-- `@type/*` → `src/types/*`
-- `@utils/*` → `src/utils/*`
-- `@images/*` → `src/images/*`
+
+すべてのimportは`@/`から始める形式に統一。例：
+
+```typescript
+import { siteConfig } from '@/siteConfig'
+import Layout from '@/layouts/Layout.astro'
+import { values } from '@/const/values'
+import type { PageNameType } from '@/types/PageDataListType'
+```
 
 ### Astroインテグレーション
 

@@ -1,11 +1,11 @@
 ---
-import '@styles/common.scss'
+import '@/styles/common.scss'
 
-import type { PageNameType } from '@type/PageDataListType'
-import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
 import { SEO } from 'astro-seo'
 
 import { siteConfig } from '@/siteConfig'
+import type { PageNameType } from '@/types/PageDataListType'
+import GetPageDataFromPageDataList from '@/utils/getPageDataFromPageDataList'
 
 export interface Props {
   pageName: PageNameType

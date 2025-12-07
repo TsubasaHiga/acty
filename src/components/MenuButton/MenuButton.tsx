@@ -1,7 +1,8 @@
 import { useStore } from '@nanostores/react'
-import { siteState } from '@store/atoms/siteState'
 import clsx from 'clsx'
 import { useEffect } from 'react'
+
+import { siteState } from '@/store/atoms/siteState'
 
 import styles from './MenuButton.module.scss'
 
