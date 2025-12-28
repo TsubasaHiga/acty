@@ -113,6 +113,9 @@ const defaultConfig: AstroUserConfig = {
 // productionでのみ有効な設定
 const productionConfig: AstroUserConfig = {
   vite: {
+    build: {
+      minify: 'esbuild'
+    },
     // ビルド時にconsole.logやdebuggerを削除
     esbuild: {
       drop: ['debugger'],
