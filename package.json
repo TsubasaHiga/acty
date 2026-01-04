@@ -58,7 +58,7 @@
     "@types/chokidar": "^2.1.7",
     "@types/js-beautify": "^1",
     "@types/jsdom": "^27.0.0",
-    "@types/node": "^24.10.4",
+    "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
