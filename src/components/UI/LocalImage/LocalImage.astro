@@ -5,7 +5,7 @@
 import type { HTMLAttributes } from 'astro/types'
 
 import { getImageSize } from '@/utils/getImageSize'
-import GetPathFromLocalPublic from '@/utils/getPathFromLocalPublic'
+import { getPathFromLocalPublic } from '@/utils/getPathFromLocalPublic'
 
 export interface Props extends HTMLAttributes<'img'> {
   src: string
@@ -13,13 +13,22 @@ export interface Props extends HTMLAttributes<'img'> {
   width?: number
   alt?: string
   lazy?: boolean
+  fetchpriority?: HTMLAttributes<'img'>['fetchpriority']
 }
-const { src, width: srcWidth, height: srcHeight, alt = '', lazy = true, ...attr } = Astro.props
+const { src, width: srcWidth, height: srcHeight, alt = '', lazy = true, fetchpriority, ...attr } = Astro.props
 
 // srcの画像サイズを取得
 // srcWidthとsrcHeightが指定されている場合はそれを優先
 const { width, height } =
-  srcWidth && srcHeight ? { width: srcWidth, height: srcHeight } : await getImageSize(GetPathFromLocalPublic(src))
+  srcWidth && srcHeight ? { width: srcWidth, height: srcHeight } : await getImageSize(getPathFromLocalPublic(src))
 ---
 
-<img src={src} alt={alt} loading={lazy ? 'lazy' : 'eager'} height={height} width={width} {...attr} />
+<img
+  src={src}
+  alt={alt}
+  loading={lazy ? 'lazy' : 'eager'}
+  fetchpriority={fetchpriority}
+  height={height}
+  width={width}
+  {...attr}
+/>

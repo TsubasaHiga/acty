@@ -1,0 +1,21 @@
+---
+const { className, ...attr } = Astro.props
+---
+
+<div class={className} {...attr}>
+  <slot />
+</div>
+
+<style lang="scss">
+  div {
+    @include mqw-down {
+      padding-right: var(--space-sm);
+      padding-left: var(--space-sm);
+    }
+
+    @include mqw-down(xs) {
+      padding-right: var(--space-xs);
+      padding-left: var(--space-xs);
+    }
+  }
+</style>

@@ -5,7 +5,7 @@ import { SEO } from 'astro-seo'
 
 import { siteConfig } from '@/siteConfig'
 import type { PageNameType } from '@/types/PageDataListType'
-import GetPageDataFromPageDataList from '@/utils/getPageDataFromPageDataList'
+import { getPageDataFromPageDataList } from '@/utils/getPageDataFromPageDataList'
 
 export interface Props {
   pageName: PageNameType
@@ -15,7 +15,7 @@ export interface Props {
   }
 }
 const { pageName, meta } = Astro.props
-const { title: defaultTitle, description: defaultDescription } = GetPageDataFromPageDataList(pageName)
+const { title: defaultTitle, description: defaultDescription } = getPageDataFromPageDataList(pageName)
 const { pathname } = Astro.url
 
 const title =

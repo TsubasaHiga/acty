@@ -1,7 +1,7 @@
 import { logger } from '@nanostores/logger'
 import { atom } from 'nanostores'
 
-import isProduction from '@/utils/isProduction'
+import { isProduction } from '@/utils/isProduction'
 
 export type SiteStateType = {
   isOpenMenu: boolean

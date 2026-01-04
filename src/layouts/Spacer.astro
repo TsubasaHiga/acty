@@ -1,4 +1,8 @@
-<div>
+---
+const { className, ...attr } = Astro.props
+---
+
+<div class={className} {...attr}>
   <slot />
 </div>
 
@@ -26,6 +30,11 @@
       @include mqw-up(xl2) {
         padding-right: var(--space-xl2);
         padding-left: var(--space-xl2);
+      }
+
+      @include mqw-up(xl3) {
+        padding-right: var(--space-xl3);
+        padding-left: var(--space-xl3);
       }
     }
 

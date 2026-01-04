@@ -8,7 +8,9 @@
 // ============================================
 
 .u-animation {
-  $delay: 0ms;
+  --ms: 600ms;
+  --es: cubic-bezier(0.035, 0.217, 0.536, 1.09);
+  --delay: 40ms;
 
   &[data-animation='fade-in-up'] {
     opacity: 0;
@@ -19,24 +21,9 @@
       opacity: 1;
       translate: 0 0;
       transition:
-        translate var(--long-ms) var(--long-es),
-        opacity var(--long-ms) var(--long-es);
-      transition-delay: 100ms;
-    }
-  }
-
-  &[data-animation='fade-in-long-up'] {
-    opacity: 0;
-    translate: 0 rem(30);
-    will-change: translate, opacity;
-
-    &.is-animation {
-      opacity: 1;
-      translate: 0 0;
-      transition:
-        translate var(--long-ms) var(--long-es),
-        opacity var(--long-ms) var(--long-es);
-      transition-delay: 100ms;
+        translate var(--ms) var(--es),
+        opacity var(--ms) var(--es);
+      transition-delay: var(--delay);
     }
   }
 
@@ -49,9 +36,9 @@
       opacity: 1;
       translate: 0 0;
       transition:
-        opacity var(--long-ms) var(--long-es),
-        translate var(--long-ms) var(--long-es);
-      transition-delay: 100ms;
+        opacity var(--ms) var(--es),
+        translate var(--ms) var(--es);
+      transition-delay: var(--delay);
     }
   }
 }

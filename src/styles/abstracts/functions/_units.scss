@@ -9,14 +9,10 @@
 
 /// px を rem に変換
 /// @param {Number} $num - ピクセル値
-/// @param {String} $size - サイズ (md: 16px基準, sm: 8px基準)
+/// @param {Number} $divide-ratio - 分割比率（デフォルト: 1）
 /// @return {Number} rem値
-@function rem($num, $size: md) {
-  @if $size == md {
-    @return #{math.div($num, 16)}rem;
-  } @else if $size == sm {
-    @return #{math.div(math.div($num, 2), 16)}rem;
-  }
+@function rem($num, $divide-ratio: 1) {
+  @return #{math.div(math.div($num, $divide-ratio), 16)}rem;
 }
 
 /// パーセント計算

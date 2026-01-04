@@ -3,6 +3,4 @@ import path from 'node:path'
 /**
  * Get path from local public folder
  */
-const GetPathFromLocalPublic = (fileName: string): string => path.join(process.cwd(), 'public', fileName)
-
-export default GetPathFromLocalPublic
+export const getPathFromLocalPublic = (fileName: string): string => path.join(process.cwd(), 'public', fileName)

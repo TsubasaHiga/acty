@@ -6,7 +6,7 @@ import Foo from '@/components/Foo/Foo'
 import Layout from '@/layouts/Layout.astro'
 import MainContainer from '@/layouts/MainContainer.astro'
 import Spacer from '@/layouts/Spacer.astro'
-import GetPath from '@/utils/getPath'
+import { getPath } from '@/utils/getPath'
 ---
 
 <Layout pageName="top">
@@ -18,7 +18,7 @@ import GetPath from '@/utils/getPath'
         <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
       </p>
       <ul class="link-card-grid">
-        <Card href={GetPath('about/')} title="about" body="Learn how Astro works and explore the official API docs." />
+        <Card href={getPath('about/')} title="about" body="Learn how Astro works and explore the official API docs." />
         <Card
           href="https://astro.build/integrations/"
           title="Integrations"

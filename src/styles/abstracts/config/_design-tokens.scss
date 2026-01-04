@@ -11,7 +11,8 @@
   // ----------------------------------------
   // TYPOGRAPHY
   // ----------------------------------------
-  --font-family: 'Local Noto Sans JP', 'Noto Sans JP', sans-serif;
+  --font-noto: 'Local Noto Sans JP', 'Noto Sans JP', sans-serif;
+  --font-family: var(--font-noto);
 
   // ----------------------------------------
   // COLORS
@@ -35,18 +36,14 @@
   // ----------------------------------------
   // SPACING
   // ----------------------------------------
-  --space-lg: #{rem(100)};
+  --space-xl3: #{rem(150)};
+  --space-xl2: #{rem(120)};
+  --space-xl: #{rem(100)};
+  --space-lg: #{rem(80)};
   --space-xmd: #{rem(60)};
   --space-md: #{rem(20)};
   --space-sm: #{rem(15)};
   --space-xs: #{rem(10)};
-
-  // short space
-  --short-space-lg: #{rem(60)};
-  --short-space-xmd: #{rem(40)};
-  --short-space-md: #{rem(20)};
-  --short-space-sm: #{rem(15)};
-  --short-space-xs: #{rem(10)};
 
   // ----------------------------------------
   // LAYOUT
@@ -59,9 +56,7 @@
   // ----------------------------------------
   --com-ms: 400ms;
   --com-es: ease;
-  --long-ms: 1200ms;
-  --long-es: ease;
-  --long-each-ms: 80ms;
+  --com-ease-delay: 80ms;
 
   // ----------------------------------------
   // EASING FUNCTIONS
@@ -112,5 +107,18 @@
 // ----------------------------------------
 @font-face {
   font-family: 'Local Noto Sans JP';
-  src: local('Noto Sans JP');
+  font-weight: 400;
+  src: local('Noto Sans JP Regular'), local('NotoSansJP-Regular');
+}
+
+@font-face {
+  font-family: 'Local Noto Sans JP';
+  font-weight: 700;
+  src: local('Noto Sans JP Bold'), local('NotoSansJP-Bold');
+}
+
+@font-face {
+  font-family: 'Local Noto Sans JP';
+  font-weight: 900;
+  src: local('Noto Sans JP Black'), local('NotoSansJP-Black');
 }

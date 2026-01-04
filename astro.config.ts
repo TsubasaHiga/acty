@@ -6,10 +6,11 @@ import robotsTxt from 'astro-robots-txt'
 import merge from 'deepmerge'
 import { loadEnv } from 'vite'
 
+import googleFontsOptimizer from './integrations/googleFontsOptimizer'
 import imagesOptimize from './integrations/imagesOptimize'
 import prettyHtml from './integrations/prettyHtml'
 import { siteConfig } from './src/siteConfig'
-import isProduction from './src/utils/isProduction'
+import { isProduction } from './src/utils/isProduction'
 
 type AstroUserConfig = typeof defineConfig extends (config: infer T) => any ? T : never
 
@@ -52,6 +53,7 @@ const defaultConfig: AstroUserConfig = {
     relativeLinks(),
     prettyHtml(settings.prettyHtml),
     imagesOptimize(),
+    googleFontsOptimizer(),
     sitemap({
       filter: (page: string) => !excludePages.includes(page)
     }),

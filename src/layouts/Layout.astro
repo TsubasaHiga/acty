@@ -8,7 +8,7 @@ import Header from '@/components/Header/Header.astro'
 import Icons from '@/components/Icons/Icons.astro'
 import { siteConfig } from '@/siteConfig'
 import type { PageNameType } from '@/types/PageDataListType'
-import isProduction from '@/utils/isProduction'
+import { isProduction } from '@/utils/isProduction'
 
 export interface Props {
   pageName: PageNameType

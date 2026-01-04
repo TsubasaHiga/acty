@@ -1,6 +1,6 @@
 import autoBind from 'auto-bind'
 
-import GetDeviceType from '@/utils/getDeviceType'
+import { getDeviceType } from '@/utils/getDeviceType'
 
 type RootMarginOptions = {
   [keyof in 'lg' | 'sm']: string
@@ -84,7 +84,7 @@ class InView {
   }
 
   getRootMargin(rootMargin: RootMarginOptions): string {
-    return GetDeviceType() === 'lg' ? rootMargin.lg : rootMargin.sm
+    return getDeviceType() === 'lg' ? rootMargin.lg : rootMargin.sm
   }
 
   init(): void {

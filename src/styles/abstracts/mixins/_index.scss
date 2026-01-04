@@ -31,9 +31,11 @@
 // State
 @forward 'is-loaded';
 @forward 'is-open-menu';
+@forward 'is-open-modal';
 @forward 'is-scroll';
 @forward 'is-page';
 @forward 'is-not-page';
+@forward 'is-fv-scrolled';
 
 // Pseudo Selectors
 @forward 'first';

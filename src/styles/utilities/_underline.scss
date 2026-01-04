@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+@use '../abstracts' as *;
+
+.u-underline {
+  $this: &;
+
+  @include canhover {
+    &:hover {
+      #{$this}__target {
+        text-decoration-color: currentcolor;
+      }
+    }
+  }
+
+  &__target {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: rem(4);
+
+    @include canhover {
+      transition: text-decoration-color var(--com-ms) var(--com-es);
+    }
+  }
+}
+
+.u-underline-reverse {
+  $this: &;
+
+  @include canhover {
+    &:hover {
+      #{$this}__target {
+        text-decoration-color: transparent;
+      }
+    }
+  }
+
+  &__target {
+    text-decoration: underline;
+    text-decoration-color: currentcolor;
+    text-underline-offset: rem(4);
+
+    @include canhover {
+      transition: text-decoration-color var(--com-ms) var(--com-es);
+    }
+  }
+}

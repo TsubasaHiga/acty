@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/// モーダルオープン時
+/// @param {String} $state - 状態値
+@mixin is-open-modal($state: 'true') {
+  html[data-open-modal='#{$state}'] & {
+    @content;
+  }
+}
