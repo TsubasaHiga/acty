@@ -27,7 +27,7 @@ export const getImageSize = (imagePath: string): Promise<ImageMeta> => {
       }
 
       // invalid dimensions
-      if (!dimensions || !dimensions.width || !dimensions.height) {
+      if (!dimensions?.width || !dimensions.height) {
         console.error('Invalid image dimensions')
         return resolve({
           width: null,

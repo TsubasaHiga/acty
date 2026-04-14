@@ -1,6 +1,6 @@
+import { exec, spawn } from 'node:child_process'
+import { promisify } from 'node:util'
 import type { AstroIntegration } from 'astro'
-import { exec, spawn } from 'child_process'
-import { promisify } from 'util'
 
 import { logInfo } from '../helpers/logging.js'
 

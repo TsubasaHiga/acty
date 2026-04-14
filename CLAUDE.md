@@ -34,8 +34,8 @@ gh pr create --base main ...
 
 - **tsc**: コード変更のたびに自動実行しない。コミット前・PR 前・明示的な依頼時のみ実行
 - **build**: 変更後に自動実行しない。明示的な依頼時のみ実行
-- **lint**: コミット前に `pnpm lint:scripts` / `pnpm lint:styles` を実行。開発中は自動実行しない
-- **format**: コミット前に `pnpm format` を実行。開発中は自動実行しない
+- **lint**: コミット前に `pnpm check` / `pnpm lint:styles` を実行。開発中は自動実行しない
+- **format**: コミット前に `pnpm format` を実行。開発中は自動実行しない（Biome で実行）
 - **git add**: 変更後に自動的にステージングしない。コミット直前のみ
 
 ## 公式ドキュメント参照

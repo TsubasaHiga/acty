@@ -90,7 +90,9 @@ export default function googleFontsOptimizer(options: GoogleFontsOptimizerOption
 
               // scriptとstyleタグを除去
               const scriptsAndStyles = document.querySelectorAll('script, style')
-              scriptsAndStyles.forEach((element) => element.remove())
+              for (const element of scriptsAndStyles) {
+                element.remove()
+              }
 
               // body要素のテキストコンテンツのみを取得（alt属性などは除外）
               const bodyElement = document.querySelector('body')
@@ -114,7 +116,6 @@ export default function googleFontsOptimizer(options: GoogleFontsOptimizerOption
               }
             } catch (error) {
               logger.warn(`ファイル ${htmlFile} の処理中にエラーが発生: ${error}`)
-              continue
             }
           }
 
@@ -200,7 +201,6 @@ export default function googleFontsOptimizer(options: GoogleFontsOptimizerOption
               }
             } catch (error) {
               logger.warn(`ファイル ${htmlFile} の更新中にエラーが発生: ${error}`)
-              continue
             }
           }
 

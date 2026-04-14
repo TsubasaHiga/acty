@@ -11,7 +11,7 @@ const Bar = (): ReactNode => {
   return (
     <div className={styles.bar}>
       <h3>Bar Component</h3>
-      <button className={styles.bar__button} onClick={() => count.set($count + 1)}>
+      <button className={styles.bar__button} type="button" onClick={() => count.set($count + 1)}>
         count is {$count}
       </button>
     </div>

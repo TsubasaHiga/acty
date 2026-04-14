@@ -35,10 +35,13 @@ const MenuButton = (): ReactNode => {
         className={clsx(styles.button, 'u-mqw-down')}
         onClick={handleClick}
         title="メニューを開く"
+        type="button"
       >
         <span></span>
       </button>
-      <div className={styles.bg} onClick={handleClick}></div>
+      <button className={styles.bg} onClick={handleClick} tabIndex={-1} type="button">
+        <span className="sr-only">メニューを閉じる</span>
+      </button>
     </>
   )
 }

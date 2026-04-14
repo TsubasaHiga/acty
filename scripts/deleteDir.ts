@@ -1,7 +1,6 @@
 import path, { dirname } from 'node:path'
-
+import { fileURLToPath } from 'node:url'
 import fs from 'fs'
-import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -13,7 +12,7 @@ const __dirname = dirname(__filename)
  */
 const deleteDir = (targetPath: string, removePaths: string[]) => {
   // targetPathを取得
-  const targetDir = path.join(__dirname, '../' + targetPath)
+  const targetDir = path.join(__dirname, `../${targetPath}`)
 
   // targetPathが存在しない場合は処理を終了
   if (!fs.existsSync(targetDir)) return

@@ -12,7 +12,7 @@ import prettyHtml from './integrations/prettyHtml'
 import { siteConfig } from './src/siteConfig'
 import { isProduction } from './src/utils/isProduction'
 
-type AstroUserConfig = typeof defineConfig extends (config: infer T) => any ? T : never
+type AstroUserConfig = typeof defineConfig extends (config: infer T) => unknown ? T : never
 
 const { IGNORE_FOO } = loadEnv(process.env.NODE_ENV || '', process.cwd(), '')
 
@@ -40,7 +40,7 @@ const muteScssWarningList = [
   'Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.'
 ]
 const SCSS_Logger = {
-  warn(message: any, options: any) {
+  warn(message: string, options: { deprecation?: boolean }) {
     // Mute warning for muteScssWarningList
     if (options.deprecation && muteScssWarningList.some((mute) => message.includes(mute))) return
   }

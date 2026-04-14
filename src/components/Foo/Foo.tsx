@@ -11,7 +11,7 @@ const Foo = (): ReactNode => {
   return (
     <div className={styles.foo}>
       <h3>Foo Component</h3>
-      <button className={styles.foo__button} onClick={() => count.set($count + 1)}>
+      <button className={styles.foo__button} type="button" onClick={() => count.set($count + 1)}>
         count is {$count}
       </button>
     </div>

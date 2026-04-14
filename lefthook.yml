@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: "*.{ts,tsx,astro,js,jsx,json,jsonc,cjs,mjs}"
+      run: pnpm biome check --fix {staged_files}
+      stage_fixed: true
+    stylelint:
+      glob: "*.{css,scss,html,astro}"
+      run: pnpm lint:styles {staged_files}

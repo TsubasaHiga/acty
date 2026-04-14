@@ -1,7 +1,6 @@
 import path, { dirname } from 'node:path'
-
+import { fileURLToPath } from 'node:url'
 import fs from 'fs'
-import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -13,7 +12,7 @@ const __dirname = dirname(__filename)
  */
 const copyFileSync = (source: string, target: string) => {
   fs.copyFileSync(source, target)
-  console.log('Copied file: ' + target)
+  console.log(`Copied file: ${target}`)
 }
 
 /**
@@ -24,7 +23,7 @@ const copyFileSync = (source: string, target: string) => {
 const copyDirectorySync = (source: string, target: string) => {
   if (!fs.existsSync(target)) {
     fs.mkdirSync(target, { recursive: true })
-    console.log('Created directory: ' + target)
+    console.log(`Created directory: ${target}`)
   }
   const items = fs.readdirSync(source, { withFileTypes: true })
 
@@ -47,14 +46,14 @@ const copyDirectorySync = (source: string, target: string) => {
  */
 const copyToMultipleTargetsSync = (sourcePath: string, targetPaths: string[]) => {
   // sourcePathを取得
-  const targetDir = path.join(__dirname, '../' + sourcePath)
+  const targetDir = path.join(__dirname, `../${sourcePath}`)
 
   // sourcePathが存在しない場合は処理を終了
   if (!fs.existsSync(targetDir)) return
 
   // sourcePath（ディレクトリとファイルの全て）をtargetPathsにコピー
   targetPaths.forEach((targetPath) => {
-    const copyDir = path.join(__dirname, '../' + targetPath)
+    const copyDir = path.join(__dirname, `../${targetPath}`)
 
     // copyDirが既に存在する場合はディレクトリ配下の全てのファイルをクリーンアップ
     if (fs.existsSync(copyDir)) {
