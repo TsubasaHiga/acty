@@ -1,14 +1,3 @@
 {
-  "reject": [
-    "eslint",
-    "eslint-config-prettier",
-    "eslint-config-react-app",
-    "eslint-plugin-astro",
-    "eslint-plugin-jsx-a11y",
-    "eslint-plugin-simple-import-sort",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
-    "chokidar",
-    "image-size"
-  ]
+  "reject": []
 }

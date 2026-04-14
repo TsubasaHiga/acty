@@ -1,7 +1,6 @@
 import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import archiver from 'archiver'
-import dayjs from 'dayjs'
 import fs from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -32,7 +31,8 @@ const zipArchive = async (targetDir: string, outputFileName: string) => {
 }
 
 ;(async () => {
-  const date = dayjs().format('YYYYMMDD-HHmm')
+  const now = new Date()
+  const date = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`
   const projectName = packageJson.name.toUpperCase()
   await zipArchive('dist', `${projectName}_ProdBuild_${date}`)
 })()

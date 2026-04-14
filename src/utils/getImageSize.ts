@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { imageSize } from 'image-size'
 
 type ImageSize = number | null
@@ -16,7 +17,8 @@ export const getImageSize = (imagePath: string): ImageMeta => {
   }
 
   try {
-    const dimensions = imageSize(imagePath)
+    const buffer = readFileSync(imagePath)
+    const dimensions = imageSize(new Uint8Array(buffer))
 
     // invalid dimensions
     if (!dimensions?.width || !dimensions.height) {

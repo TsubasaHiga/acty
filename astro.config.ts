@@ -98,6 +98,7 @@ const defaultConfig: AstroUserConfig = {
             @use "src/styles/abstracts" as *;
             @use "src/styles/extends" as *;
           `,
+          loadPaths: ['.'],
           logger: SCSS_Logger
         }
       }
