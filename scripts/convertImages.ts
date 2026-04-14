@@ -1,6 +1,6 @@
 import path from 'node:path'
 
-import chokidar from 'chokidar'
+import { watch } from 'chokidar'
 import fs from 'fs'
 import { glob } from 'glob'
 import sharp from 'sharp'
@@ -212,7 +212,7 @@ cleanOutputDir()
 
 // If the --watch option is specified, watch for file changes
 if (isWatchMode) {
-  const watcher = chokidar.watch(`${inputDir}/**/*`, {
+  const watcher = watch(`${inputDir}/**/*`, {
     persistent: true,
     ignoreInitial: false
   })

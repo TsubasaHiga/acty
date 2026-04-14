@@ -1,4 +1,4 @@
-import sizeOf from 'image-size'
+import { imageSize } from 'image-size'
 
 type ImageSize = number | null
 
@@ -9,37 +9,30 @@ type ImageMeta = {
 
 const cache: Record<string, ImageMeta> = {}
 
-export const getImageSize = (imagePath: string): Promise<ImageMeta> => {
-  return new Promise((resolve) => {
-    // Check if the image is already in the cache
-    if (cache[imagePath]) {
-      return resolve(cache[imagePath])
+export const getImageSize = (imagePath: string): ImageMeta => {
+  // Check if the image is already in the cache
+  if (cache[imagePath]) {
+    return cache[imagePath]
+  }
+
+  try {
+    const dimensions = imageSize(imagePath)
+
+    // invalid dimensions
+    if (!dimensions?.width || !dimensions.height) {
+      console.error('Invalid image dimensions')
+      return { width: null, height: null }
     }
 
-    sizeOf(imagePath, (err, dimensions) => {
-      // error handling
-      if (err) {
-        console.error(err)
-        return resolve({
-          width: null,
-          height: null
-        })
-      }
+    const result: ImageMeta = {
+      width: dimensions.width,
+      height: dimensions.height
+    }
 
-      // invalid dimensions
-      if (!dimensions?.width || !dimensions.height) {
-        console.error('Invalid image dimensions')
-        return resolve({
-          width: null,
-          height: null
-        })
-      }
-
-      // return the dimensions
-      return resolve({
-        width: dimensions.width,
-        height: dimensions.height
-      })
-    })
-  })
+    cache[imagePath] = result
+    return result
+  } catch (err) {
+    console.error(err)
+    return { width: null, height: null }
+  }
 }
