@@ -1,7 +1,6 @@
+import fs from 'node:fs'
 import path from 'node:path'
-
 import { watch } from 'chokidar'
-import fs from 'fs'
 import { glob } from 'glob'
 import sharp from 'sharp'
 import type { Config } from 'svgo'
