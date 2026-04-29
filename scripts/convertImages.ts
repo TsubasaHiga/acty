@@ -81,14 +81,14 @@ const getOutputFilePath = (filePath: string, ext: string): string => {
  * @param filePath - The path to the input image file.
  * @param outputFilePath - The path to the output file.
  * @param format - The format to convert the image to.
- * @returns void
  */
-const processImage = (filePath: string, outputFilePath: string, format: SharpFormatKey): void => {
-  sharp(filePath)
-    .toFormat(format, sharpOptions)
-    .toFile(outputFilePath)
-    .then(() => logSuccess({ message: `${name} Processed: ${outputFilePath}` }))
-    .catch((err: Error) => logError({ message: `${name} [processImage] Error processing ${filePath}: ${err}` }))
+const processImage = async (filePath: string, outputFilePath: string, format: SharpFormatKey): Promise<void> => {
+  try {
+    await sharp(filePath).toFormat(format, sharpOptions).toFile(outputFilePath)
+    logSuccess({ message: `${name} Processed: ${outputFilePath}` })
+  } catch (err) {
+    logError({ message: `${name} [processImage] Error processing ${filePath}: ${err}` })
+  }
 }
 
 /**
@@ -117,9 +117,8 @@ const copyFile = (filePath: string, outputFilePath: string): void => {
 /**
  * Processes the given file based on its extension.
  * @param filePath - The path of the file to be processed.
- * @returns void
  */
-const processFile = (filePath: string): void => {
+const processFile = async (filePath: string): Promise<void> => {
   // dot files are ignored
   if (path.basename(filePath).startsWith('.')) {
     return
@@ -146,7 +145,7 @@ const processFile = (filePath: string): void => {
   switch (fileExtension) {
     case '.jpg':
     case '.png':
-      processImage(filePath, outputFilePath, format as SharpFormatKey)
+      await processImage(filePath, outputFilePath, format as SharpFormatKey)
       break
     case '.svg':
       processSVG(filePath, outputFilePath)
@@ -192,34 +191,39 @@ const deleteFile = (inputFilePath: string): void => {
 const processAllFiles = async (): Promise<void> => {
   try {
     const files = await glob(`${inputDir}/**/*.*`)
-
-    for (const file of files) {
-      if (fs.lstatSync(file).isFile()) {
-        processFile(file)
-      }
-    }
+    const targets = files.filter((file) => fs.lstatSync(file).isFile())
+    await Promise.all(targets.map((file) => processFile(file)))
   } catch (err) {
     logError({ message: `${name} Error finding files: ${err}` })
   }
 }
 
-// Determine if the --watch option is specified
+// CLI flags:
+//   --watch       : clean + initial conversion (awaited) + watch for changes
+//   --watch-only  : skip clean / skip initial scan, only watch for incremental changes
+//   (no flag)     : clean + initial conversion (awaited), then exit
 const isWatchMode = process.argv.includes('--watch')
+const isWatchOnlyMode = process.argv.includes('--watch-only')
 
-// Clean the output directory
-cleanOutputDir()
+const main = async (): Promise<void> => {
+  if (!isWatchOnlyMode) {
+    cleanOutputDir()
+    await processAllFiles()
+  }
 
-// If the --watch option is specified, watch for file changes
-if (isWatchMode) {
-  const watcher = watch(`${inputDir}/**/*`, {
-    persistent: true,
-    ignoreInitial: false
-  })
+  if (isWatchMode || isWatchOnlyMode) {
+    const watcher = watch(`${inputDir}/**/*`, {
+      persistent: true,
+      ignoreInitial: true
+    })
 
-  watcher.on('add', processFile).on('unlink', deleteFile).on('change', processFile)
+    watcher.on('add', processFile).on('unlink', deleteFile).on('change', processFile)
 
-  logInfo({ message: `${name} Watching for file changes...` })
-} else {
-  // If the --watch option is not specified, process the files once
-  processAllFiles()
+    logInfo({ message: `${name} Watching for file changes...` })
+  }
 }
+
+main().catch((err) => {
+  logError({ message: `${name} Unexpected error: ${err}` })
+  process.exit(1)
+})

@@ -2,7 +2,7 @@ import { exec, spawn } from 'node:child_process'
 import { promisify } from 'node:util'
 import type { AstroIntegration } from 'astro'
 
-import { logInfo } from '../helpers/logging.js'
+import { logError, logInfo } from '../helpers/logging.js'
 
 // Name of the integration
 const name = 'astro-images-optimize'
@@ -10,45 +10,41 @@ const name = 'astro-images-optimize'
 // Promisify the exec function
 const execPromise = promisify(exec)
 
-// Function to run the convertImages script
-const runConvertImages = async (watch: boolean = false) => {
+// Run the convert script once and wait for it to finish
+const runConvertOnce = async (): Promise<void> => {
   logInfo({ title: name, message: 'Images converting...' })
   const startTime = Date.now()
 
-  const watchFlag = watch ? '--watch' : ''
-  if (watch) {
-    const process = spawn(
-      'node',
-      ['--no-warnings=ExperimentalWarning', '--loader', 'ts-node/esm', 'scripts/convertImages.ts', watchFlag],
-      {
-        stdio: 'inherit',
-        shell: true
-      }
+  try {
+    const { stdout, stderr } = await execPromise(
+      'node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts'
     )
 
-    process.on('close', (code) => {
-      if (code !== 0) {
-        console.error(`convertImages process exited with code ${code}`)
-      }
-    })
-  } else {
-    try {
-      const { stdout, stderr } = await execPromise(
-        `node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/convertImages.ts ${watchFlag}`
-      )
+    if (stdout) console.log(stdout)
+    if (stderr) console.error(stderr)
 
-      // Output the stdout and stderr
-      if (stdout) console.log(stdout)
-
-      // Output the stderr
-      if (stderr) console.error(stderr)
-
-      const endTime = Date.now()
-      logInfo({ message: `✓ Images converted successfully in ${endTime - startTime}ms.` })
-    } catch (error) {
-      console.error('Error converting images:', error)
-    }
+    logInfo({ message: `✓ Images converted successfully in ${Date.now() - startTime}ms.` })
+  } catch (error) {
+    logError({ title: name, message: `Error converting images: ${error}` })
   }
+}
+
+// Start a background watcher process for incremental changes
+const startWatcher = (): void => {
+  const child = spawn(
+    'node',
+    ['--no-warnings=ExperimentalWarning', '--loader', 'ts-node/esm', 'scripts/convertImages.ts', '--watch-only'],
+    {
+      stdio: 'inherit',
+      shell: true
+    }
+  )
+
+  child.on('close', (code) => {
+    if (code !== 0 && code !== null) {
+      logError({ title: name, message: `convertImages watcher exited with code ${code}` })
+    }
+  })
 }
 
 // imagesOptimize
@@ -57,10 +53,13 @@ const imagesOptimize = (): AstroIntegration => {
     name,
     hooks: {
       'astro:build:start': async () => {
-        await runConvertImages()
+        await runConvertOnce()
       },
       'astro:server:setup': async () => {
-        await runConvertImages(true)
+        // 1) wait until all images are generated
+        await runConvertOnce()
+        // 2) then start the watcher in the background for incremental changes
+        startWatcher()
       }
     }
   }
