@@ -163,21 +163,18 @@ const processFile = async (filePath: string): Promise<void> => {
  * @returns void
  */
 const deleteFile = (inputFilePath: string): void => {
-  const relativePath = path.relative(inputDir, inputFilePath)
-  const outputFilePathWithoutExt = path.join(outputDir, relativePath.replace(/\..+$/, ''))
-
-  // Determine the extension of the file to be deleted
-  let outputFilePath = ''
-  const format = formatFiles[inputFilePath] || path.extname(inputFilePath).toLowerCase().replace('.', '')
-  if (['.jpg', '.jpeg', '.png'].includes(path.extname(inputFilePath).toLowerCase())) {
-    outputFilePath = `${outputFilePathWithoutExt}.${format}`
-  } else if (path.extname(inputFilePath).toLowerCase() === '.svg') {
-    outputFilePath = `${outputFilePathWithoutExt}.svg`
-  } else {
-    outputFilePath = `${outputFilePathWithoutExt}${path.extname(inputFilePath)}`
+  // dot files are ignored
+  if (path.basename(inputFilePath).startsWith('.')) {
+    return
   }
 
-  // If the file exists, delete it
+  const shouldSkip = skipFiles.some((skipFile) => inputFilePath.includes(skipFile))
+  const fileExtension: string = path.extname(inputFilePath).toLowerCase()
+  const format =
+    formatFiles[inputFilePath] ||
+    (['.jpg', '.png'].includes(fileExtension) && !shouldSkip ? 'webp' : fileExtension.replace('.', ''))
+  const outputFilePath = getOutputFilePath(inputFilePath, format)
+
   if (fs.existsSync(outputFilePath)) {
     fs.unlinkSync(outputFilePath)
     logSuccess({ message: `${name} Deleted: ${outputFilePath}`, color: 'red' })
@@ -212,9 +209,10 @@ const main = async (): Promise<void> => {
   }
 
   if (isWatchMode || isWatchOnlyMode) {
-    const watcher = watch(`${inputDir}/**/*`, {
+    const watcher = watch(inputDir, {
       persistent: true,
-      ignoreInitial: true
+      ignoreInitial: true,
+      ignored: (filePath, stats) => Boolean(stats?.isFile() && path.basename(filePath).startsWith('.'))
     })
 
     watcher.on('add', processFile).on('unlink', deleteFile).on('change', processFile)
