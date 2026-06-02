@@ -7,6 +7,9 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8'))
 
+// アーカイブから除外するパターン
+const EXCLUDE_PATTERNS = ['CLAUDE', 'CLAUDE/**', '.DS_Store', '**/.DS_Store']
+
 const zipArchive = async (targetDir: string, outputFileName: string) => {
   const zipPath = `${outputFileName}.zip`
   const output = fs.createWriteStream(path.join(__dirname, `../${zipPath}`))
@@ -22,7 +25,8 @@ const zipArchive = async (targetDir: string, outputFileName: string) => {
 
   archive.pipe(output)
   archive.glob('**', {
-    cwd: targetDir
+    cwd: targetDir,
+    ignore: EXCLUDE_PATTERNS
   })
 
   await archive.finalize()
